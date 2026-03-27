@@ -36,12 +36,20 @@ def normalize_rows(rows):
             row["日期"] = datetime.fromtimestamp(date_val / 1000).strftime("%Y-%m-%d")
         elif isinstance(date_val, str) and date_val:
             # 尝试统一格式
-            for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%Y年%m月%d日"):
+            parsed = False
+            for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%Y年%m月%d日", "%m.%d", "%m-%d", "%m/%d"):
                 try:
-                    row["日期"] = datetime.strptime(date_val.strip(), fmt).strftime("%Y-%m-%d")
+                    dt = datetime.strptime(date_val.strip(), fmt)
+                    # 对于没有年份的格式，补当前年份
+                    if dt.year == 1900:
+                        dt = dt.replace(year=datetime.now().year)
+                    row["日期"] = dt.strftime("%Y-%m-%d")
+                    parsed = True
                     break
                 except ValueError:
                     continue
+            if not parsed:
+                row["日期"] = ""  # 无法解析的日期置空
 
         # 数值字段转换
         for m in METRICS:
