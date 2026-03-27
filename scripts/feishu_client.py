@@ -93,34 +93,29 @@ class FeishuClient:
         return rows
 
 
-def send_feishu_message(webhook_url, title, content_lines):
-    """通过飞书机器人 webhook 发送富文本消息"""
-    post_content = []
-    for line in content_lines:
-        if isinstance(line, str):
-            post_content.append([{"tag": "text", "text": line}])
-        elif isinstance(line, list):
-            post_content.append(line)
+    def send_message(self, chat_id, title, content_lines):
+        """通过应用机器人向群聊发送富文本消息"""
+        post_content = []
+        for line in content_lines:
+            if isinstance(line, str):
+                post_content.append([{"tag": "text", "text": line + "\n"}])
+            elif isinstance(line, list):
+                post_content.append(line)
 
-    msg = {
-        "msg_type": "post",
-        "content": {
-            "post": {
-                "zh_cn": {
-                    "title": title,
-                    "content": post_content
-                }
+        content = json.dumps({
+            "zh_cn": {
+                "title": title,
+                "content": post_content
             }
+        })
+        msg = {
+            "receive_id": chat_id,
+            "msg_type": "post",
+            "content": content,
         }
-    }
-    data = json.dumps(msg).encode()
-    req = urllib.request.Request(
-        webhook_url,
-        data=data,
-        headers={"Content-Type": "application/json"},
-        method="POST"
-    )
-    with urllib.request.urlopen(req, timeout=10) as resp:
-        result = json.loads(resp.read().decode())
-        print(f"[飞书消息] 发送结果: {result}")
-        return result
+        resp = self._request("POST",
+            "/im/v1/messages?receive_id_type=chat_id",
+            data=msg, headers=self._auth_headers())
+        code = resp.get("code", -1)
+        print(f"[飞书消息] 发送结果: code={code}, msg={resp.get('msg')}")
+        return resp

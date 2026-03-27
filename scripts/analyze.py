@@ -5,12 +5,12 @@ import sys
 from datetime import datetime, timedelta
 from collections import defaultdict
 
-from feishu_client import FeishuClient, send_feishu_message
+from feishu_client import FeishuClient
 
 # ===== 配置 =====
 APP_TOKEN = "Bkspw46VYiVs1Bkly3hchgRfnFc"  # 多维表格 app_token
 TABLE_ID = "tblKWqac7SVi8p8d"
-FEISHU_WEBHOOK = os.environ.get("FEISHU_WEBHOOK", "")
+CHAT_ID = os.environ.get("FEISHU_CHAT_ID", "oc_0a6779ad4a1b2fd6d811e0599aa2416a")
 DOCS_DIR = os.path.join(os.path.dirname(__file__), "..", "docs", "data")
 
 # 关键指标
@@ -227,16 +227,17 @@ def main():
     report_text = "\n".join(report_lines)
     print("\n" + report_text)
 
-    # 6. 发送飞书消息
-    if FEISHU_WEBHOOK:
-        send_feishu_message(
-            FEISHU_WEBHOOK,
+    # 6. 通过应用机器人发送飞书群消息
+    if CHAT_ID:
+        client = FeishuClient()
+        client.send_message(
+            CHAT_ID,
             f"TikTok 电商日报 | {today}",
             report_lines
         )
-        print("[完成] 飞书消息已发送")
+        print("[完成] 飞书群消息已发送")
     else:
-        print("[跳过] 未配置 FEISHU_WEBHOOK，不发送消息")
+        print("[跳过] 未配置 FEISHU_CHAT_ID，不发送消息")
 
     print(f"[{datetime.now()}] 分析完成")
 
