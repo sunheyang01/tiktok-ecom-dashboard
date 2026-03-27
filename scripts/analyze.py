@@ -10,7 +10,11 @@ from feishu_client import FeishuClient
 # ===== 配置 =====
 APP_TOKEN = "Bkspw46VYiVs1Bkly3hchgRfnFc"  # 多维表格 app_token
 TABLE_ID = "tblKWqac7SVi8p8d"
-CHAT_ID = os.environ.get("FEISHU_CHAT_ID", "oc_0a6779ad4a1b2fd6d811e0599aa2416a")
+CHAT_ID = os.environ.get("FEISHU_CHAT_ID", "oc_c4c7c8a6c2ebaf0a7f563d15a5327f6f")
+
+# 机器人应用凭证（与数据读取应用分开）
+BOT_APP_ID = os.environ.get("FEISHU_BOT_APP_ID", "cli_a94c27d2af38dbb5")
+BOT_APP_SECRET = os.environ.get("FEISHU_BOT_APP_SECRET", "KZzghjmQbtdVl2fWoR5febQmBxtaxyQM")
 DOCS_DIR = os.path.join(os.path.dirname(__file__), "..", "docs", "data")
 
 # 关键指标
@@ -253,10 +257,10 @@ def main():
     report_text = "\n".join(report_lines)
     print("\n" + report_text)
 
-    # 6. 通过应用机器人发送飞书群消息
+    # 6. 通过机器人应用发送飞书群消息
     if CHAT_ID:
-        client = FeishuClient()
-        client.send_message(
+        bot = FeishuClient(app_id=BOT_APP_ID, app_secret=BOT_APP_SECRET)
+        bot.send_message(
             CHAT_ID,
             f"TikTok 电商日报 | {today}",
             report_lines
