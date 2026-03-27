@@ -16,6 +16,14 @@ DOCS_DIR = os.path.join(os.path.dirname(__file__), "..", "docs", "data")
 # 关键指标
 METRICS = ["GMV", "佣金", "提现金额", "冻结金额", "电商出单"]
 
+# 历史基线数据 (3.27之前的累计总数)
+BASELINE = {
+    "电商出单": 1481,
+    "GMV": 18750.85,
+    "佣金": 3001.07,
+    "冻结金额": 173.57,
+}
+
 
 def fetch_data():
     """从飞书拉取数据"""
@@ -186,6 +194,14 @@ def export_json(rows, daily_summary, account_summary):
     """导出 JSON 供 H5 看板使用"""
     os.makedirs(DOCS_DIR, exist_ok=True)
 
+    # 计算累计总数 = 基线 + 当前所有数据之和
+    current_totals = {}
+    for m in METRICS:
+        current_totals[m] = sum(r.get(m, 0) for r in rows)
+    cumulative = {}
+    for m in METRICS:
+        cumulative[m] = BASELINE.get(m, 0) + current_totals[m]
+
     # 全量数据
     output = {
         "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -193,6 +209,8 @@ def export_json(rows, daily_summary, account_summary):
         "daily_summary": {k: dict(v) for k, v in daily_summary.items()},
         "account_summary": {},
         "metrics": METRICS,
+        "baseline": BASELINE,
+        "cumulative": cumulative,
     }
 
     # 处理 account_summary

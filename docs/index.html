@@ -150,6 +150,8 @@
                 <button class="tab-btn" data-tab="detail">明细数据</button>
             </div>
             <div class="tab-content active" id="tab-overview">
+                <div class="kpi-grid" id="cumulativeGrid"></div>
+                <div style="height:1px;background:var(--border);margin-bottom:24px;"></div>
                 <div class="kpi-grid" id="kpiGrid"></div>
                 <div class="charts-grid">
                     <div class="chart-card"><h3>GMV 趋势</h3><canvas id="chartGMV"></canvas></div>
@@ -239,7 +241,22 @@ function applyFilters(){
 }
 document.querySelectorAll('.filters select,.filters input').forEach(el=>el.addEventListener('change',applyFilters));
 
-function renderAll(){renderKPI();renderCharts();renderAccountTab();renderDetail();}
+function renderAll(){renderCumulative();renderKPI();renderCharts();renderAccountTab();renderDetail();}
+
+function renderCumulative(){
+    const g=document.getElementById('cumulativeGrid');
+    const cum=rawData.cumulative||{};
+    const items=[
+        {label:'总订单量',key:'电商出单',color:C.purple,money:false},
+        {label:'总 GMV',key:'GMV',color:C.blue,money:true},
+        {label:'总佣金',key:'佣金',color:C.green,money:true},
+        {label:'总冻结金额',key:'冻结金额',color:C.red,money:true},
+    ];
+    g.innerHTML=items.map(it=>`<div class="kpi-card">
+        <div class="label">${it.label}（累计）</div>
+        <div class="value" style="color:${it.color}">${fmt(cum[it.key]||0,it.money)}</div>
+    </div>`).join('');
+}
 
 function renderKPI(){
     const g=document.getElementById('kpiGrid');
