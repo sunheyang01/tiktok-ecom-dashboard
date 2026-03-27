@@ -1,0 +1,13 @@
+{
+  "update_time": "",
+  "total_records": 0,
+  "total_accounts": 0,
+  "total_owners": 0,
+  "date_range": {"start": "", "end": ""},
+  "daily_trend": [],
+  "daily_account_detail": {},
+  "account_totals": [],
+  "owner_totals": [],
+  "latest_comparison": {},
+  "account_trends": {}
+}
