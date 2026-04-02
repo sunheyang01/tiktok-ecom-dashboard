@@ -22,7 +22,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: 运行数据分析
+      - name: 同步电商数据（源表→多维表格）
+        working-directory: scripts
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_BOT_APP_ID: ${{ secrets.FEISHU_BOT_APP_ID }}
+          FEISHU_BOT_APP_SECRET: ${{ secrets.FEISHU_BOT_APP_SECRET }}
+        run: python sync_data.py
+
+      - name: 运行数据分析并发送报告
         working-directory: scripts
         env:
           FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
