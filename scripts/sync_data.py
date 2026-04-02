@@ -247,6 +247,15 @@ def read_sheet(token, sheet_id, sheet_name):
         owner = get_cell(row, COL["持有人"]) or sheet_name  # 没有持有人就用sheet名
         status = parse_status(get_cell(row, COL["状态"]))
 
+        # 有些 sheet 把状态写在"名称"列（如兆镭的"被封"）
+        name_str = str(account_name).strip() if account_name else ""
+        if status == "正常" and name_str:
+            name_status = parse_status(name_str)
+            if name_status != "正常" and name_status != name_str:
+                status = name_status
+                # 名称列是状态词时，用账号ID作为名称
+                account_name = account_id or account_name
+
         record = {
             "账号": account.strip(),
             "名称": str(account_name).strip() if account_name else account.strip(),
