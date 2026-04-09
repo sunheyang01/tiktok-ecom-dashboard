@@ -58,6 +58,10 @@
         .period-badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-left: 8px; }
         .period-badge.weekly { background: rgba(168,85,247,0.15); color: var(--purple); }
         .period-badge.monthly { background: rgba(255,159,67,0.15); color: var(--orange); }
+        .period-nav { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .period-nav button { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+        .period-nav button:hover { border-color: var(--blue); color: var(--blue); }
+        .period-nav .period-label { font-size: 16px; font-weight: 600; min-width: 200px; text-align: center; }
         @media (max-width: 768px) { .charts-grid { grid-template-columns: 1fr; } .kpi-grid { grid-template-columns: repeat(2, 1fr); } .header, .container { padding: 16px; } }
     </style>
 </head>
@@ -117,7 +121,11 @@
 
             <!-- 周报 -->
             <div class="tab-content" id="tab-weekly">
-                <div class="section-title">本周汇总 <span class="period-badge weekly" id="weeklyRange"></span></div>
+                <div class="period-nav">
+                    <button onclick="shiftWeek(-1)">&larr; 上一周</button>
+                    <div class="period-label" id="weeklyLabel"></div>
+                    <button onclick="shiftWeek(1)">下一周 &rarr;</button>
+                </div>
                 <div class="kpi-grid" id="weeklyKpi"></div>
                 <div class="section-title">区域对比</div>
                 <div class="kpi-grid" id="weeklyRegionKpi"></div>
@@ -140,7 +148,11 @@
 
             <!-- 月报 -->
             <div class="tab-content" id="tab-monthly">
-                <div class="section-title">本月汇总 <span class="period-badge monthly" id="monthlyRange"></span></div>
+                <div class="period-nav">
+                    <button onclick="shiftMonth(-1)">&larr; 上月</button>
+                    <div class="period-label" id="monthlyLabel"></div>
+                    <button onclick="shiftMonth(1)">下月 &rarr;</button>
+                </div>
                 <div class="kpi-grid" id="monthlyKpi"></div>
                 <div class="section-title">区域对比</div>
                 <div class="kpi-grid" id="monthlyRegionKpi"></div>
@@ -206,7 +218,7 @@
         </div>
     </div>
 <script>
-let rawData=null, filteredRecords=[], charts={}, sortState={};
+let rawData=null, filteredRecords=[], charts={}, sortState={}, weekOffset=0, monthOffset=0;
 const METRICS=["GMV","佣金","提现金额","冻结金额","电商出单"];
 const EU_METRICS=["播放量","完播率","CTR","CTOR"];
 const MONEY=["GMV","佣金","提现金额","冻结金额"];
@@ -355,14 +367,20 @@ function renderEU(){
     charts['chartCTR']=new Chart(document.getElementById('chartCTR'),{type:'line',data:{labels:dates,datasets:[{label:'CTR %',data:dates.map(d=>dm[d]?avg(dm[d].ctr):0),borderColor:C.orange,fill:false,tension:0.3,pointRadius:2},{label:'CTOR %',data:dates.map(d=>dm[d]?avg(dm[d].ctor):0),borderColor:C.purple,fill:false,tension:0.3,pointRadius:2}]},options:co});
 }
 
+function shiftWeek(dir){weekOffset+=dir;renderWeekly();}
+function shiftMonth(dir){monthOffset+=dir;renderMonthly();}
+
 // ===== 周报 =====
 function renderWeekly(){
     const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
     if(!dates.length)return;
     const latest=dates[dates.length-1];
-    const [ws,we]=getWeekRange(latest);
+    const [baseWs]=getWeekRange(latest);
+    // Apply offset
+    const offsetDate=new Date(baseWs);offsetDate.setDate(offsetDate.getDate()+weekOffset*7);
+    const [ws,we]=getWeekRange(offsetDate.toISOString().slice(0,10));
     const [pws,pwe]=prevWeekRange(ws);
-    document.getElementById('weeklyRange').textContent=`${ws} ~ ${we}`;
+    document.getElementById('weeklyLabel').innerHTML=`${ws} ~ ${we} <span class="period-badge weekly">第${Math.ceil((new Date(ws).getDate()+new Date(ws).getDay())/7)}周</span>`;
 
     const thisWeek=filterByRange(filteredRecords,ws,we);
     const lastWeek=filterByRange(filteredRecords,pws,pwe);
@@ -406,9 +424,12 @@ function renderMonthly(){
     const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
     if(!dates.length)return;
     const latest=dates[dates.length-1];
-    const [ms,me]=getMonthRange(latest);
+    const baseDate=new Date(latest);
+    baseDate.setMonth(baseDate.getMonth()+monthOffset);
+    const [ms,me]=getMonthRange(baseDate.toISOString().slice(0,10));
     const [pms,pme]=prevMonthRange(ms);
-    document.getElementById('monthlyRange').textContent=`${ms} ~ ${me}`;
+    const mLabel=`${ms.slice(0,4)}年${parseInt(ms.slice(5,7))}月`;
+    document.getElementById('monthlyLabel').innerHTML=`${mLabel} <span class="period-badge monthly">${ms} ~ ${me}</span>`;
 
     const thisMonth=filterByRange(filteredRecords,ms,me);
     const lastMonth=filterByRange(filteredRecords,pms,pme);
