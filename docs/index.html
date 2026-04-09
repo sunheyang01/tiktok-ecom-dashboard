@@ -17,6 +17,7 @@
             --red: #ff4757;
             --orange: #ff9f43;
             --purple: #a855f7;
+            --cyan: #06b6d4;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -67,6 +68,11 @@
         .up { color: var(--green); }
         .down { color: var(--red); }
         .flat { color: var(--text2); }
+        .section-title {
+            font-size: 16px; font-weight: 600; margin: 24px 0 16px;
+            padding-left: 12px; border-left: 3px solid var(--blue);
+        }
+        .section-title.eu { border-left-color: var(--cyan); }
         .charts-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 16px; margin-bottom: 24px;
@@ -96,6 +102,12 @@
         .status-active { color: var(--green); }
         .status-inactive { color: var(--red); }
         .status-other { color: var(--orange); }
+        .region-tag {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 600;
+        }
+        .region-us { background: rgba(78,124,255,0.15); color: var(--blue); }
+        .region-eu { background: rgba(6,182,212,0.15); color: var(--cyan); }
         .loading {
             text-align: center; padding: 80px 20px; color: var(--text2); font-size: 16px;
         }
@@ -130,6 +142,8 @@
         </div>
     </div>
     <div class="filters">
+        <label>区域:</label>
+        <select id="filterRegion"><option value="">全部</option><option value="美区">美区</option><option value="EU">EU</option></select>
         <label>日期:</label>
         <input type="date" id="dateFrom">
         <span style="color:var(--text2)">至</span>
@@ -159,6 +173,15 @@
                     <div class="chart-card"><h3>电商出单趋势</h3><canvas id="chartOrders"></canvas></div>
                     <div class="chart-card"><h3>提现 vs 冻结金额</h3><canvas id="chartCashFreeze"></canvas></div>
                 </div>
+                <!-- EU 内容指标区域（仅当有EU数据时显示） -->
+                <div id="euSection" style="display:none;">
+                    <div class="section-title eu">EU 区内容指标</div>
+                    <div class="kpi-grid" id="euKpiGrid"></div>
+                    <div class="charts-grid">
+                        <div class="chart-card"><h3>EU 播放量趋势</h3><canvas id="chartPlays"></canvas></div>
+                        <div class="chart-card"><h3>EU CTR / CTOR 趋势</h3><canvas id="chartCTR"></canvas></div>
+                    </div>
+                </div>
             </div>
             <div class="tab-content" id="tab-accounts">
                 <div class="kpi-grid" id="accountKpi"></div>
@@ -170,10 +193,10 @@
                     <h3>账号汇总表</h3>
                     <table id="accountTable">
                         <thead><tr>
-                            <th data-sort="0">账号</th><th data-sort="1">归属人</th><th data-sort="2">状态</th>
-                            <th data-sort="3">GMV</th><th data-sort="4">佣金</th><th data-sort="5">提现金额</th>
-                            <th data-sort="6">冻结金额</th><th data-sort="7">出单数</th>
-                            <th data-sort="8">日环比GMV</th><th data-sort="9">周同比GMV</th>
+                            <th data-sort="0">账号</th><th data-sort="1">区域</th><th data-sort="2">归属人</th><th data-sort="3">状态</th>
+                            <th data-sort="4">GMV</th><th data-sort="5">佣金</th><th data-sort="6">提现金额</th>
+                            <th data-sort="7">冻结金额</th><th data-sort="8">出单数</th>
+                            <th data-sort="9">日环比GMV</th><th data-sort="10">周同比GMV</th>
                         </tr></thead>
                         <tbody></tbody>
                     </table>
@@ -184,9 +207,12 @@
                     <h3>全部明细记录</h3>
                     <table id="detailTable">
                         <thead><tr>
-                            <th data-sort="0">日期</th><th data-sort="1">账号</th><th data-sort="2">归属人</th>
-                            <th data-sort="3">状态</th><th data-sort="4">GMV</th><th data-sort="5">佣金</th>
-                            <th data-sort="6">提现金额</th><th data-sort="7">冻结金额</th><th data-sort="8">出单数</th>
+                            <th data-sort="0">日期</th><th data-sort="1">账号</th><th data-sort="2">区域</th>
+                            <th data-sort="3">归属人</th><th data-sort="4">状态</th>
+                            <th data-sort="5">GMV</th><th data-sort="6">佣金</th>
+                            <th data-sort="7">提现金额</th><th data-sort="8">冻结金额</th><th data-sort="9">出单数</th>
+                            <th data-sort="10">播放量</th><th data-sort="11">完播率</th>
+                            <th data-sort="12">CTR</th><th data-sort="13">CTOR</th>
                         </tr></thead>
                         <tbody></tbody>
                     </table>
@@ -197,14 +223,16 @@
 <script>
 let rawData=null, filteredRecords=[], charts={}, sortState={};
 const METRICS=["GMV","佣金","提现金额","冻结金额","电商出单"];
+const EU_METRICS=["播放量","完播率","CTR","CTOR"];
 const MONEY=["GMV","佣金","提现金额","冻结金额"];
-const C={blue:'#4e7cff',green:'#00c48c',red:'#ff4757',orange:'#ff9f43',purple:'#a855f7'};
+const C={blue:'#4e7cff',green:'#00c48c',red:'#ff4757',orange:'#ff9f43',purple:'#a855f7',cyan:'#06b6d4'};
 const MC={"GMV":C.blue,"佣金":C.green,"提现金额":C.orange,"冻结金额":C.red,"电商出单":C.purple};
 
 function fmt(v,m){return m?'$'+Number(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):Number(v).toLocaleString();}
 function pct(c,p){if(!p)return c>0?100:0;return(c-p)/p*100;}
 function chg(p){const cls=p>0?'up':p<0?'down':'flat',a=p>0?'↑':p<0?'↓':'→';return`<span class="${cls}">${a} ${Math.abs(p).toFixed(1)}%</span>`;}
 function stCls(s){if(!s)return'status-other';if(/正常|活跃|active/i.test(s))return'status-active';if(/封|停|ban|inactive/i.test(s))return'status-inactive';return'status-other';}
+function regionTag(r){if(r==='EU')return'<span class="region-tag region-eu">EU</span>';return'<span class="region-tag region-us">美区</span>';}
 
 async function loadData(){
     try{
@@ -231,17 +259,20 @@ function fill(id,items){const el=document.getElementById(id);items.forEach(v=>{c
 
 function applyFilters(){
     const f=document.getElementById('dateFrom').value,t=document.getElementById('dateTo').value;
-    const a=document.getElementById('filterAccount').value,o=document.getElementById('filterOwner').value,s=document.getElementById('filterStatus').value;
+    const a=document.getElementById('filterAccount').value,o=document.getElementById('filterOwner').value;
+    const s=document.getElementById('filterStatus').value,rg=document.getElementById('filterRegion').value;
     filteredRecords=rawData.records.filter(r=>{
         if(f&&r['日期']<f)return false;if(t&&r['日期']>t)return false;
-        if(a&&r['账号']!==a)return false;if(o&&r['归属人']!==o)return false;if(s&&r['账号状态']!==s)return false;
+        if(a&&r['账号']!==a)return false;if(o&&r['归属人']!==o)return false;
+        if(s&&r['账号状态']!==s)return false;
+        if(rg&&(r['区域']||'美区')!==rg)return false;
         return true;
     });
     renderAll();
 }
 document.querySelectorAll('.filters select,.filters input').forEach(el=>el.addEventListener('change',applyFilters));
 
-function renderAll(){renderCumulative();renderKPI();renderCharts();renderAccountTab();renderDetail();}
+function renderAll(){renderCumulative();renderKPI();renderCharts();renderEU();renderAccountTab();renderDetail();}
 
 function renderCumulative(){
     const g=document.getElementById('cumulativeGrid');
@@ -275,20 +306,56 @@ function renderCharts(){
     const dm={};
     filteredRecords.forEach(r=>{const d=r['日期'];if(!d)return;if(!dm[d])dm[d]={};METRICS.forEach(m=>dm[d][m]=(dm[d][m]||0)+(r[m]||0));});
     const dates=Object.keys(dm).sort();
+    const chartOpts=(legend)=>({responsive:true,plugins:{legend:{display:!!legend,labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}});
     function mk(id,metric,color){
         if(charts[id])charts[id].destroy();
-        charts[id]=new Chart(document.getElementById(id),{type:'line',data:{labels:dates,datasets:[{label:metric,data:dates.map(d=>dm[d][metric]||0),borderColor:color,backgroundColor:color+'20',fill:true,tension:0.3,pointRadius:2}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}}});
+        charts[id]=new Chart(document.getElementById(id),{type:'line',data:{labels:dates,datasets:[{label:metric,data:dates.map(d=>dm[d][metric]||0),borderColor:color,backgroundColor:color+'20',fill:true,tension:0.3,pointRadius:2}]},options:chartOpts()});
     }
     mk('chartGMV','GMV',C.blue);mk('chartCommission','佣金',C.green);mk('chartOrders','电商出单',C.purple);
     if(charts['chartCashFreeze'])charts['chartCashFreeze'].destroy();
-    charts['chartCashFreeze']=new Chart(document.getElementById('chartCashFreeze'),{type:'bar',data:{labels:dates,datasets:[{label:'提现金额',data:dates.map(d=>dm[d]['提现金额']||0),backgroundColor:C.orange+'80'},{label:'冻结金额',data:dates.map(d=>dm[d]['冻结金额']||0),backgroundColor:C.red+'80'}]},options:{responsive:true,plugins:{legend:{labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}}});
+    charts['chartCashFreeze']=new Chart(document.getElementById('chartCashFreeze'),{type:'bar',data:{labels:dates,datasets:[{label:'提现金额',data:dates.map(d=>dm[d]['提现金额']||0),backgroundColor:C.orange+'80'},{label:'冻结金额',data:dates.map(d=>dm[d]['冻结金额']||0),backgroundColor:C.red+'80'}]},options:chartOpts(true)});
+}
+
+function renderEU(){
+    const euRecords=filteredRecords.filter(r=>(r['区域']||'美区')==='EU');
+    const section=document.getElementById('euSection');
+    if(euRecords.length===0){section.style.display='none';return;}
+    section.style.display='block';
+
+    // EU KPI
+    const dates=[...new Set(euRecords.map(r=>r['日期']))].sort();
+    const lat=dates[dates.length-1];
+    const todayEU=euRecords.filter(r=>r['日期']===lat);
+    const totalPlays=todayEU.reduce((s,r)=>s+(r['播放量']||0),0);
+    const avgCR=todayEU.length?todayEU.reduce((s,r)=>s+(r['完播率']||0),0)/todayEU.length:0;
+    const avgCTR=todayEU.length?todayEU.reduce((s,r)=>s+(r['CTR']||0),0)/todayEU.length:0;
+    const avgCTOR=todayEU.length?todayEU.reduce((s,r)=>s+(r['CTOR']||0),0)/todayEU.length:0;
+
+    document.getElementById('euKpiGrid').innerHTML=[
+        {label:'今日播放量',value:totalPlays.toLocaleString(),color:C.cyan},
+        {label:'平均完播率',value:avgCR.toFixed(2)+'%',color:C.green},
+        {label:'平均CTR',value:avgCTR.toFixed(2)+'%',color:C.orange},
+        {label:'平均CTOR',value:avgCTOR.toFixed(2)+'%',color:C.purple},
+    ].map(it=>`<div class="kpi-card"><div class="label">${it.label}</div><div class="value" style="color:${it.color}">${it.value}</div></div>`).join('');
+
+    // EU趋势图
+    const dm={};
+    euRecords.forEach(r=>{const d=r['日期'];if(!d)return;if(!dm[d]){dm[d]={plays:0,ctr:[],ctor:[]};}dm[d].plays+=(r['播放量']||0);dm[d].ctr.push(r['CTR']||0);dm[d].ctor.push(r['CTOR']||0);});
+    const chartOpts={responsive:true,plugins:{legend:{labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}};
+
+    if(charts['chartPlays'])charts['chartPlays'].destroy();
+    charts['chartPlays']=new Chart(document.getElementById('chartPlays'),{type:'bar',data:{labels:dates,datasets:[{label:'播放量',data:dates.map(d=>dm[d]?dm[d].plays:0),backgroundColor:C.cyan+'80',borderColor:C.cyan,borderWidth:1}]},options:{...chartOpts,plugins:{legend:{display:false}}}});
+
+    if(charts['chartCTR'])charts['chartCTR'].destroy();
+    const avg=arr=>arr.length?arr.reduce((a,b)=>a+b,0)/arr.length:0;
+    charts['chartCTR']=new Chart(document.getElementById('chartCTR'),{type:'line',data:{labels:dates,datasets:[{label:'CTR %',data:dates.map(d=>dm[d]?avg(dm[d].ctr):0),borderColor:C.orange,backgroundColor:C.orange+'20',fill:false,tension:0.3,pointRadius:2},{label:'CTOR %',data:dates.map(d=>dm[d]?avg(dm[d].ctor):0),borderColor:C.purple,backgroundColor:C.purple+'20',fill:false,tension:0.3,pointRadius:2}]},options:chartOpts});
 }
 
 function renderAccountTab(){
     const am={};
     filteredRecords.forEach(r=>{
         const a=r['账号']||'未知';
-        if(!am[a])am[a]={'归属人':r['归属人']||'','账号状态':r['账号状态']||'',daily:{}};
+        if(!am[a])am[a]={'归属人':r['归属人']||'','账号状态':r['账号状态']||'','区域':r['区域']||'美区',daily:{}};
         METRICS.forEach(m=>am[a][m]=(am[a][m]||0)+(r[m]||0));
         const d=r['日期'];if(d){if(!am[a].daily[d])am[a].daily[d]={};METRICS.forEach(m=>am[a].daily[d][m]=(am[a].daily[d][m]||0)+(r[m]||0));}
     });
@@ -297,8 +364,10 @@ function renderAccountTab(){
     const lat=dates[dates.length-1],prev=dates[dates.length-2];
     const wa=lat?(()=>{const d=new Date(lat);d.setDate(d.getDate()-7);return d.toISOString().slice(0,10);})():null;
     const ac=accts.filter(([,v])=>/正常|活跃|active/i.test(v['账号状态'])).length;
+    const usCount=accts.filter(([,v])=>v['区域']!=='EU').length;
+    const euCount=accts.filter(([,v])=>v['区域']==='EU').length;
     document.getElementById('accountKpi').innerHTML=`
-        <div class="kpi-card"><div class="label">总账号数</div><div class="value" style="color:${C.blue}">${accts.length}</div></div>
+        <div class="kpi-card"><div class="label">总账号数</div><div class="value" style="color:${C.blue}">${accts.length}</div><div class="change"><span class="flat">美区 ${usCount} | EU ${euCount}</span></div></div>
         <div class="kpi-card"><div class="label">活跃账号</div><div class="value" style="color:${C.green}">${ac}</div></div>
         <div class="kpi-card"><div class="label">今日出单账号</div><div class="value" style="color:${C.purple}">${accts.filter(([,v])=>v.daily[lat]&&v.daily[lat]['电商出单']>0).length}</div></div>
         <div class="kpi-card"><div class="label">平均GMV/账号</div><div class="value" style="color:${C.orange}">$${accts.length?(accts.reduce((s,[,v])=>s+v.GMV,0)/accts.length).toFixed(2):'0'}</div></div>`;
@@ -311,14 +380,17 @@ function renderAccountTab(){
     const tb=document.querySelector('#accountTable tbody');
     tb.innerHTML=accts.map(([n,v])=>{
         const tg=v.daily[lat]?v.daily[lat].GMV||0:0,pg=v.daily[prev]?v.daily[prev].GMV||0:0,wg=v.daily[wa]?v.daily[wa].GMV||0:0;
-        return`<tr><td>${n}</td><td>${v['归属人']}</td><td class="${stCls(v['账号状态'])}">${v['账号状态']||'-'}</td><td>${fmt(v.GMV,1)}</td><td>${fmt(v['佣金'],1)}</td><td>${fmt(v['提现金额'],1)}</td><td>${fmt(v['冻结金额'],1)}</td><td>${fmt(v['电商出单'])}</td><td>${chg(pct(tg,pg))}</td><td>${chg(pct(tg,wg))}</td></tr>`;
+        return`<tr><td>${n}</td><td>${regionTag(v['区域'])}</td><td>${v['归属人']}</td><td class="${stCls(v['账号状态'])}">${v['账号状态']||'-'}</td><td>${fmt(v.GMV,1)}</td><td>${fmt(v['佣金'],1)}</td><td>${fmt(v['提现金额'],1)}</td><td>${fmt(v['冻结金额'],1)}</td><td>${fmt(v['电商出单'])}</td><td>${chg(pct(tg,pg))}</td><td>${chg(pct(tg,wg))}</td></tr>`;
     }).join('');
 }
 
 function renderDetail(){
     const tb=document.querySelector('#detailTable tbody');
     const sorted=[...filteredRecords].sort((a,b)=>(b['日期']||'').localeCompare(a['日期']||''));
-    tb.innerHTML=sorted.map(r=>`<tr><td>${r['日期']||'-'}</td><td>${r['账号']||'-'}</td><td>${r['归属人']||'-'}</td><td class="${stCls(r['账号状态'])}">${r['账号状态']||'-'}</td><td>${fmt(r.GMV||0,1)}</td><td>${fmt(r['佣金']||0,1)}</td><td>${fmt(r['提现金额']||0,1)}</td><td>${fmt(r['冻结金额']||0,1)}</td><td>${fmt(r['电商出单']||0)}</td></tr>`).join('');
+    tb.innerHTML=sorted.map(r=>{
+        const isEU=(r['区域']||'美区')==='EU';
+        return`<tr><td>${r['日期']||'-'}</td><td>${r['账号']||'-'}</td><td>${regionTag(r['区域']||'美区')}</td><td>${r['归属人']||'-'}</td><td class="${stCls(r['账号状态'])}">${r['账号状态']||'-'}</td><td>${fmt(r.GMV||0,1)}</td><td>${fmt(r['佣金']||0,1)}</td><td>${fmt(r['提现金额']||0,1)}</td><td>${fmt(r['冻结金额']||0,1)}</td><td>${fmt(r['电商出单']||0)}</td><td>${isEU?(r['播放量']||0).toLocaleString():'-'}</td><td>${isEU?(r['完播率']||0)+'%':'-'}</td><td>${isEU?(r['CTR']||0)+'%':'-'}</td><td>${isEU?(r['CTOR']||0)+'%':'-'}</td></tr>`;
+    }).join('');
 }
 
 document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');});});

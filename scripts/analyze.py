@@ -19,6 +19,7 @@ DOCS_DIR = os.path.join(os.path.dirname(__file__), "..", "docs", "data")
 
 # 关键指标
 METRICS = ["GMV", "佣金", "提现金额", "冻结金额", "电商出单"]
+EU_METRICS = ["播放量", "完播率", "CTR", "CTOR"]  # EU区特有内容指标
 
 # 历史基线数据 (3.27之前的累计总数)
 BASELINE = {
@@ -63,16 +64,20 @@ def normalize_rows(rows):
             if not parsed:
                 row["日期"] = ""  # 无法解析的日期置空
 
-        # 数值字段转换
-        for m in METRICS:
+        # 数值字段转换（基础指标 + EU内容指标）
+        for m in METRICS + EU_METRICS:
             val = row.get(m, 0)
             if isinstance(val, str):
-                val = val.replace(",", "").replace("¥", "").replace("$", "").strip()
+                val = val.replace(",", "").replace("¥", "").replace("$", "").replace("%", "").strip()
                 try:
                     val = float(val) if "." in val else int(val)
                 except (ValueError, TypeError):
                     val = 0
             row[m] = val or 0
+
+        # 区域字段：默认"美区"
+        if not row.get("区域"):
+            row["区域"] = "美区"
     return rows
 
 
@@ -117,20 +122,24 @@ def calc_change(current, previous):
     return round((current - previous) / previous * 100, 2)
 
 
+def _region_summary(rows_list, date):
+    """对某日某区域的数据求和"""
+    s = {}
+    for m in METRICS:
+        s[m] = sum(r.get(m, 0) for r in rows_list if r.get("日期") == date)
+    return s
+
+
 def generate_report(daily_summary, daily_accounts, account_summary, rows):
-    """生成当日分析报告文本"""
+    """生成当日分析报告文本（按区域分段）"""
     sorted_dates = sorted(daily_summary.keys())
     if not sorted_dates:
         return "暂无数据", []
 
     today = sorted_dates[-1]
     today_data = daily_summary[today]
-
-    # 日环比
     yesterday = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=1)).strftime("%Y-%m-%d")
     yesterday_data = daily_summary.get(yesterday, {})
-
-    # 周同比
     last_week = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=7)).strftime("%Y-%m-%d")
     last_week_data = daily_summary.get(last_week, {})
 
@@ -139,7 +148,7 @@ def generate_report(daily_summary, daily_accounts, account_summary, rows):
     lines.append("=" * 40)
     lines.append("")
 
-    # 总览
+    # 全局总览
     lines.append("【今日总览】")
     for m in METRICS:
         val = today_data.get(m, 0)
@@ -147,7 +156,6 @@ def generate_report(daily_summary, daily_accounts, account_summary, rows):
             lines.append(f"  {m}: ${val:,.2f}")
         else:
             lines.append(f"  {m}: {int(val)}")
-
     lines.append("")
 
     # 日环比
@@ -158,7 +166,6 @@ def generate_report(daily_summary, daily_accounts, account_summary, rows):
         change = calc_change(curr, prev)
         arrow = "↑" if change > 0 else ("↓" if change < 0 else "→")
         lines.append(f"  {m}: {arrow} {abs(change)}%")
-
     lines.append("")
 
     # 周同比
@@ -169,16 +176,18 @@ def generate_report(daily_summary, daily_accounts, account_summary, rows):
         change = calc_change(curr, prev)
         arrow = "↑" if change > 0 else ("↓" if change < 0 else "→")
         lines.append(f"  {m}: {arrow} {abs(change)}%")
-
     lines.append("")
 
-    # 账号明细
+    # 按区域分段展示
     today_rows = daily_accounts.get(today, [])
-    if today_rows:
-        lines.append("【账号明细】")
-        # 按GMV排序
-        today_rows.sort(key=lambda x: x.get("GMV", 0), reverse=True)
-        for row in today_rows:
+    for region in ["美区", "EU"]:
+        region_rows = [r for r in today_rows if r.get("区域", "美区") == region]
+        if not region_rows:
+            continue
+        lines.append(f"{'─' * 40}")
+        lines.append(f"【{region}账号明细】")
+        region_rows.sort(key=lambda x: x.get("GMV", 0), reverse=True)
+        for row in region_rows:
             acct = row.get("账号", "未知")
             owner = row.get("归属人", "")
             status = row.get("账号状态", "")
@@ -186,9 +195,16 @@ def generate_report(daily_summary, daily_accounts, account_summary, rows):
             commission = row.get("佣金", 0)
             orders = int(row.get("电商出单", 0))
             lines.append(f"  {acct} ({owner}) [{status}]")
-            lines.append(f"    GMV: ${gmv:,.2f} | 佣金: ${commission:,.2f} | 出单: {orders}")
+            detail = f"    GMV: ${gmv:,.2f} | 佣金: ${commission:,.2f} | 出单: {orders}"
+            # EU区额外展示内容指标
+            if region == "EU":
+                plays = int(row.get("播放量", 0))
+                ctr = row.get("CTR", 0)
+                ctor = row.get("CTOR", 0)
+                detail += f" | 播放: {plays:,} | CTR: {ctr}% | CTOR: {ctor}%"
+            lines.append(detail)
+        lines.append("")
 
-    lines.append("")
     lines.append(f"📈 完整数据看板: https://sunheyang01.github.io/tiktok-ecom-dashboard/")
 
     return today, lines
@@ -213,8 +229,10 @@ def export_json(rows, daily_summary, account_summary):
         "daily_summary": {k: dict(v) for k, v in daily_summary.items()},
         "account_summary": {},
         "metrics": METRICS,
+        "eu_metrics": EU_METRICS,
         "baseline": BASELINE,
         "cumulative": cumulative,
+        "regions": list(set(r.get("区域", "美区") for r in rows)),
     }
 
     # 处理 account_summary

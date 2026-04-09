@@ -256,12 +256,20 @@ def read_sheet(token, sheet_id, sheet_name):
                 # 名称列是状态词时，用账号ID作为名称
                 account_name = account_id or account_name
 
+        # 区域：从源表F列读取，默认"美区"
+        region = str(get_cell(row, COL["区域"]) or "").strip()
+        if not region or "美" in region or "US" in region.upper():
+            region = "美区"
+        elif "欧" in region or "EU" in region.upper():
+            region = "EU"
+
         record = {
             "账号": account.strip(),
             "名称": str(account_name).strip() if account_name else account.strip(),
             "日期": date_str,
             "归属人": str(owner).strip(),
             "账号状态": status,
+            "区域": region,
             "电商出单": str(safe_int(get_cell(row, COL["电商出单"]))),
             "GMV": str(safe_float(get_cell(row, COL["GMV"]))),
             "佣金": str(safe_float(get_cell(row, COL["佣金"]))),
