@@ -57,11 +57,11 @@ def read_mcn_data(db_path, days_back=1):
     for row in rows:
         r = dict(row)
         # 达人名称：优先用 tiktok_handle，否则用 creator_name
-        name = r.get("tiktok_handle") or r.get("creator_name", "")
+        name = r.get("creator_name", "")
         creator_id = r.get("creator_id", "")
 
         record = {
-            "账号": creator_id,
+            "账号": name or creator_id,
             "名称": name,
             "日期": r["date"],
             "归属人": "-",
@@ -69,7 +69,7 @@ def read_mcn_data(db_path, days_back=1):
             "区域": "EU",
             "电商出单": str(r.get("order_count", 0)),
             "GMV": str(r.get("gmv", 0)),
-            "佣金": str(r.get("commission_amount", 0)),
+            "佣金": str(r.get("withdrawable_commission", 0)),
             "提现金额": str(r.get("withdrawable_commission", 0)),
             "冻结金额": "0",
             "播放量": str(r.get("play_count", 0)),
