@@ -234,29 +234,30 @@ function sumMetrics(rows){const s={};METRICS.forEach(m=>s[m]=rows.reduce((a,r)=>
 
 // ===== 日期工具 =====
 function getWeekRange(dateStr){
-    // 返回该日期所在周的 [周一, 周日]
-    const d=new Date(dateStr);
-    const day=d.getDay()||7; // 周日=7
+    const d=new Date(dateStr+'T12:00:00');
+    const day=d.getDay()||7;
     const mon=new Date(d); mon.setDate(d.getDate()-(day-1));
     const sun=new Date(mon); sun.setDate(mon.getDate()+6);
-    return [mon.toISOString().slice(0,10), sun.toISOString().slice(0,10)];
+    return [mon.toLS(), sun.toLS()];
 }
+function localDateStr(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+Date.prototype.toLS=function(){return localDateStr(this);};
 function getMonthRange(dateStr){
-    const d=new Date(dateStr);
-    const start=new Date(d.getFullYear(),d.getMonth(),1).toISOString().slice(0,10);
-    const end=new Date(d.getFullYear(),d.getMonth()+1,0).toISOString().slice(0,10);
-    return [start, end];
+    const d=new Date(dateStr+'T12:00:00');
+    const start=new Date(d.getFullYear(),d.getMonth(),1);
+    const end=new Date(d.getFullYear(),d.getMonth()+1,0);
+    return [localDateStr(start), localDateStr(end)];
 }
 function filterByRange(records, start, end){
     return records.filter(r=>r['日期']>=start&&r['日期']<=end);
 }
 function prevWeekRange(weekStart){
-    const d=new Date(weekStart); d.setDate(d.getDate()-7);
-    return getWeekRange(d.toISOString().slice(0,10));
+    const d=new Date(weekStart+'T12:00:00'); d.setDate(d.getDate()-7);
+    return getWeekRange(d.toLS());
 }
 function prevMonthRange(monthStart){
-    const d=new Date(monthStart); d.setMonth(d.getMonth()-1);
-    return getMonthRange(d.toISOString().slice(0,10));
+    const d=new Date(monthStart+'T12:00:00'); d.setMonth(d.getMonth()-1);
+    return getMonthRange(d.toLS());
 }
 
 async function loadData(){
@@ -319,7 +320,7 @@ function renderKPI(){
     const g=document.getElementById('kpiGrid');
     const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
     const lat=dates[dates.length-1],prev=dates[dates.length-2];
-    const wa=lat?(()=>{const d=new Date(lat);d.setDate(d.getDate()-7);return d.toISOString().slice(0,10);})():null;
+    const wa=lat?(()=>{const d=new Date(lat+'T12:00:00');d.setDate(d.getDate()-7);return d.toLS();})():null;
     const sum=d=>sumMetrics(filteredRecords.filter(r=>r['日期']===d));
     const ts=lat?sum(lat):{},ps=prev?sum(prev):{},ws=wa?sum(wa):{};
     g.innerHTML=METRICS.map(m=>{
@@ -377,10 +378,10 @@ function renderWeekly(){
     const latest=dates[dates.length-1];
     const [baseWs]=getWeekRange(latest);
     // Apply offset
-    const offsetDate=new Date(baseWs);offsetDate.setDate(offsetDate.getDate()+weekOffset*7);
-    const [ws,we]=getWeekRange(offsetDate.toISOString().slice(0,10));
+    const offsetDate=new Date(baseWs+'T12:00:00');offsetDate.setDate(offsetDate.getDate()+weekOffset*7);
+    const [ws,we]=getWeekRange(offsetDate.toLS());
     const [pws,pwe]=prevWeekRange(ws);
-    document.getElementById('weeklyLabel').innerHTML=`${ws} ~ ${we} <span class="period-badge weekly">第${Math.ceil((new Date(ws).getDate()+new Date(ws).getDay())/7)}周</span>`;
+    document.getElementById('weeklyLabel').innerHTML=`${ws} ~ ${we} <span class="period-badge weekly">第${Math.ceil((new Date(ws+'T12:00:00').getDate()+new Date(ws+'T12:00:00').getDay())/7)}周</span>`;
 
     const thisWeek=filterByRange(filteredRecords,ws,we);
     const lastWeek=filterByRange(filteredRecords,pws,pwe);
@@ -424,9 +425,9 @@ function renderMonthly(){
     const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
     if(!dates.length)return;
     const latest=dates[dates.length-1];
-    const baseDate=new Date(latest);
+    const baseDate=new Date(latest+'T12:00:00');
     baseDate.setMonth(baseDate.getMonth()+monthOffset);
-    const [ms,me]=getMonthRange(baseDate.toISOString().slice(0,10));
+    const [ms,me]=getMonthRange(baseDate.toLS());
     const [pms,pme]=prevMonthRange(ms);
     const mLabel=`${ms.slice(0,4)}年${parseInt(ms.slice(5,7))}月`;
     document.getElementById('monthlyLabel').innerHTML=`${mLabel} <span class="period-badge monthly">${ms} ~ ${me}</span>`;
@@ -514,7 +515,7 @@ function renderAccountTab(){
     const accts=Object.entries(am);
     const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
     const lat=dates[dates.length-1],prev=dates[dates.length-2];
-    const wa=lat?(()=>{const d=new Date(lat);d.setDate(d.getDate()-7);return d.toISOString().slice(0,10);})():null;
+    const wa=lat?(()=>{const d=new Date(lat+'T12:00:00');d.setDate(d.getDate()-7);return d.toLS();})():null;
     const ac=accts.filter(([,v])=>/正常|活跃|active/i.test(v['账号状态'])).length;
     const usCount=accts.filter(([,v])=>v['区域']!=='EU').length;
     const euCount=accts.filter(([,v])=>v['区域']==='EU').length;
