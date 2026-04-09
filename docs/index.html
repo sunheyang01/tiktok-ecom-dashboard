@@ -7,130 +7,58 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
     <style>
         :root {
-            --bg: #0f1117;
-            --card: #1a1d29;
-            --border: #2a2d3a;
-            --text: #e4e6eb;
-            --text2: #8b8fa3;
-            --blue: #4e7cff;
-            --green: #00c48c;
-            --red: #ff4757;
-            --orange: #ff9f43;
-            --purple: #a855f7;
-            --cyan: #06b6d4;
+            --bg: #0f1117; --card: #1a1d29; --border: #2a2d3a;
+            --text: #e4e6eb; --text2: #8b8fa3;
+            --blue: #4e7cff; --green: #00c48c; --red: #ff4757;
+            --orange: #ff9f43; --purple: #a855f7; --cyan: #06b6d4;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-        }
-        .header {
-            background: linear-gradient(135deg, #1a1d29, #252836);
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+        .header { background: linear-gradient(135deg, #1a1d29, #252836); padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
         .header h1 { font-size: 20px; font-weight: 600; }
         .header h1 span { color: var(--blue); }
-        .header-info {
-            display: flex; gap: 16px; align-items: center;
-            font-size: 13px; color: var(--text2);
-        }
-        .filters {
-            padding: 16px 24px;
-            display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
-            border-bottom: 1px solid var(--border);
-        }
+        .header-info { display: flex; gap: 16px; align-items: center; font-size: 13px; color: var(--text2); }
+        .filters { padding: 16px 24px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; border-bottom: 1px solid var(--border); }
         .filters label { font-size: 13px; color: var(--text2); }
-        .filters select, .filters input {
-            background: var(--card); border: 1px solid var(--border);
-            color: var(--text); padding: 6px 12px; border-radius: 6px; font-size: 13px;
-        }
+        .filters select, .filters input { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; font-size: 13px; }
         .filters select:focus, .filters input:focus { outline: none; border-color: var(--blue); }
         .container { padding: 20px 24px; max-width: 1400px; margin: 0 auto; }
-        .kpi-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px; margin-bottom: 24px;
-        }
-        .kpi-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 12px; padding: 20px;
-        }
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
         .kpi-card .label { font-size: 13px; color: var(--text2); margin-bottom: 8px; }
         .kpi-card .value { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .kpi-card .sub { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
         .kpi-card .change { font-size: 12px; display: flex; gap: 12px; }
-        .up { color: var(--green); }
-        .down { color: var(--red); }
-        .flat { color: var(--text2); }
-        .section-title {
-            font-size: 16px; font-weight: 600; margin: 24px 0 16px;
-            padding-left: 12px; border-left: 3px solid var(--blue);
-        }
+        .up { color: var(--green); } .down { color: var(--red); } .flat { color: var(--text2); }
+        .section-title { font-size: 16px; font-weight: 600; margin: 24px 0 16px; padding-left: 12px; border-left: 3px solid var(--blue); }
         .section-title.eu { border-left-color: var(--cyan); }
-        .charts-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 16px; margin-bottom: 24px;
-        }
-        .chart-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 12px; padding: 20px;
-        }
+        .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
         .chart-card h3 { font-size: 15px; margin-bottom: 16px; font-weight: 500; }
-        .table-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 12px; padding: 20px; overflow-x: auto; margin-bottom: 24px;
-        }
+        .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; overflow-x: auto; margin-bottom: 24px; }
         .table-card h3 { font-size: 15px; margin-bottom: 16px; font-weight: 500; }
         table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        thead th {
-            text-align: left; padding: 10px 12px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text2); font-weight: 500; white-space: nowrap;
-            cursor: pointer; user-select: none;
-        }
+        thead th { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text2); font-weight: 500; white-space: nowrap; cursor: pointer; user-select: none; }
         thead th:hover { color: var(--blue); }
-        tbody td {
-            padding: 10px 12px; border-bottom: 1px solid var(--border); white-space: nowrap;
-        }
+        tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); white-space: nowrap; }
         tbody tr:hover { background: rgba(78, 124, 255, 0.05); }
-        .status-active { color: var(--green); }
-        .status-inactive { color: var(--red); }
-        .status-other { color: var(--orange); }
-        .region-tag {
-            display: inline-block; padding: 2px 8px; border-radius: 4px;
-            font-size: 11px; font-weight: 600;
-        }
+        .status-active { color: var(--green); } .status-inactive { color: var(--red); } .status-other { color: var(--orange); }
+        .region-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
         .region-us { background: rgba(78,124,255,0.15); color: var(--blue); }
         .region-eu { background: rgba(6,182,212,0.15); color: var(--cyan); }
-        .loading {
-            text-align: center; padding: 80px 20px; color: var(--text2); font-size: 16px;
-        }
-        .spinner {
-            width: 40px; height: 40px; border: 3px solid var(--border);
-            border-top-color: var(--blue); border-radius: 50%;
-            animation: spin 0.8s linear infinite; margin: 0 auto 16px;
-        }
+        .loading { text-align: center; padding: 80px 20px; color: var(--text2); font-size: 16px; }
+        .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
         @keyframes spin { to { transform: rotate(360deg); } }
-        .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
-        .tab-btn {
-            padding: 10px 20px; background: none; border: none; color: var(--text2);
-            cursor: pointer; font-size: 14px; border-bottom: 2px solid transparent; transition: all 0.2s;
-        }
+        .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; background: none; border: none; color: var(--text2); cursor: pointer; font-size: 14px; border-bottom: 2px solid transparent; transition: all 0.2s; }
         .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
         .tab-btn:hover { color: var(--text); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        @media (max-width: 768px) {
-            .charts-grid { grid-template-columns: 1fr; }
-            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-            .header, .container { padding: 16px; }
-        }
+        .period-badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+        .period-badge.weekly { background: rgba(168,85,247,0.15); color: var(--purple); }
+        .period-badge.monthly { background: rgba(255,159,67,0.15); color: var(--orange); }
+        @media (max-width: 768px) { .charts-grid { grid-template-columns: 1fr; } .kpi-grid { grid-template-columns: repeat(2, 1fr); } .header, .container { padding: 16px; } }
     </style>
 </head>
 <body>
@@ -159,10 +87,14 @@
         <div id="loading" class="loading"><div class="spinner"></div><div>加载数据中...</div></div>
         <div id="dashboard" style="display:none;">
             <div class="tabs">
-                <button class="tab-btn active" data-tab="overview">总览</button>
+                <button class="tab-btn active" data-tab="overview">日报</button>
+                <button class="tab-btn" data-tab="weekly">周报</button>
+                <button class="tab-btn" data-tab="monthly">月报</button>
                 <button class="tab-btn" data-tab="accounts">账号分析</button>
                 <button class="tab-btn" data-tab="detail">明细数据</button>
             </div>
+
+            <!-- 日报 -->
             <div class="tab-content active" id="tab-overview">
                 <div class="kpi-grid" id="cumulativeGrid"></div>
                 <div style="height:1px;background:var(--border);margin-bottom:24px;"></div>
@@ -173,7 +105,6 @@
                     <div class="chart-card"><h3>电商出单趋势</h3><canvas id="chartOrders"></canvas></div>
                     <div class="chart-card"><h3>提现 vs 冻结金额</h3><canvas id="chartCashFreeze"></canvas></div>
                 </div>
-                <!-- EU 内容指标区域（仅当有EU数据时显示） -->
                 <div id="euSection" style="display:none;">
                     <div class="section-title eu">EU 区内容指标</div>
                     <div class="kpi-grid" id="euKpiGrid"></div>
@@ -183,6 +114,58 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 周报 -->
+            <div class="tab-content" id="tab-weekly">
+                <div class="section-title">本周汇总 <span class="period-badge weekly" id="weeklyRange"></span></div>
+                <div class="kpi-grid" id="weeklyKpi"></div>
+                <div class="section-title">区域对比</div>
+                <div class="kpi-grid" id="weeklyRegionKpi"></div>
+                <div class="charts-grid">
+                    <div class="chart-card"><h3>本周 vs 上周 GMV</h3><canvas id="chartWeeklyGMV"></canvas></div>
+                    <div class="chart-card"><h3>本周 vs 上周 出单</h3><canvas id="chartWeeklyOrders"></canvas></div>
+                </div>
+                <div class="table-card">
+                    <h3>本周账号排名</h3>
+                    <table id="weeklyTable">
+                        <thead><tr>
+                            <th data-sort="0">账号</th><th data-sort="1">区域</th><th data-sort="2">归属人</th>
+                            <th data-sort="3">GMV</th><th data-sort="4">佣金</th><th data-sort="5">出单数</th>
+                            <th data-sort="6">日均GMV</th><th data-sort="7">周环比</th>
+                        </tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 月报 -->
+            <div class="tab-content" id="tab-monthly">
+                <div class="section-title">本月汇总 <span class="period-badge monthly" id="monthlyRange"></span></div>
+                <div class="kpi-grid" id="monthlyKpi"></div>
+                <div class="section-title">区域对比</div>
+                <div class="kpi-grid" id="monthlyRegionKpi"></div>
+                <div class="charts-grid">
+                    <div class="chart-card"><h3>本月 vs 上月 GMV</h3><canvas id="chartMonthlyGMV"></canvas></div>
+                    <div class="chart-card"><h3>本月 vs 上月 出单</h3><canvas id="chartMonthlyOrders"></canvas></div>
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-card"><h3>周趋势对比 (GMV)</h3><canvas id="chartMonthlyWeekTrend"></canvas></div>
+                    <div class="chart-card"><h3>归属人贡献</h3><canvas id="chartMonthlyOwner"></canvas></div>
+                </div>
+                <div class="table-card">
+                    <h3>本月账号排名</h3>
+                    <table id="monthlyTable">
+                        <thead><tr>
+                            <th data-sort="0">账号</th><th data-sort="1">区域</th><th data-sort="2">归属人</th>
+                            <th data-sort="3">GMV</th><th data-sort="4">佣金</th><th data-sort="5">出单数</th>
+                            <th data-sort="6">日均GMV</th><th data-sort="7">月环比</th>
+                        </tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 账号分析 -->
             <div class="tab-content" id="tab-accounts">
                 <div class="kpi-grid" id="accountKpi"></div>
                 <div class="charts-grid">
@@ -202,6 +185,8 @@
                     </table>
                 </div>
             </div>
+
+            <!-- 明细 -->
             <div class="tab-content" id="tab-detail">
                 <div class="table-card">
                     <h3>全部明细记录</h3>
@@ -233,6 +218,34 @@ function pct(c,p){if(!p)return c>0?100:0;return(c-p)/p*100;}
 function chg(p){const cls=p>0?'up':p<0?'down':'flat',a=p>0?'↑':p<0?'↓':'→';return`<span class="${cls}">${a} ${Math.abs(p).toFixed(1)}%</span>`;}
 function stCls(s){if(!s)return'status-other';if(/正常|活跃|active/i.test(s))return'status-active';if(/封|停|ban|inactive/i.test(s))return'status-inactive';return'status-other';}
 function regionTag(r){if(r==='EU')return'<span class="region-tag region-eu">EU</span>';return'<span class="region-tag region-us">美区</span>';}
+function sumMetrics(rows){const s={};METRICS.forEach(m=>s[m]=rows.reduce((a,r)=>a+(r[m]||0),0));return s;}
+
+// ===== 日期工具 =====
+function getWeekRange(dateStr){
+    // 返回该日期所在周的 [周一, 周日]
+    const d=new Date(dateStr);
+    const day=d.getDay()||7; // 周日=7
+    const mon=new Date(d); mon.setDate(d.getDate()-(day-1));
+    const sun=new Date(mon); sun.setDate(mon.getDate()+6);
+    return [mon.toISOString().slice(0,10), sun.toISOString().slice(0,10)];
+}
+function getMonthRange(dateStr){
+    const d=new Date(dateStr);
+    const start=new Date(d.getFullYear(),d.getMonth(),1).toISOString().slice(0,10);
+    const end=new Date(d.getFullYear(),d.getMonth()+1,0).toISOString().slice(0,10);
+    return [start, end];
+}
+function filterByRange(records, start, end){
+    return records.filter(r=>r['日期']>=start&&r['日期']<=end);
+}
+function prevWeekRange(weekStart){
+    const d=new Date(weekStart); d.setDate(d.getDate()-7);
+    return getWeekRange(d.toISOString().slice(0,10));
+}
+function prevMonthRange(monthStart){
+    const d=new Date(monthStart); d.setMonth(d.getMonth()-1);
+    return getMonthRange(d.toISOString().slice(0,10));
+}
 
 async function loadData(){
     try{
@@ -245,7 +258,7 @@ async function loadData(){
         document.getElementById('loading').style.display='none';
         document.getElementById('dashboard').style.display='block';
     }catch(e){
-        document.getElementById('loading').innerHTML='<div style="color:var(--red)">数据加载失败<br><small>'+e.message+'</small><br><br><small>请先运行 python scripts/analyze.py 生成数据</small></div>';
+        document.getElementById('loading').innerHTML='<div style="color:var(--red)">数据加载失败<br><small>'+e.message+'</small></div>';
     }
 }
 
@@ -272,8 +285,9 @@ function applyFilters(){
 }
 document.querySelectorAll('.filters select,.filters input').forEach(el=>el.addEventListener('change',applyFilters));
 
-function renderAll(){renderCumulative();renderKPI();renderCharts();renderEU();renderAccountTab();renderDetail();}
+function renderAll(){renderCumulative();renderKPI();renderCharts();renderEU();renderWeekly();renderMonthly();renderAccountTab();renderDetail();}
 
+// ===== 日报 =====
 function renderCumulative(){
     const g=document.getElementById('cumulativeGrid');
     const cum=rawData.cumulative||{};
@@ -294,7 +308,7 @@ function renderKPI(){
     const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
     const lat=dates[dates.length-1],prev=dates[dates.length-2];
     const wa=lat?(()=>{const d=new Date(lat);d.setDate(d.getDate()-7);return d.toISOString().slice(0,10);})():null;
-    const sum=d=>{const rows=filteredRecords.filter(r=>r['日期']===d);const s={};METRICS.forEach(m=>s[m]=rows.reduce((a,r)=>a+(r[m]||0),0));return s;};
+    const sum=d=>sumMetrics(filteredRecords.filter(r=>r['日期']===d));
     const ts=lat?sum(lat):{},ps=prev?sum(prev):{},ws=wa?sum(wa):{};
     g.innerHTML=METRICS.map(m=>{
         const v=ts[m]||0,im=MONEY.includes(m);
@@ -306,14 +320,11 @@ function renderCharts(){
     const dm={};
     filteredRecords.forEach(r=>{const d=r['日期'];if(!d)return;if(!dm[d])dm[d]={};METRICS.forEach(m=>dm[d][m]=(dm[d][m]||0)+(r[m]||0));});
     const dates=Object.keys(dm).sort();
-    const chartOpts=(legend)=>({responsive:true,plugins:{legend:{display:!!legend,labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}});
-    function mk(id,metric,color){
-        if(charts[id])charts[id].destroy();
-        charts[id]=new Chart(document.getElementById(id),{type:'line',data:{labels:dates,datasets:[{label:metric,data:dates.map(d=>dm[d][metric]||0),borderColor:color,backgroundColor:color+'20',fill:true,tension:0.3,pointRadius:2}]},options:chartOpts()});
-    }
+    const co=(legend)=>({responsive:true,plugins:{legend:{display:!!legend,labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}});
+    function mk(id,metric,color){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type:'line',data:{labels:dates,datasets:[{label:metric,data:dates.map(d=>dm[d][metric]||0),borderColor:color,backgroundColor:color+'20',fill:true,tension:0.3,pointRadius:2}]},options:co()});}
     mk('chartGMV','GMV',C.blue);mk('chartCommission','佣金',C.green);mk('chartOrders','电商出单',C.purple);
     if(charts['chartCashFreeze'])charts['chartCashFreeze'].destroy();
-    charts['chartCashFreeze']=new Chart(document.getElementById('chartCashFreeze'),{type:'bar',data:{labels:dates,datasets:[{label:'提现金额',data:dates.map(d=>dm[d]['提现金额']||0),backgroundColor:C.orange+'80'},{label:'冻结金额',data:dates.map(d=>dm[d]['冻结金额']||0),backgroundColor:C.red+'80'}]},options:chartOpts(true)});
+    charts['chartCashFreeze']=new Chart(document.getElementById('chartCashFreeze'),{type:'bar',data:{labels:dates,datasets:[{label:'提现金额',data:dates.map(d=>dm[d]['提现金额']||0),backgroundColor:C.orange+'80'},{label:'冻结金额',data:dates.map(d=>dm[d]['冻结金额']||0),backgroundColor:C.red+'80'}]},options:co(true)});
 }
 
 function renderEU(){
@@ -321,36 +332,156 @@ function renderEU(){
     const section=document.getElementById('euSection');
     if(euRecords.length===0){section.style.display='none';return;}
     section.style.display='block';
-
-    // EU KPI
     const dates=[...new Set(euRecords.map(r=>r['日期']))].sort();
     const lat=dates[dates.length-1];
     const todayEU=euRecords.filter(r=>r['日期']===lat);
     const totalPlays=todayEU.reduce((s,r)=>s+(r['播放量']||0),0);
-    const avgCR=todayEU.length?todayEU.reduce((s,r)=>s+(r['完播率']||0),0)/todayEU.length:0;
-    const avgCTR=todayEU.length?todayEU.reduce((s,r)=>s+(r['CTR']||0),0)/todayEU.length:0;
-    const avgCTOR=todayEU.length?todayEU.reduce((s,r)=>s+(r['CTOR']||0),0)/todayEU.length:0;
-
+    const avg=arr=>arr.length?arr.reduce((a,b)=>a+b,0)/arr.length:0;
+    const avgCR=avg(todayEU.map(r=>r['完播率']||0));
+    const avgCTR=avg(todayEU.map(r=>r['CTR']||0));
+    const avgCTOR=avg(todayEU.map(r=>r['CTOR']||0));
     document.getElementById('euKpiGrid').innerHTML=[
         {label:'今日播放量',value:totalPlays.toLocaleString(),color:C.cyan},
         {label:'平均完播率',value:avgCR.toFixed(2)+'%',color:C.green},
         {label:'平均CTR',value:avgCTR.toFixed(2)+'%',color:C.orange},
         {label:'平均CTOR',value:avgCTOR.toFixed(2)+'%',color:C.purple},
     ].map(it=>`<div class="kpi-card"><div class="label">${it.label}</div><div class="value" style="color:${it.color}">${it.value}</div></div>`).join('');
-
-    // EU趋势图
     const dm={};
     euRecords.forEach(r=>{const d=r['日期'];if(!d)return;if(!dm[d]){dm[d]={plays:0,ctr:[],ctor:[]};}dm[d].plays+=(r['播放量']||0);dm[d].ctr.push(r['CTR']||0);dm[d].ctor.push(r['CTOR']||0);});
-    const chartOpts={responsive:true,plugins:{legend:{labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}};
-
+    const co={responsive:true,plugins:{legend:{labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}};
     if(charts['chartPlays'])charts['chartPlays'].destroy();
-    charts['chartPlays']=new Chart(document.getElementById('chartPlays'),{type:'bar',data:{labels:dates,datasets:[{label:'播放量',data:dates.map(d=>dm[d]?dm[d].plays:0),backgroundColor:C.cyan+'80',borderColor:C.cyan,borderWidth:1}]},options:{...chartOpts,plugins:{legend:{display:false}}}});
-
+    charts['chartPlays']=new Chart(document.getElementById('chartPlays'),{type:'bar',data:{labels:dates,datasets:[{label:'播放量',data:dates.map(d=>dm[d]?dm[d].plays:0),backgroundColor:C.cyan+'80',borderColor:C.cyan,borderWidth:1}]},options:{...co,plugins:{legend:{display:false}}}});
     if(charts['chartCTR'])charts['chartCTR'].destroy();
-    const avg=arr=>arr.length?arr.reduce((a,b)=>a+b,0)/arr.length:0;
-    charts['chartCTR']=new Chart(document.getElementById('chartCTR'),{type:'line',data:{labels:dates,datasets:[{label:'CTR %',data:dates.map(d=>dm[d]?avg(dm[d].ctr):0),borderColor:C.orange,backgroundColor:C.orange+'20',fill:false,tension:0.3,pointRadius:2},{label:'CTOR %',data:dates.map(d=>dm[d]?avg(dm[d].ctor):0),borderColor:C.purple,backgroundColor:C.purple+'20',fill:false,tension:0.3,pointRadius:2}]},options:chartOpts});
+    charts['chartCTR']=new Chart(document.getElementById('chartCTR'),{type:'line',data:{labels:dates,datasets:[{label:'CTR %',data:dates.map(d=>dm[d]?avg(dm[d].ctr):0),borderColor:C.orange,fill:false,tension:0.3,pointRadius:2},{label:'CTOR %',data:dates.map(d=>dm[d]?avg(dm[d].ctor):0),borderColor:C.purple,fill:false,tension:0.3,pointRadius:2}]},options:co});
 }
 
+// ===== 周报 =====
+function renderWeekly(){
+    const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
+    if(!dates.length)return;
+    const latest=dates[dates.length-1];
+    const [ws,we]=getWeekRange(latest);
+    const [pws,pwe]=prevWeekRange(ws);
+    document.getElementById('weeklyRange').textContent=`${ws} ~ ${we}`;
+
+    const thisWeek=filterByRange(filteredRecords,ws,we);
+    const lastWeek=filterByRange(filteredRecords,pws,pwe);
+    const tw=sumMetrics(thisWeek), lw=sumMetrics(lastWeek);
+    const days=[...new Set(thisWeek.map(r=>r['日期']))].length;
+
+    // KPI
+    document.getElementById('weeklyKpi').innerHTML=METRICS.map(m=>{
+        const v=tw[m]||0,pv=lw[m]||0,im=MONEY.includes(m);
+        return`<div class="kpi-card"><div class="label">本周${m}</div><div class="value" style="color:${MC[m]}">${fmt(v,im)}</div><div class="sub">日均: ${fmt(days?v/days:0,im)}</div><div class="change"><span>周环比 ${chg(pct(v,pv))}</span></div></div>`;
+    }).join('');
+
+    // 区域对比
+    const usRows=thisWeek.filter(r=>(r['区域']||'美区')!=='EU');
+    const euRows=thisWeek.filter(r=>(r['区域']||'美区')==='EU');
+    const usS=sumMetrics(usRows), euS=sumMetrics(euRows);
+    document.getElementById('weeklyRegionKpi').innerHTML=`
+        <div class="kpi-card"><div class="label">美区 GMV</div><div class="value" style="color:${C.blue}">${fmt(usS.GMV||0,1)}</div><div class="sub">出单: ${usS['电商出单']||0} | 佣金: ${fmt(usS['佣金']||0,1)}</div></div>
+        <div class="kpi-card"><div class="label">EU GMV</div><div class="value" style="color:${C.cyan}">${fmt(euS.GMV||0,1)}</div><div class="sub">出单: ${euS['电商出单']||0} | 佣金: ${fmt(euS['佣金']||0,1)}</div></div>
+        <div class="kpi-card"><div class="label">活跃账号</div><div class="value" style="color:${C.green}">${new Set(thisWeek.filter(r=>(r['GMV']||0)>0).map(r=>r['账号'])).size}</div><div class="sub">总: ${new Set(thisWeek.map(r=>r['账号'])).size} 个账号</div></div>
+        <div class="kpi-card"><div class="label">GMV占比</div><div class="value" style="color:${C.orange}">${tw.GMV?(usS.GMV/tw.GMV*100).toFixed(0):0}% / ${tw.GMV?(euS.GMV/tw.GMV*100).toFixed(0):0}%</div><div class="sub">美区 / EU</div></div>`;
+
+    // 本周vs上周图表
+    const thisDates=[...new Set(thisWeek.map(r=>r['日期']))].sort();
+    const lastDates=[...new Set(lastWeek.map(r=>r['日期']))].sort();
+    const labels=['周一','周二','周三','周四','周五','周六','周日'];
+    const twDaily=labels.map((_,i)=>{const d=thisDates[i];return d?sumMetrics(thisWeek.filter(r=>r['日期']===d)):{};});
+    const lwDaily=labels.map((_,i)=>{const d=lastDates[i];return d?sumMetrics(lastWeek.filter(r=>r['日期']===d)):{};});
+    const co={responsive:true,plugins:{legend:{labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}};
+    if(charts['chartWeeklyGMV'])charts['chartWeeklyGMV'].destroy();
+    charts['chartWeeklyGMV']=new Chart(document.getElementById('chartWeeklyGMV'),{type:'bar',data:{labels,datasets:[{label:'本周',data:twDaily.map(d=>d.GMV||0),backgroundColor:C.blue+'80',borderColor:C.blue,borderWidth:1},{label:'上周',data:lwDaily.map(d=>d.GMV||0),backgroundColor:C.blue+'30',borderColor:C.blue+'60',borderWidth:1}]},options:co});
+    if(charts['chartWeeklyOrders'])charts['chartWeeklyOrders'].destroy();
+    charts['chartWeeklyOrders']=new Chart(document.getElementById('chartWeeklyOrders'),{type:'bar',data:{labels,datasets:[{label:'本周',data:twDaily.map(d=>d['电商出单']||0),backgroundColor:C.purple+'80',borderColor:C.purple,borderWidth:1},{label:'上周',data:lwDaily.map(d=>d['电商出单']||0),backgroundColor:C.purple+'30',borderColor:C.purple+'60',borderWidth:1}]},options:co});
+
+    // 表格
+    renderPeriodTable('weeklyTable', thisWeek, lastWeek, days);
+}
+
+// ===== 月报 =====
+function renderMonthly(){
+    const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
+    if(!dates.length)return;
+    const latest=dates[dates.length-1];
+    const [ms,me]=getMonthRange(latest);
+    const [pms,pme]=prevMonthRange(ms);
+    document.getElementById('monthlyRange').textContent=`${ms} ~ ${me}`;
+
+    const thisMonth=filterByRange(filteredRecords,ms,me);
+    const lastMonth=filterByRange(filteredRecords,pms,pme);
+    const tm=sumMetrics(thisMonth), lm=sumMetrics(lastMonth);
+    const days=[...new Set(thisMonth.map(r=>r['日期']))].length;
+
+    // KPI
+    document.getElementById('monthlyKpi').innerHTML=METRICS.map(m=>{
+        const v=tm[m]||0,pv=lm[m]||0,im=MONEY.includes(m);
+        return`<div class="kpi-card"><div class="label">本月${m}</div><div class="value" style="color:${MC[m]}">${fmt(v,im)}</div><div class="sub">日均: ${fmt(days?v/days:0,im)}</div><div class="change"><span>月环比 ${chg(pct(v,pv))}</span></div></div>`;
+    }).join('');
+
+    // 区域对比
+    const usRows=thisMonth.filter(r=>(r['区域']||'美区')!=='EU');
+    const euRows=thisMonth.filter(r=>(r['区域']||'美区')==='EU');
+    const usS=sumMetrics(usRows), euS=sumMetrics(euRows);
+    document.getElementById('monthlyRegionKpi').innerHTML=`
+        <div class="kpi-card"><div class="label">美区 GMV</div><div class="value" style="color:${C.blue}">${fmt(usS.GMV||0,1)}</div><div class="sub">出单: ${usS['电商出单']||0} | 佣金: ${fmt(usS['佣金']||0,1)}</div></div>
+        <div class="kpi-card"><div class="label">EU GMV</div><div class="value" style="color:${C.cyan}">${fmt(euS.GMV||0,1)}</div><div class="sub">出单: ${euS['电商出单']||0} | 佣金: ${fmt(euS['佣金']||0,1)}</div></div>
+        <div class="kpi-card"><div class="label">活跃账号</div><div class="value" style="color:${C.green}">${new Set(thisMonth.filter(r=>(r['GMV']||0)>0).map(r=>r['账号'])).size}</div><div class="sub">总: ${new Set(thisMonth.map(r=>r['账号'])).size} 个账号</div></div>
+        <div class="kpi-card"><div class="label">GMV占比</div><div class="value" style="color:${C.orange}">${tm.GMV?(usS.GMV/tm.GMV*100).toFixed(0):0}% / ${tm.GMV?(euS.GMV/tm.GMV*100).toFixed(0):0}%</div><div class="sub">美区 / EU</div></div>`;
+
+    // 本月vs上月 日趋势
+    const thisDates=[...new Set(thisMonth.map(r=>r['日期']))].sort();
+    const lastDates=[...new Set(lastMonth.map(r=>r['日期']))].sort();
+    const maxLen=Math.max(thisDates.length, lastDates.length, 1);
+    const dayLabels=Array.from({length:maxLen},(_,i)=>`${i+1}日`);
+    const tmDaily=dayLabels.map((_,i)=>{const d=thisDates[i];return d?sumMetrics(thisMonth.filter(r=>r['日期']===d)):{};});
+    const lmDaily=dayLabels.map((_,i)=>{const d=lastDates[i];return d?sumMetrics(lastMonth.filter(r=>r['日期']===d)):{};});
+    const co={responsive:true,plugins:{legend:{labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}};
+    if(charts['chartMonthlyGMV'])charts['chartMonthlyGMV'].destroy();
+    charts['chartMonthlyGMV']=new Chart(document.getElementById('chartMonthlyGMV'),{type:'line',data:{labels:dayLabels,datasets:[{label:'本月',data:tmDaily.map(d=>d.GMV||0),borderColor:C.blue,tension:0.3,pointRadius:2},{label:'上月',data:lmDaily.map(d=>d.GMV||0),borderColor:C.blue+'60',borderDash:[5,5],tension:0.3,pointRadius:1}]},options:co});
+    if(charts['chartMonthlyOrders'])charts['chartMonthlyOrders'].destroy();
+    charts['chartMonthlyOrders']=new Chart(document.getElementById('chartMonthlyOrders'),{type:'line',data:{labels:dayLabels,datasets:[{label:'本月',data:tmDaily.map(d=>d['电商出单']||0),borderColor:C.purple,tension:0.3,pointRadius:2},{label:'上月',data:lmDaily.map(d=>d['电商出单']||0),borderColor:C.purple+'60',borderDash:[5,5],tension:0.3,pointRadius:1}]},options:co});
+
+    // 周趋势（本月按周分组）
+    const weeks={};
+    thisMonth.forEach(r=>{const d=r['日期'];if(!d)return;const [wk]=getWeekRange(d);const label=`W${wk.slice(5)}`;if(!weeks[label])weeks[label]=[];weeks[label].push(r);});
+    const wkLabels=Object.keys(weeks).sort();
+    if(charts['chartMonthlyWeekTrend'])charts['chartMonthlyWeekTrend'].destroy();
+    charts['chartMonthlyWeekTrend']=new Chart(document.getElementById('chartMonthlyWeekTrend'),{type:'bar',data:{labels:wkLabels,datasets:[{label:'GMV',data:wkLabels.map(w=>sumMetrics(weeks[w]).GMV||0),backgroundColor:C.blue+'80',borderColor:C.blue,borderWidth:1},{label:'佣金',data:wkLabels.map(w=>sumMetrics(weeks[w])['佣金']||0),backgroundColor:C.green+'80',borderColor:C.green,borderWidth:1}]},options:co});
+
+    // 归属人贡献
+    const owners={};
+    thisMonth.forEach(r=>{const o=r['归属人']||'-';if(!owners[o])owners[o]=0;owners[o]+=(r['GMV']||0);});
+    const oEntries=Object.entries(owners).sort((a,b)=>b[1]-a[1]);
+    if(charts['chartMonthlyOwner'])charts['chartMonthlyOwner'].destroy();
+    charts['chartMonthlyOwner']=new Chart(document.getElementById('chartMonthlyOwner'),{type:'doughnut',data:{labels:oEntries.map(([n])=>n),datasets:[{data:oEntries.map(([,v])=>v),backgroundColor:[C.blue+'cc',C.green+'cc',C.purple+'cc',C.orange+'cc',C.red+'cc',C.cyan+'cc','#666']}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:'#8b8fa3',padding:12}}}}});
+
+    // 表格
+    renderPeriodTable('monthlyTable', thisMonth, lastMonth, days);
+}
+
+// ===== 周报/月报 通用表格 =====
+function renderPeriodTable(tableId, currentRows, prevRows, days){
+    const am={};
+    currentRows.forEach(r=>{
+        const a=r['账号']||'未知';
+        if(!am[a])am[a]={'归属人':r['归属人']||'','区域':r['区域']||'美区'};
+        METRICS.forEach(m=>am[a][m]=(am[a][m]||0)+(r[m]||0));
+    });
+    const pm={};
+    prevRows.forEach(r=>{const a=r['账号']||'未知';if(!pm[a])pm[a]={};METRICS.forEach(m=>pm[a][m]=(pm[a][m]||0)+(r[m]||0));});
+    const tb=document.querySelector('#'+tableId+' tbody');
+    const accts=Object.entries(am).sort((a,b)=>(b[1].GMV||0)-(a[1].GMV||0));
+    tb.innerHTML=accts.map(([n,v])=>{
+        const pg=pm[n]?pm[n].GMV||0:0;
+        const avgGMV=days?v.GMV/days:0;
+        return`<tr><td>${n}</td><td>${regionTag(v['区域'])}</td><td>${v['归属人']}</td><td>${fmt(v.GMV||0,1)}</td><td>${fmt(v['佣金']||0,1)}</td><td>${fmt(v['电商出单']||0)}</td><td>${fmt(avgGMV,1)}</td><td>${chg(pct(v.GMV||0,pg))}</td></tr>`;
+    }).join('');
+}
+
+// ===== 账号分析 =====
 function renderAccountTab(){
     const am={};
     filteredRecords.forEach(r=>{
@@ -371,11 +502,7 @@ function renderAccountTab(){
         <div class="kpi-card"><div class="label">活跃账号</div><div class="value" style="color:${C.green}">${ac}</div></div>
         <div class="kpi-card"><div class="label">今日出单账号</div><div class="value" style="color:${C.purple}">${accts.filter(([,v])=>v.daily[lat]&&v.daily[lat]['电商出单']>0).length}</div></div>
         <div class="kpi-card"><div class="label">平均GMV/账号</div><div class="value" style="color:${C.orange}">$${accts.length?(accts.reduce((s,[,v])=>s+v.GMV,0)/accts.length).toFixed(2):'0'}</div></div>`;
-    function bar(id,metric,color){
-        if(charts[id])charts[id].destroy();
-        const items=[...accts].sort((a,b)=>b[1][metric]-a[1][metric]).slice(0,15);
-        charts[id]=new Chart(document.getElementById(id),{type:'bar',data:{labels:items.map(([n])=>n.length>12?n.slice(0,12)+'…':n),datasets:[{data:items.map(([,v])=>v[metric]),backgroundColor:color+'80',borderColor:color,borderWidth:1}]},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{display:false}}}}});
-    }
+    function bar(id,metric,color){if(charts[id])charts[id].destroy();const items=[...accts].sort((a,b)=>b[1][metric]-a[1][metric]).slice(0,15);charts[id]=new Chart(document.getElementById(id),{type:'bar',data:{labels:items.map(([n])=>n.length>12?n.slice(0,12)+'…':n),datasets:[{data:items.map(([,v])=>v[metric]),backgroundColor:color+'80',borderColor:color,borderWidth:1}]},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{display:false}}}}});}
     bar('chartAccountGMV','GMV',C.blue);bar('chartAccountComm','佣金',C.green);
     const tb=document.querySelector('#accountTable tbody');
     tb.innerHTML=accts.map(([n,v])=>{
@@ -384,6 +511,7 @@ function renderAccountTab(){
     }).join('');
 }
 
+// ===== 明细 =====
 function renderDetail(){
     const tb=document.querySelector('#detailTable tbody');
     const sorted=[...filteredRecords].sort((a,b)=>(b['日期']||'').localeCompare(a['日期']||''));
@@ -393,8 +521,8 @@ function renderDetail(){
     }).join('');
 }
 
+// ===== Tab切换 & 排序 =====
 document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');});});
-
 document.querySelectorAll('th[data-sort]').forEach(th=>{th.addEventListener('click',()=>{const idx=parseInt(th.dataset.sort);const table=th.closest('table');const tbody=table.querySelector('tbody');const rows=[...tbody.querySelectorAll('tr')];const dir=sortState[table.id+idx]==='asc'?'desc':'asc';sortState[table.id+idx]=dir;rows.sort((a,b)=>{let va=a.children[idx].textContent.replace(/[$,%↑↓→\s]/g,''),vb=b.children[idx].textContent.replace(/[$,%↑↓→\s]/g,'');const na=parseFloat(va),nb=parseFloat(vb);if(!isNaN(na)&&!isNaN(nb))return dir==='asc'?na-nb:nb-na;return dir==='asc'?va.localeCompare(vb):vb.localeCompare(va);});rows.forEach(r=>tbody.appendChild(r));});});
 
 loadData();
