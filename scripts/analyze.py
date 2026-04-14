@@ -195,7 +195,8 @@ def generate_report(daily_summary, daily_accounts, account_summary, rows):
             commission = row.get("佣金", 0)
             orders = int(row.get("电商出单", 0))
             lines.append(f"  {acct} ({owner}) [{status}]")
-            detail = f"    GMV: ${gmv:,.2f} | 佣金: ${commission:,.2f} | 出单: {orders}"
+            sym = "£" if region == "EU" else "$"
+            detail = f"    GMV: {sym}{gmv:,.2f} | 佣金: {sym}{commission:,.2f} | 出单: {orders}"
             # EU区额外展示内容指标
             if region == "EU":
                 plays = int(row.get("播放量", 0))
