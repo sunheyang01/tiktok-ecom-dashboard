@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 # MCN爬虫SQLite数据库路径（与爬虫项目共用同一个db）
 MCN_DB_PATH = os.environ.get(
     "MCN_DB_PATH",
-    os.path.expanduser("~/Desktop/tiktok-mcn-scraper/data/tiktok_mcn.db")
+    os.path.expanduser("~/zewenkanban/tiktok-mcn-scraper/data/tiktok_mcn.db")
 )
 
 # 飞书多维表格（写入目标，与美区数据同一张表）
