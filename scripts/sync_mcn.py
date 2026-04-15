@@ -76,6 +76,9 @@ def read_mcn_data(db_path, days_back=1):
             "完播率": str(round(r.get("completion_rate", 0) * 100, 2)) if r.get("completion_rate") else "0",
             "CTR": str(round(r.get("product_ctr", 0) * 100, 2)) if r.get("product_ctr") else "0",
             "CTOR": str(round(r.get("product_ctor", 0) * 100, 2)) if r.get("product_ctor") else "0",
+            "基础佣金": str(r.get("order_cos_base", 0)),
+            "达人佣金": str(r.get("order_cos_creator", 0)),
+            "机构佣金": str(r.get("order_cos_agency", 0)),
         }
         records.append(record)
 

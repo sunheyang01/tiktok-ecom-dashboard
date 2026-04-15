@@ -20,6 +20,7 @@ DOCS_DIR = os.path.join(os.path.dirname(__file__), "..", "docs", "data")
 # 关键指标
 METRICS = ["GMV", "佣金", "提现金额", "冻结金额", "电商出单"]
 EU_METRICS = ["播放量", "完播率", "CTR", "CTOR"]  # EU区特有内容指标
+EU_COMMISSION_METRICS = ["基础佣金", "达人佣金", "机构佣金"]  # EU区订单佣金
 
 # 历史基线数据 (3.27之前的累计总数)
 BASELINE = {
@@ -64,8 +65,8 @@ def normalize_rows(rows):
             if not parsed:
                 row["日期"] = ""  # 无法解析的日期置空
 
-        # 数值字段转换（基础指标 + EU内容指标）
-        for m in METRICS + EU_METRICS:
+        # 数值字段转换（基础指标 + EU内容指标 + EU佣金指标）
+        for m in METRICS + EU_METRICS + EU_COMMISSION_METRICS:
             val = row.get(m, 0)
             if isinstance(val, str):
                 val = val.replace(",", "").replace("¥", "").replace("$", "").replace("%", "").strip()
@@ -78,6 +79,65 @@ def normalize_rows(rows):
         # 区域字段：默认"美区"
         if not row.get("区域"):
             row["区域"] = "美区"
+    return rows
+
+
+def merge_order_commissions(rows):
+    """Merge order commission data from MCN scraper SQLite into EU rows."""
+    import sqlite3
+    mcn_db = os.environ.get(
+        "MCN_DB_PATH",
+        os.path.expanduser("~/zewenkanban/tiktok-mcn-scraper/data/tiktok_mcn.db")
+    )
+    if not os.path.exists(mcn_db):
+        print(f"[佣金] MCN数据库不存在: {mcn_db}，跳过")
+        return rows
+
+    try:
+        conn = sqlite3.connect(mcn_db)
+        # Read aggregated order commissions by creator_id + date
+        aggs = conn.execute("""
+            SELECT creator_id, order_date,
+                   SUM(cos_base_amount) as cos_base,
+                   SUM(creator_cos_amount) as cos_creator,
+                   SUM(agency_cos_amount) as cos_agency
+            FROM order_details
+            GROUP BY creator_id, order_date
+        """).fetchall()
+
+        # Also get creator_id → name mapping
+        creators = {}
+        for r in conn.execute("SELECT creator_id, creator_name FROM creators").fetchall():
+            creators[r[0]] = r[1]
+        conn.close()
+
+        # Build lookup: (creator_name, date) → commissions
+        commission_map = {}
+        for cid, odate, cos_base, cos_creator, cos_agency in aggs:
+            name = creators.get(cid, "")
+            if name and odate:
+                commission_map[(name, odate)] = {
+                    "基础佣金": cos_base or 0,
+                    "达人佣金": cos_creator or 0,
+                    "机构佣金": cos_agency or 0,
+                }
+
+        # Merge into EU rows
+        merged = 0
+        for row in rows:
+            if row.get("区域") != "EU":
+                continue
+            name = row.get("名称", "")
+            date_str = row.get("日期", "")
+            key = (name, date_str)
+            if key in commission_map:
+                row.update(commission_map[key])
+                merged += 1
+
+        print(f"[佣金] 合并了 {merged} 条EU订单佣金数据（共 {len(commission_map)} 条聚合记录）")
+    except Exception as e:
+        print(f"[佣金] 合并失败: {e}")
+
     return rows
 
 
@@ -231,6 +291,7 @@ def export_json(rows, daily_summary, account_summary):
         "account_summary": {},
         "metrics": METRICS,
         "eu_metrics": EU_METRICS,
+        "eu_commission_metrics": EU_COMMISSION_METRICS,
         "baseline": BASELINE,
         "cumulative": cumulative,
         "regions": list(set(r.get("区域", "美区") for r in rows)),
@@ -263,6 +324,9 @@ def main():
 
     # 2. 标准化
     rows = normalize_rows(rows)
+
+    # 2.5 合并MCN爬虫的订单佣金数据（直接读SQLite）
+    rows = merge_order_commissions(rows)
 
     # 3. 汇总分析
     daily_summary, daily_accounts = build_daily_summary(rows)

@@ -110,6 +110,8 @@
                     <div class="chart-card"><h3>提现 vs 冻结金额</h3><canvas id="chartCashFreeze"></canvas></div>
                 </div>
                 <div id="euSection" style="display:none;">
+                    <div class="section-title eu">EU 区订单佣金</div>
+                    <div class="kpi-grid" id="euCommissionGrid"></div>
                     <div class="section-title eu">EU 区内容指标</div>
                     <div class="kpi-grid" id="euKpiGrid"></div>
                     <div class="charts-grid">
@@ -349,6 +351,17 @@ function renderEU(){
     const dates=[...new Set(euRecords.map(r=>r['日期']))].sort();
     const lat=dates[dates.length-1];
     const todayEU=euRecords.filter(r=>r['日期']===lat);
+
+    // Commission KPIs
+    const cosBase=todayEU.reduce((s,r)=>s+(r['基础佣金']||0),0);
+    const cosCreator=todayEU.reduce((s,r)=>s+(r['达人佣金']||0),0);
+    const cosAgency=todayEU.reduce((s,r)=>s+(r['机构佣金']||0),0);
+    document.getElementById('euCommissionGrid').innerHTML=[
+        {label:'预计基础佣金',value:fmt(cosBase,1,'EU'),color:C.blue},
+        {label:'达人佣金（分成前）',value:fmt(cosCreator,1,'EU'),color:C.green},
+        {label:'机构佣金',value:fmt(cosAgency,1,'EU'),color:C.orange},
+    ].map(it=>`<div class="kpi-card"><div class="label">${it.label}</div><div class="value" style="color:${it.color}">${it.value}</div></div>`).join('');
+
     const totalPlays=todayEU.reduce((s,r)=>s+(r['播放量']||0),0);
     const avg=arr=>arr.length?arr.reduce((a,b)=>a+b,0)/arr.length:0;
     const avgCR=avg(todayEU.map(r=>r['完播率']||0));
