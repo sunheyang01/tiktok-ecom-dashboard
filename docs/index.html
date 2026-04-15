@@ -55,6 +55,10 @@
         .tab-btn:hover { color: var(--text); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
+        .detail-sub-btn { padding: 6px 16px; background: var(--card); border: 1px solid var(--border); color: var(--text2); cursor: pointer; font-size: 13px; border-radius: 6px; transition: all 0.2s; }
+        .detail-sub-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+        .detail-sub-btn:hover { border-color: var(--blue); color: var(--blue); }
+        .detail-sub-btn.active:hover { color: #fff; }
         .period-badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-left: 8px; }
         .period-badge.weekly { background: rgba(168,85,247,0.15); color: var(--purple); }
         .period-badge.monthly { background: rgba(255,159,67,0.15); color: var(--orange); }
@@ -202,19 +206,51 @@
 
             <!-- 明细 -->
             <div class="tab-content" id="tab-detail">
-                <div class="table-card">
-                    <h3>全部明细记录</h3>
-                    <table id="detailTable">
-                        <thead><tr>
-                            <th data-sort="0">日期</th><th data-sort="1">账号</th><th data-sort="2">区域</th>
-                            <th data-sort="3">归属人</th><th data-sort="4">状态</th>
-                            <th data-sort="5">GMV</th><th data-sort="6">佣金</th>
-                            <th data-sort="7">提现金额</th><th data-sort="8">冻结金额</th><th data-sort="9">出单数</th>
-                            <th data-sort="10">播放量</th><th data-sort="11">完播率</th>
-                            <th data-sort="12">CTR</th><th data-sort="13">CTOR</th>
-                        </tr></thead>
-                        <tbody></tbody>
-                    </table>
+                <div style="display:flex;gap:8px;margin-bottom:16px">
+                    <button class="detail-sub-btn active" data-sub="creator" onclick="switchDetailSub('creator')">达人明细</button>
+                    <button class="detail-sub-btn" data-sub="video" onclick="switchDetailSub('video')">视频明细</button>
+                </div>
+                <div id="sub-creator" class="detail-sub active">
+                    <div class="table-card">
+                        <h3>达人明细记录</h3>
+                        <table id="detailTable">
+                            <thead><tr>
+                                <th data-sort="0">日期</th><th data-sort="1">账号</th><th data-sort="2">区域</th>
+                                <th data-sort="3">归属人</th><th data-sort="4">状态</th>
+                                <th data-sort="5">GMV</th><th data-sort="6">佣金</th>
+                                <th data-sort="7">提现金额</th><th data-sort="8">冻结金额</th><th data-sort="9">出单数</th>
+                                <th data-sort="10">播放量</th><th data-sort="11">完播率</th>
+                                <th data-sort="12">CTR</th><th data-sort="13">CTOR</th>
+                            </tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="sub-video" class="detail-sub" style="display:none">
+                    <div class="table-card">
+                        <h3>视频明细 <span id="videoCount" style="font-size:13px;color:#8b8fa3"></span></h3>
+                        <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+                            <select id="videoCreatorFilter" onchange="renderVideoDetail()" style="background:#1e2030;color:#e0e0ff;border:1px solid #3a3d50;border-radius:6px;padding:4px 10px;font-size:13px">
+                                <option value="">全部达人</option>
+                            </select>
+                            <select id="videoRangeFilter" onchange="renderVideoDetail()" style="background:#1e2030;color:#e0e0ff;border:1px solid #3a3d50;border-radius:6px;padding:4px 10px;font-size:13px">
+                                <option value="">全部时间范围</option>
+                                <option value="1D">日报(1D)</option>
+                                <option value="7D">周报(7D)</option>
+                                <option value="28D">月报(28D)</option>
+                            </select>
+                        </div>
+                        <table id="videoDetailTable">
+                            <thead><tr>
+                                <th data-sort="0">视频标题</th><th data-sort="1">达人</th>
+                                <th data-sort="2">发布时间</th><th data-sort="3">时长</th>
+                                <th data-sort="4">播放量</th><th data-sort="5">完播率</th>
+                                <th data-sort="6">直接GMV</th><th data-sort="7">千次曝光成交额</th>
+                                <th data-sort="8">挂车商品数</th><th data-sort="9">时间范围</th>
+                            </tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -555,6 +591,37 @@ function renderDetail(){
         const isEU=(r['区域']||'美区')==='EU';
         const rg=r['区域']||'美区';
         return`<tr><td>${r['日期']||'-'}</td><td>${r['账号']||'-'}</td><td>${regionTag(rg)}</td><td>${r['归属人']||'-'}</td><td class="${stCls(r['账号状态'])}">${r['账号状态']||'-'}</td><td>${fmt(r.GMV||0,1,rg)}</td><td>${fmt(r['佣金']||0,1,rg)}</td><td>${fmt(r['提现金额']||0,1,rg)}</td><td>${fmt(r['冻结金额']||0,1,rg)}</td><td>${fmt(r['电商出单']||0)}</td><td>${isEU?(r['播放量']||0).toLocaleString():'-'}</td><td>${isEU?(r['完播率']||0)+'%':'-'}</td><td>${isEU?(r['CTR']||0)+'%':'-'}</td><td>${isEU?(r['CTOR']||0)+'%':'-'}</td></tr>`;
+    }).join('');
+}
+
+// ===== 视频明细 =====
+function switchDetailSub(sub){
+    document.querySelectorAll('.detail-sub-btn').forEach(b=>b.classList.toggle('active',b.dataset.sub===sub));
+    document.getElementById('sub-creator').style.display=sub==='creator'?'block':'none';
+    document.getElementById('sub-video').style.display=sub==='video'?'block':'none';
+    if(sub==='video') renderVideoDetail();
+}
+function renderVideoDetail(){
+    const videos=rawData?.video_details||[];
+    if(!videos.length){document.querySelector('#videoDetailTable tbody').innerHTML='<tr><td colspan="10" style="text-align:center;color:#8b8fa3">暂无视频数据，请先运行爬虫</td></tr>';return;}
+    // Populate creator filter
+    const sel=document.getElementById('videoCreatorFilter');
+    const curVal=sel.value;
+    const creators=[...new Set(videos.map(v=>v.creator_name).filter(Boolean))].sort();
+    if(sel.options.length<=1){creators.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);});sel.value=curVal;}
+    // Filter
+    const cf=document.getElementById('videoCreatorFilter').value;
+    const rf=document.getElementById('videoRangeFilter').value;
+    let filtered=videos;
+    if(cf) filtered=filtered.filter(v=>v.creator_name===cf);
+    if(rf) filtered=filtered.filter(v=>v.date_range===rf);
+    filtered.sort((a,b)=>(b.watch_cnt||0)-(a.watch_cnt||0));
+    document.getElementById('videoCount').textContent=`(${filtered.length}条)`;
+    const tb=document.querySelector('#videoDetailTable tbody');
+    tb.innerHTML=filtered.map(v=>{
+        const title=(v.title||'').length>40?(v.title.slice(0,40)+'…'):v.title||'-';
+        const dur=v.duration?`${v.duration}s`:'-';
+        return`<tr><td title="${(v.title||'').replace(/"/g,'&quot;')}">${title}</td><td>${v.creator_name||'-'}</td><td>${v.publish_time||'-'}</td><td>${dur}</td><td>${(v.watch_cnt||0).toLocaleString()}</td><td>${v.finish_rate||0}%</td><td>£${(v.direct_gmv||0).toFixed(2)}</td><td>£${(v.direct_gpm||0).toFixed(2)}</td><td>${v.product_count||0}</td><td>${v.date_range||'-'}</td></tr>`;
     }).join('');
 }
 

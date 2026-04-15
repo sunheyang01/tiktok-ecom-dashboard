@@ -271,6 +271,45 @@ def generate_report(daily_summary, daily_accounts, account_summary, rows):
     return today, lines
 
 
+def read_video_details():
+    """从MCN爬虫SQLite读取视频明细数据"""
+    import sqlite3
+    mcn_db = os.environ.get(
+        "MCN_DB_PATH",
+        os.path.expanduser("~/zewenkanban/tiktok-mcn-scraper/data/tiktok_mcn.db")
+    )
+    if not os.path.exists(mcn_db):
+        return []
+    try:
+        conn = sqlite3.connect(mcn_db)
+        conn.row_factory = sqlite3.Row
+        rows = conn.execute("""
+            SELECT video_id, creator_name, creator_handle, title,
+                   publish_time, duration, watch_cnt, finish_rate,
+                   direct_gmv, direct_gpm, product_count, date_range,
+                   scraped_at
+            FROM video_details
+            ORDER BY watch_cnt DESC
+        """).fetchall()
+        conn.close()
+        result = []
+        for r in rows:
+            d = dict(r)
+            # 转换 publish_time 为可读时间
+            pt = d.get("publish_time", "")
+            if pt and str(pt).isdigit():
+                try:
+                    d["publish_time"] = datetime.fromtimestamp(int(pt)).strftime("%Y-%m-%d %H:%M")
+                except (ValueError, OSError):
+                    pass
+            result.append(d)
+        print(f"[视频] 读取 {len(result)} 条视频明细")
+        return result
+    except Exception as e:
+        print(f"[视频] 读取失败: {e}")
+        return []
+
+
 def export_json(rows, daily_summary, account_summary):
     """导出 JSON 供 H5 看板使用"""
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -283,10 +322,14 @@ def export_json(rows, daily_summary, account_summary):
     for m in METRICS:
         cumulative[m] = BASELINE.get(m, 0) + current_totals[m]
 
+    # 读取视频明细
+    video_details = read_video_details()
+
     # 全量数据
     output = {
         "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "records": rows,
+        "video_details": video_details,
         "daily_summary": {k: dict(v) for k, v in daily_summary.items()},
         "account_summary": {},
         "metrics": METRICS,
