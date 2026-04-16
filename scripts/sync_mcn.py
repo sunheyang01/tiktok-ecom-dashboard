@@ -76,9 +76,8 @@ def read_mcn_data(db_path, days_back=1):
             "完播率": str(round(r.get("completion_rate", 0) * 100, 2)) if r.get("completion_rate") else "0",
             "CTR": str(round(r.get("product_ctr", 0) * 100, 2)) if r.get("product_ctr") else "0",
             "CTOR": str(round(r.get("product_ctor", 0) * 100, 2)) if r.get("product_ctor") else "0",
-            "基础佣金": str(r.get("order_cos_base", 0)),
-            "达人佣金": str(r.get("order_cos_creator", 0)),
-            "机构佣金": str(r.get("order_cos_agency", 0)),
+            # 基础/达人/机构佣金不存飞书：analyze.py 在生成 dashboard.json 时
+            # 直接从本地 SQLite order_details 表合并（merge_order_commissions）
         }
         records.append(record)
 
@@ -87,9 +86,9 @@ def read_mcn_data(db_path, days_back=1):
     return records
 
 
-def get_existing_keys(token):
-    """获取多维表格已有记录的去重键"""
-    keys = set()
+def get_existing_records(token):
+    """获取多维表格已有记录的 {key: record_id} 映射"""
+    records_map = {}
     page_token = None
     while True:
         params = "page_size=500"
@@ -104,32 +103,34 @@ def get_existing_keys(token):
         for item in data.get("items", []):
             fields = item.get("fields", {})
             key = f"{fields.get('账号', '')}_{fields.get('日期', '')}"
-            keys.add(key)
+            records_map[key] = item.get("record_id", "")
         if not data.get("has_more"):
             break
         page_token = data.get("page_token")
-    return keys
+    return records_map
 
 
 def write_to_bitable(token, records):
-    """批量写入飞书多维表格（自动去重）"""
+    """批量写入飞书多维表格：新记录插入，已有记录更新（upsert）"""
     print("\n[同步] 检查已有数据...")
-    existing_keys = get_existing_keys(token)
-    print(f"  多维表格已有 {len(existing_keys)} 条记录")
+    existing = get_existing_records(token)
+    print(f"  多维表格已有 {len(existing)} 条记录")
 
     to_insert = []
+    to_update = []
     for rec in records:
         key = f"{rec['账号']}_{rec['日期']}"
-        if key not in existing_keys:
+        if key in existing:
+            to_update.append({"record_id": existing[key], "fields": rec})
+        else:
             to_insert.append(rec)
 
-    if not to_insert:
-        print("  无新数据需要写入")
-        return 0
+    print(f"  新增 {len(to_insert)} 条，更新 {len(to_update)} 条")
 
-    print(f"  新增 {len(to_insert)} 条EU区数据，开始写入...")
+    total_new = 0
+    total_upd = 0
 
-    total = 0
+    # ---- 批量插入 ----
     for i in range(0, len(to_insert), 500):
         batch = to_insert[i:i+500]
         body = {"records": [{"fields": rec} for rec in batch]}
@@ -142,13 +143,32 @@ def write_to_bitable(token, records):
             result = json.loads(resp.read())
             code = result.get("code", -1)
             count = len(result.get("data", {}).get("records", []))
-            total += count
+            total_new += count
             if code != 0:
-                print(f"    ❌ 批次写入失败: {result.get('msg')}")
+                print(f"    ❌ 插入批次失败: {result.get('msg')}")
             else:
-                print(f"    ✅ 批次写入 {count} 条")
+                print(f"    ✅ 插入 {count} 条")
 
-    return total
+    # ---- 批量更新 ----
+    for i in range(0, len(to_update), 500):
+        batch = to_update[i:i+500]
+        body = {"records": batch}
+        req = urllib.request.Request(
+            f"{BASE_URL}/bitable/v1/apps/{BITABLE_APP_TOKEN}/tables/{BITABLE_TABLE_ID}/records/batch_update",
+            data=json.dumps(body).encode(),
+            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+            method="POST")
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            result = json.loads(resp.read())
+            code = result.get("code", -1)
+            count = len(result.get("data", {}).get("records", []))
+            total_upd += count
+            if code != 0:
+                print(f"    ❌ 更新批次失败: {result.get('msg')}")
+            else:
+                print(f"    ✅ 更新 {count} 条")
+
+    return total_new + total_upd
 
 
 def main():
