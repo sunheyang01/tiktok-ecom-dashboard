@@ -34,7 +34,17 @@ def get_token():
 
 
 def read_mcn_data(db_path, days_back=1):
-    """从MCN爬虫SQLite读取最近N天的数据"""
+    """从MCN爬虫SQLite读取最近N天的数据。
+
+    新口径 (2026-04-17 起)：
+      - GMV / 电商出单 / 佣金 ← 从 order_details 表聚合（只算 settle_status=2 待确认）
+          · GMV = sum(sku_sale_price × item_count)  即"佣金 GMV"
+          · 电商出单 = SKU 行数（一个多SKU订单算多条）
+          · 佣金 = sum(cos_base_amount) 即预计基础佣金
+      - 播放量 / 完播率 / CTR / CTOR ← 继续从 daily_metrics 读（达人分析页）
+      - 提现金额 ← 不存飞书：payouts 表是 MCN 机构整体打款，不按账号拆分，
+        由 analyze.py 在 dashboard.json 里单独展示
+    """
     if not os.path.exists(db_path):
         print(f"❌ 数据库不存在: {db_path}")
         return []
@@ -42,42 +52,84 @@ def read_mcn_data(db_path, days_back=1):
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
 
-    # 读取最近N天的数据（含达人名称）
     start_date = (datetime.now() - timedelta(days=days_back)).strftime("%Y-%m-%d")
-    rows = conn.execute("""
-        SELECT dm.*, c.creator_name, c.tiktok_handle
+
+    # 1) 基础内容指标（播放量等）——来自达人分析页
+    content_rows = conn.execute("""
+        SELECT dm.creator_id, dm.date, c.creator_name, c.tiktok_handle,
+               dm.play_count, dm.completion_rate, dm.product_ctr, dm.product_ctor
         FROM daily_metrics dm
         JOIN creators c ON dm.creator_id = c.creator_id
-        WHERE dm.date >= ?
-          AND dm.creator_id NOT LIKE 'test%'
-        ORDER BY dm.date, c.creator_name
+        WHERE dm.date >= ? AND dm.creator_id NOT LIKE 'test%'
     """, (start_date,)).fetchall()
 
-    records = []
-    for row in rows:
-        r = dict(row)
-        # 达人名称：优先用 tiktok_handle，否则用 creator_name
-        name = r.get("creator_name", "")
-        creator_id = r.get("creator_id", "")
+    # 2) 订单聚合（GMV / 出单 / 佣金）——来自财务页订单，按(creator_id, order_date)
+    order_aggs = conn.execute("""
+        SELECT o.creator_id, o.order_date as date, c.creator_name,
+               COUNT(*) as sku_rows,
+               SUM(o.gmv) as gmv,
+               SUM(o.cos_base_amount) as cos_base
+        FROM order_details o
+        JOIN creators c ON o.creator_id = c.creator_id
+        WHERE o.order_date >= ?
+          AND o.settle_status = 2
+          AND o.creator_id NOT LIKE 'test%'
+        GROUP BY o.creator_id, o.order_date
+    """, (start_date,)).fetchall()
+    order_map = {(r["creator_id"], r["date"]): dict(r) for r in order_aggs}
 
+    # 合并：以 (creator_id, date) 为键
+    merged = {}
+    for r in content_rows:
+        key = (r["creator_id"], r["date"])
+        merged[key] = {
+            "creator_id": r["creator_id"],
+            "date": r["date"],
+            "creator_name": r["creator_name"],
+            "tiktok_handle": r["tiktok_handle"],
+            "play_count": r["play_count"] or 0,
+            "completion_rate": r["completion_rate"] or 0,
+            "product_ctr": r["product_ctr"] or 0,
+            "product_ctor": r["product_ctor"] or 0,
+            "gmv": 0,
+            "order_count": 0,
+            "cos_base": 0,
+        }
+    # 订单数据覆盖 GMV/出单/佣金
+    for (cid, d), agg in order_map.items():
+        key = (cid, d)
+        if key not in merged:
+            # 有订单但 daily_metrics 没记录（少见）：用订单表的 creator_name 补
+            merged[key] = {
+                "creator_id": cid, "date": d,
+                "creator_name": agg["creator_name"], "tiktok_handle": "",
+                "play_count": 0, "completion_rate": 0,
+                "product_ctr": 0, "product_ctor": 0,
+                "gmv": 0, "order_count": 0, "cos_base": 0,
+            }
+        merged[key]["gmv"] = agg["gmv"] or 0
+        merged[key]["order_count"] = agg["sku_rows"] or 0
+        merged[key]["cos_base"] = agg["cos_base"] or 0
+
+    records = []
+    for (cid, d), r in sorted(merged.items(), key=lambda x: (x[0][1], x[0][0])):
+        name = r["creator_name"]
         record = {
-            "账号": name or creator_id,
+            "账号": name or cid,
             "名称": name,
-            "日期": r["date"],
+            "日期": d,
             "归属人": "-",
             "账号状态": "正常",
             "区域": "EU",
-            "电商出单": str(r.get("order_count", 0)),
-            "GMV": str(r.get("gmv", 0)),
-            "佣金": str(r.get("withdrawable_commission", 0)),
-            "提现金额": str(r.get("withdrawable_commission", 0)),
+            "电商出单": str(r["order_count"]),
+            "GMV": str(round(r["gmv"], 2)),
+            "佣金": str(round(r["cos_base"], 2)),  # = 预计基础佣金
+            "提现金额": "0",  # 新口径：MCN整体打款走 payouts 表，不按账号分
             "冻结金额": "0",
-            "播放量": str(r.get("play_count", 0)),
-            "完播率": str(round(r.get("completion_rate", 0) * 100, 2)) if r.get("completion_rate") else "0",
-            "CTR": str(round(r.get("product_ctr", 0) * 100, 2)) if r.get("product_ctr") else "0",
-            "CTOR": str(round(r.get("product_ctor", 0) * 100, 2)) if r.get("product_ctor") else "0",
-            # 基础/达人/机构佣金不存飞书：analyze.py 在生成 dashboard.json 时
-            # 直接从本地 SQLite order_details 表合并（merge_order_commissions）
+            "播放量": str(r["play_count"]),
+            "完播率": str(round(r["completion_rate"] * 100, 2)) if r["completion_rate"] else "0",
+            "CTR": str(round(r["product_ctr"] * 100, 2)) if r["product_ctr"] else "0",
+            "CTOR": str(round(r["product_ctor"] * 100, 2)) if r["product_ctor"] else "0",
         }
         records.append(record)
 

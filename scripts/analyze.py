@@ -95,13 +95,15 @@ def merge_order_commissions(rows):
 
     try:
         conn = sqlite3.connect(mcn_db)
-        # Read aggregated order commissions by creator_id + date
+        # Read aggregated order commissions by creator_id + date.
+        # Only settle_status=2 (待确认) — refunds/cancelled (status=5) excluded.
         aggs = conn.execute("""
             SELECT creator_id, order_date,
                    SUM(cos_base_amount) as cos_base,
                    SUM(creator_cos_amount) as cos_creator,
                    SUM(agency_cos_amount) as cos_agency
             FROM order_details
+            WHERE settle_status = 2
             GROUP BY creator_id, order_date
         """).fetchall()
 
@@ -271,6 +273,61 @@ def generate_report(daily_summary, daily_accounts, account_summary, rows):
     return today, lines
 
 
+def read_eu_payouts():
+    """从MCN SQLite读取付款账单数据，按打款日汇总。
+
+    返回:
+      {
+        "by_date": {"2026-04-17": {"settle_amount": 11.07, "payment_amount": 101.92, "count": 2}},
+        "total_settle": 13.86,
+        "total_payment": 127.49,
+        "records": [...]  # 原始明细
+      }
+    """
+    import sqlite3
+    mcn_db = os.environ.get(
+        "MCN_DB_PATH",
+        os.path.expanduser("~/zewenkanban/tiktok-mcn-scraper/data/tiktok_mcn.db")
+    )
+    if not os.path.exists(mcn_db):
+        return {"by_date": {}, "total_settle": 0, "total_payment": 0, "records": []}
+    try:
+        conn = sqlite3.connect(mcn_db)
+        conn.row_factory = sqlite3.Row
+        rows = conn.execute(
+            "SELECT * FROM payouts ORDER BY payout_date DESC, payout_id DESC"
+        ).fetchall()
+        conn.close()
+    except Exception as e:
+        print(f"[提现] 读取失败: {e}")
+        return {"by_date": {}, "total_settle": 0, "total_payment": 0, "records": []}
+
+    by_date = {}
+    total_settle = 0.0
+    total_payment = 0.0
+    records = []
+    for r in rows:
+        d = dict(r)
+        records.append(d)
+        date = d.get("payout_date", "")
+        if not date:
+            continue
+        by_date.setdefault(date, {"settle_amount": 0.0, "payment_amount": 0.0, "count": 0})
+        by_date[date]["settle_amount"] += d.get("settle_amount", 0)
+        by_date[date]["payment_amount"] += d.get("payment_amount", 0)
+        by_date[date]["count"] += 1
+        total_settle += d.get("settle_amount", 0)
+        total_payment += d.get("payment_amount", 0)
+
+    print(f"[提现] 读取 {len(records)} 条打款记录，总结算 £{total_settle:.2f}")
+    return {
+        "by_date": by_date,
+        "total_settle": round(total_settle, 2),
+        "total_payment": round(total_payment, 2),
+        "records": records,
+    }
+
+
 def read_video_details():
     """从MCN爬虫SQLite读取视频明细数据"""
     import sqlite3
@@ -325,11 +382,15 @@ def export_json(rows, daily_summary, account_summary):
     # 读取视频明细
     video_details = read_video_details()
 
+    # 读取 EU 付款账单（MCN机构整体打款，不按账号分配）
+    eu_payouts = read_eu_payouts()
+
     # 全量数据
     output = {
         "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "records": rows,
         "video_details": video_details,
+        "eu_payouts": eu_payouts,
         "daily_summary": {k: dict(v) for k, v in daily_summary.items()},
         "account_summary": {},
         "metrics": METRICS,
