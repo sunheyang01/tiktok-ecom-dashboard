@@ -126,7 +126,7 @@
 
             <!-- 累计（全时段，不受日期筛选影响） -->
             <div class="tab-content" id="tab-cumulative">
-                <div class="kpi-grid" id="cumulativeGrid"></div>
+                <div id="cumulativeGrid"></div>
             </div>
 
             <!-- 周报 -->
@@ -361,16 +361,19 @@ function renderAll(){renderCumulative();renderKPI();renderCharts();renderEU();re
 function renderCumulative(){
     const g=document.getElementById('cumulativeGrid');
     const cum=rawData.cumulative||{};
+    const rg=curRegion();
     const items=[
         {label:'总订单量',key:'电商出单',color:C.purple,money:false},
         {label:'总 GMV',key:'GMV',color:C.blue,money:true},
         {label:'总佣金',key:'佣金',color:C.green,money:true},
+        {label:'总提现金额',key:'提现金额',color:C.orange,money:true},
         {label:'总冻结金额',key:'冻结金额',color:C.red,money:true},
     ];
-    g.innerHTML=items.map(it=>`<div class="kpi-card">
-        <div class="label">${it.label}（累计）</div>
-        <div class="value" style="color:${it.color}">${fmt(cum[it.key]||0,it.money,curRegion())}</div>
-    </div>`).join('');
+    const cards=(region,data)=>items.map(it=>`<div class="kpi-card"><div class="label">${it.label}（累计）</div><div class="value" style="color:${it.color}">${fmt(data[it.key]||0,it.money,region)}</div></div>`).join('');
+    const parts=[];
+    if(!rg||rg==='美区') parts.push(`<div class="section-title">美区累计（USD）</div><div class="kpi-grid">${cards('美区',cum['美区']||{})}</div>`);
+    if(!rg||rg==='EU')   parts.push(`<div class="section-title eu">EU 累计（GBP）</div><div class="kpi-grid">${cards('EU',cum['EU']||{})}</div>`);
+    g.innerHTML=parts.join('');
 }
 
 function renderKPI(){

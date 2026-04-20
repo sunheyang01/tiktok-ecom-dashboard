@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-20 14:45:23",
+  "updated_at": "2026-04-20 15:26:55",
   "records": [
     {
       "GMV": 0,
@@ -11556,7 +11556,7 @@
     "total_payment": 234.27,
     "records": [
       {
-        "id": 5,
+        "id": 11,
         "payout_id": "7630196635976419094",
         "payout_date": "2026-04-19",
         "settle_amount": 10.12,
@@ -11566,10 +11566,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-20 06:44:34"
+        "scraped_at": "2026-04-20 06:51:49"
       },
       {
-        "id": 6,
+        "id": 12,
         "payout_id": "7629564420923426582",
         "payout_date": "2026-04-19",
         "settle_amount": 1.5,
@@ -11579,10 +11579,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-20 06:44:34"
+        "scraped_at": "2026-04-20 06:51:49"
       },
       {
-        "id": 7,
+        "id": 13,
         "payout_id": "7629192887402350358",
         "payout_date": "2026-04-17",
         "settle_amount": 8.09,
@@ -11592,10 +11592,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-20 06:44:34"
+        "scraped_at": "2026-04-20 06:51:49"
       },
       {
-        "id": 8,
+        "id": 14,
         "payout_id": "7628821601895745302",
         "payout_date": "2026-04-17",
         "settle_amount": 2.98,
@@ -11605,10 +11605,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-20 06:44:34"
+        "scraped_at": "2026-04-20 06:51:49"
       },
       {
-        "id": 9,
+        "id": 15,
         "payout_id": "7628449119582095126",
         "payout_date": "2026-04-16",
         "settle_amount": 1.2,
@@ -11618,10 +11618,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-20 06:44:34"
+        "scraped_at": "2026-04-20 06:51:49"
       },
       {
-        "id": 10,
+        "id": 16,
         "payout_id": "7627706038993618710",
         "payout_date": "2026-04-15",
         "settle_amount": 1.59,
@@ -11631,7 +11631,7 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-20 06:44:34"
+        "scraped_at": "2026-04-20 06:51:49"
       }
     ]
   },
@@ -15046,17 +15046,29 @@
     "机构佣金"
   ],
   "baseline": {
-    "电商出单": 1481,
-    "GMV": 18750.85,
-    "佣金": 3001.07,
-    "冻结金额": 173.57
+    "美区": {
+      "电商出单": 1481,
+      "GMV": 18750.85,
+      "佣金": 3001.07,
+      "冻结金额": 173.57
+    },
+    "EU": {}
   },
   "cumulative": {
-    "GMV": 19908.19,
-    "佣金": 4076.92,
-    "提现金额": 0,
-    "冻结金额": 173.57,
-    "电商出单": 1623
+    "美区": {
+      "GMV": 18808.66,
+      "佣金": 3010.26,
+      "提现金额": 0,
+      "冻结金额": 173.57,
+      "电商出单": 1484
+    },
+    "EU": {
+      "GMV": 1099.53,
+      "佣金": 1066.66,
+      "提现金额": 25.48,
+      "冻结金额": 0,
+      "电商出单": 139
+    }
   },
   "regions": [
     "美区",

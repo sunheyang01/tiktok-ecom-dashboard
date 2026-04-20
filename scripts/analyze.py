@@ -23,11 +23,16 @@ EU_METRICS = ["播放量", "完播率", "CTR", "CTOR"]  # EU区特有内容指�
 EU_COMMISSION_METRICS = ["基础佣金", "达人佣金", "机构佣金"]  # EU区订单佣金
 
 # 历史基线数据 (3.27之前的累计总数)
+# 按区域拆分——币种不同不能相加。3.27 基线全部来自美区（USD）；
+# EU 从 2026-04 才接入，无历史基线。
 BASELINE = {
-    "电商出单": 1481,
-    "GMV": 18750.85,
-    "佣金": 3001.07,
-    "冻结金额": 173.57,
+    "美区": {
+        "电商出单": 1481,
+        "GMV": 18750.85,
+        "佣金": 3001.07,
+        "冻结金额": 173.57,
+    },
+    "EU": {},
 }
 
 
@@ -371,19 +376,23 @@ def export_json(rows, daily_summary, account_summary):
     """导出 JSON 供 H5 看板使用"""
     os.makedirs(DOCS_DIR, exist_ok=True)
 
-    # 计算累计总数 = 基线 + 当前所有数据之和
-    current_totals = {}
-    for m in METRICS:
-        current_totals[m] = sum(r.get(m, 0) for r in rows)
-    cumulative = {}
-    for m in METRICS:
-        cumulative[m] = BASELINE.get(m, 0) + current_totals[m]
-
     # 读取视频明细
     video_details = read_video_details()
 
     # 读取 EU 付款账单（MCN机构整体打款，不按账号分配）
     eu_payouts = read_eu_payouts()
+
+    # 按区域计算累计总数 = 基线 + 当前数据之和（币种不同，不跨区合并）
+    cumulative = {}
+    for region in ("美区", "EU"):
+        region_rows = [r for r in rows if (r.get("区域") or "美区") == region]
+        base = BASELINE.get(region, {})
+        cumulative[region] = {
+            m: base.get(m, 0) + sum((r.get(m) or 0) for r in region_rows)
+            for m in METRICS
+        }
+    # EU 提现金额走 eu_payouts（records.提现金额 恒为 0）
+    cumulative["EU"]["提现金额"] = eu_payouts.get("total_settle", 0)
 
     # 全量数据
     output = {
