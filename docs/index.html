@@ -96,6 +96,7 @@
         <div id="dashboard" style="display:none;">
             <div class="tabs">
                 <button class="tab-btn active" data-tab="overview">日报</button>
+                <button class="tab-btn" data-tab="cumulative">累计</button>
                 <button class="tab-btn" data-tab="weekly">周报</button>
                 <button class="tab-btn" data-tab="monthly">月报</button>
                 <button class="tab-btn" data-tab="accounts">账号分析</button>
@@ -104,8 +105,6 @@
 
             <!-- 日报 -->
             <div class="tab-content active" id="tab-overview">
-                <div class="kpi-grid" id="cumulativeGrid"></div>
-                <div style="height:1px;background:var(--border);margin-bottom:24px;"></div>
                 <div class="kpi-grid" id="kpiGrid"></div>
                 <div class="charts-grid">
                     <div class="chart-card"><h3>GMV 趋势</h3><canvas id="chartGMV"></canvas></div>
@@ -123,6 +122,11 @@
                         <div class="chart-card"><h3>EU CTR / CTOR 趋势</h3><canvas id="chartCTR"></canvas></div>
                     </div>
                 </div>
+            </div>
+
+            <!-- 累计（全时段，不受日期筛选影响） -->
+            <div class="tab-content" id="tab-cumulative">
+                <div class="kpi-grid" id="cumulativeGrid"></div>
             </div>
 
             <!-- 周报 -->
