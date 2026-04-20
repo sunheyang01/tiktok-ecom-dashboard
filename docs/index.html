@@ -357,25 +357,56 @@ function renderCumulative(){
 
 function renderKPI(){
     const g=document.getElementById('kpiGrid');
-    const dates=[...new Set(filteredRecords.map(r=>r['日期']))].sort();
-    const lat=dates[dates.length-1],prev=dates[dates.length-2];
-    const wa=lat?(()=>{const d=new Date(lat+'T12:00:00');d.setDate(d.getDate()-7);return d.toLS();})():null;
-    const sum=d=>sumMetrics(filteredRecords.filter(r=>r['日期']===d));
-    const ts=lat?sum(lat):{},ps=prev?sum(prev):{},ws=wa?sum(wa):{};
+    // 改为"筛选范围合计"：所有筛选日期内的 metric 加总（而非只取最后一天）
+    const df=document.getElementById('dateFrom').value;
+    const dt=document.getElementById('dateTo').value;
+    const totals=sumMetrics(filteredRecords);  // 整个范围汇总
 
-    // EU 区：提现金额用 payouts 数据源（MCN整体打款按日期），覆盖 records 里的0
+    // 计算相同长度的上一段（用于"环比"）
+    function rangeDays(a,b){
+        if(!a||!b)return 1;
+        const d1=new Date(a+'T12:00:00'),d2=new Date(b+'T12:00:00');
+        return Math.max(1, Math.round((d2-d1)/86400000)+1);
+    }
+    const days=rangeDays(df,dt);
+    function shiftDate(s,n){const d=new Date(s+'T12:00:00');d.setDate(d.getDate()-n);return d.toLS();}
+    const prevFrom=df?shiftDate(df,days):null;
+    const prevTo=df?shiftDate(df,1):null;  // 上一段的结尾 = 当前范围开始前一天
+    // 上周同段（整段平移7天）
+    const lwFrom=df?shiftDate(df,7):null;
+    const lwTo=dt?shiftDate(dt,7):null;
+    function sumRange(from,to){
+        const pool=(rawData.records||[]).filter(r=>{
+            if((r['区域']||'美区')!==(document.getElementById('filterRegion').value||'美区')&&document.getElementById('filterRegion').value)return false;
+            const d=r['日期'];if(!d)return false;
+            if(from&&d<from)return false;if(to&&d>to)return false;
+            const a=document.getElementById('filterAccount').value;
+            const o=document.getElementById('filterOwner').value;
+            const s=document.getElementById('filterStatus').value;
+            if(a&&r['账号']!==a)return false;
+            if(o&&r['归属人']!==o)return false;
+            if(s&&r['账号状态']!==s)return false;
+            return true;
+        });
+        return sumMetrics(pool);
+    }
+    const prevTotals=prevFrom?sumRange(prevFrom,prevTo):{};
+    const lwTotals=lwFrom?sumRange(lwFrom,lwTo):{};
+
+    // EU 区：提现金额用 payouts 数据源（MCN整体打款按日期范围聚合）
     const rg=document.getElementById('filterRegion').value;
     if(rg==='EU'&&rawData.eu_payouts&&rawData.eu_payouts.by_date){
         const pb=rawData.eu_payouts.by_date;
-        const pay=d=>(pb[d]?pb[d].settle_amount||0:0);
-        if(lat) ts['提现金额']=pay(lat);
-        if(prev) ps['提现金额']=pay(prev);
-        if(wa) ws['提现金额']=pay(wa);
+        const sumPay=(from,to)=>{let s=0;Object.keys(pb).forEach(d=>{if(from&&d<from)return;if(to&&d>to)return;s+=pb[d].settle_amount||0;});return s;};
+        totals['提现金额']=sumPay(df,dt);
+        prevTotals['提现金额']=prevFrom?sumPay(prevFrom,prevTo):0;
+        lwTotals['提现金额']=lwFrom?sumPay(lwFrom,lwTo):0;
     }
 
+    const rangeLabel = (df&&dt&&df!==dt) ? `${df} ~ ${dt} 合计` : (df||'范围合计');
     g.innerHTML=METRICS.map(m=>{
-        const v=ts[m]||0,im=MONEY.includes(m);
-        return`<div class="kpi-card"><div class="label">${m}</div><div class="value" style="color:${MC[m]}">${fmt(v,im,curRegion())}</div><div class="change"><span>日环比 ${chg(pct(v,ps[m]||0))}</span><span>周同比 ${chg(pct(v,ws[m]||0))}</span></div></div>`;
+        const v=totals[m]||0,im=MONEY.includes(m);
+        return`<div class="kpi-card"><div class="label">${m} <span style="font-size:11px;color:#8b8fa3">（${rangeLabel}）</span></div><div class="value" style="color:${MC[m]}">${fmt(v,im,curRegion())}</div><div class="change"><span>环比上一段 ${chg(pct(v,prevTotals[m]||0))}</span><span>周同比 ${chg(pct(v,lwTotals[m]||0))}</span></div></div>`;
     }).join('');
 }
 
