@@ -270,6 +270,8 @@ function chg(p){const cls=p>0?'up':p<0?'down':'flat',a=p>0?'↑':p<0?'↓':'→'
 function stCls(s){if(!s)return'status-other';if(/正常|活跃|active/i.test(s))return'status-active';if(/封|停|ban|inactive/i.test(s))return'status-inactive';return'status-other';}
 function regionTag(r){if(r==='EU')return'<span class="region-tag region-eu">EU</span>';return'<span class="region-tag region-us">美区</span>';}
 function sumMetrics(rows){const s={};METRICS.forEach(m=>s[m]=rows.reduce((a,r)=>a+(r[m]||0),0));return s;}
+// EU 区提现金额单独从 eu_payouts.by_date 聚合（records.提现金额 恒为 0，见 dashboard.json）
+function sumEuPayout(from,to){const pb=(rawData&&rawData.eu_payouts&&rawData.eu_payouts.by_date)||{};let s=0;Object.keys(pb).forEach(d=>{if(from&&d<from)return;if(to&&d>to)return;s+=pb[d].settle_amount||0;});return s;}
 
 // ===== 日期工具 =====
 function getWeekRange(dateStr){
@@ -334,6 +336,18 @@ function applyFilters(){
         return true;
     });
     renderAll();
+}
+// 周报/月报用：不含日期筛选的记录池，保证上/下一周导航到筛选范围外时仍能看到数据
+function nonDateFilteredRecords(){
+    const a=document.getElementById('filterAccount').value,o=document.getElementById('filterOwner').value;
+    const s=document.getElementById('filterStatus').value,rg=document.getElementById('filterRegion').value;
+    return (rawData.records||[]).filter(r=>{
+        if(a&&r['账号']!==a)return false;
+        if(o&&r['归属人']!==o)return false;
+        if(s&&r['账号状态']!==s)return false;
+        if(rg&&(r['区域']||'美区')!==rg)return false;
+        return true;
+    });
 }
 document.querySelectorAll('.filters select,.filters input').forEach(el=>el.addEventListener('change',applyFilters));
 
@@ -493,9 +507,11 @@ function renderWeekly(){
     const [pws,pwe]=prevWeekRange(ws);
     document.getElementById('weeklyLabel').innerHTML=`${ws} ~ ${we} <span class="period-badge weekly">第${Math.ceil((new Date(ws+'T12:00:00').getDate()+new Date(ws+'T12:00:00').getDay())/7)}周</span>`;
 
-    const thisWeek=filterByRange(filteredRecords,ws,we);
-    const lastWeek=filterByRange(filteredRecords,pws,pwe);
+    const ndRec=nonDateFilteredRecords();
+    const thisWeek=filterByRange(ndRec,ws,we);
+    const lastWeek=filterByRange(ndRec,pws,pwe);
     const tw=sumMetrics(thisWeek), lw=sumMetrics(lastWeek);
+    if(curRegion()==='EU'){tw['提现金额']=sumEuPayout(ws,we);lw['提现金额']=sumEuPayout(pws,pwe);}
     const days=[...new Set(thisWeek.map(r=>r['日期']))].length;
 
     // KPI
@@ -542,9 +558,11 @@ function renderMonthly(){
     const mLabel=`${ms.slice(0,4)}年${parseInt(ms.slice(5,7))}月`;
     document.getElementById('monthlyLabel').innerHTML=`${mLabel} <span class="period-badge monthly">${ms} ~ ${me}</span>`;
 
-    const thisMonth=filterByRange(filteredRecords,ms,me);
-    const lastMonth=filterByRange(filteredRecords,pms,pme);
+    const ndRec=nonDateFilteredRecords();
+    const thisMonth=filterByRange(ndRec,ms,me);
+    const lastMonth=filterByRange(ndRec,pms,pme);
     const tm=sumMetrics(thisMonth), lm=sumMetrics(lastMonth);
+    if(curRegion()==='EU'){tm['提现金额']=sumEuPayout(ms,me);lm['提现金额']=sumEuPayout(pms,pme);}
     const days=[...new Set(thisMonth.map(r=>r['日期']))].length;
 
     // KPI
