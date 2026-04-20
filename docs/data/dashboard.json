@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-20 13:36:51",
+  "updated_at": "2026-04-20 14:45:23",
   "records": [
     {
       "GMV": 0,
@@ -11531,6 +11531,11 @@
   ],
   "eu_payouts": {
     "by_date": {
+      "2026-04-19": {
+        "settle_amount": 11.62,
+        "payment_amount": 106.78,
+        "count": 2
+      },
       "2026-04-17": {
         "settle_amount": 11.07,
         "payment_amount": 101.92,
@@ -11547,11 +11552,37 @@
         "count": 1
       }
     },
-    "total_settle": 13.86,
-    "total_payment": 127.49,
+    "total_settle": 25.48,
+    "total_payment": 234.27,
     "records": [
       {
-        "id": 1,
+        "id": 5,
+        "payout_id": "7630196635976419094",
+        "payout_date": "2026-04-19",
+        "settle_amount": 10.12,
+        "settle_currency": "£",
+        "exchange_rate": 9.1897,
+        "payment_amount": 93.0,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-04-20 06:44:34"
+      },
+      {
+        "id": 6,
+        "payout_id": "7629564420923426582",
+        "payout_date": "2026-04-19",
+        "settle_amount": 1.5,
+        "settle_currency": "£",
+        "exchange_rate": 9.1897,
+        "payment_amount": 13.78,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-04-20 06:44:34"
+      },
+      {
+        "id": 7,
         "payout_id": "7629192887402350358",
         "payout_date": "2026-04-17",
         "settle_amount": 8.09,
@@ -11561,10 +11592,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-17 08:37:02"
+        "scraped_at": "2026-04-20 06:44:34"
       },
       {
-        "id": 2,
+        "id": 8,
         "payout_id": "7628821601895745302",
         "payout_date": "2026-04-17",
         "settle_amount": 2.98,
@@ -11574,10 +11605,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-17 08:37:02"
+        "scraped_at": "2026-04-20 06:44:34"
       },
       {
-        "id": 3,
+        "id": 9,
         "payout_id": "7628449119582095126",
         "payout_date": "2026-04-16",
         "settle_amount": 1.2,
@@ -11587,10 +11618,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-17 08:37:02"
+        "scraped_at": "2026-04-20 06:44:34"
       },
       {
-        "id": 4,
+        "id": 10,
         "payout_id": "7627706038993618710",
         "payout_date": "2026-04-15",
         "settle_amount": 1.59,
@@ -11600,7 +11631,7 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-17 08:37:02"
+        "scraped_at": "2026-04-20 06:44:34"
       }
     ]
   },
