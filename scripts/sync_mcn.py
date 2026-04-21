@@ -36,15 +36,14 @@ def get_token():
 def read_mcn_data(db_path, days_back=1):
     """从MCN爬虫SQLite读取最近N天的数据。
 
-    口径 (2026-04-20 修正)：
-      - GMV / 电商出单 ← 从 daily_metrics 读（创作者分析页，= UI 显示的 GMV，含运费/税）
-          · order_details.gmv 仅等于「活动价×数量」，不等于 UI 的「佣金 GMV」
-          · 佣金 GMV 未在列表 API 暴露；创作者分析页的 gmv 字段即为 Σ(佣金 GMV)
-      - 佣金 ← 从 order_details.cos_base_amount 聚合（财务页订单，settle_status=2）
-          · 这是精准的「预计基础佣金」，与佣金基数一致
+    口径 (2026-04-21 修正)：
+      - GMV ← order_details.commission_gmv 聚合（= UI 红框「佣金 GMV」，含运费/税）
+          · 由 scrape_orders.py 额外调 /order/detail API 抓取
+          · 列表 API 只返回活动价，无佣金 GMV
+      - 电商出单 ← order_details SKU 行数（settle_status=2，待确认）
+      - 佣金 ← order_details.cos_base_amount（精准佣金基数）
       - 播放量 / 完播率 / CTR / CTOR ← daily_metrics（达人分析页）
-      - 提现金额 ← 不存飞书：payouts 表是 MCN 机构整体打款，不按账号拆分，
-        由 analyze.py 在 dashboard.json 里单独展示
+      - 提现金额 ← 不存飞书：payouts 表是 MCN 机构整体打款，不按账号拆分
     """
     if not os.path.exists(db_path):
         print(f"❌ 数据库不存在: {db_path}")
@@ -55,19 +54,21 @@ def read_mcn_data(db_path, days_back=1):
 
     start_date = (datetime.now() - timedelta(days=days_back)).strftime("%Y-%m-%d")
 
-    # 1) 内容指标 + GMV + 出单 ——来自达人分析页
+    # 1) 内容指标 ——来自达人分析页
     content_rows = conn.execute("""
         SELECT dm.creator_id, dm.date, c.creator_name, c.tiktok_handle,
-               dm.play_count, dm.completion_rate, dm.product_ctr, dm.product_ctor,
-               dm.gmv as dm_gmv, dm.order_count as dm_order_count
+               dm.play_count, dm.completion_rate, dm.product_ctr, dm.product_ctor
         FROM daily_metrics dm
         JOIN creators c ON dm.creator_id = c.creator_id
         WHERE dm.date >= ? AND dm.creator_id NOT LIKE 'test%'
     """, (start_date,)).fetchall()
 
-    # 2) 订单聚合（仅佣金，以财务页精准基数为准）
+    # 2) 订单聚合：GMV 用 commission_gmv（= UI 佣金 GMV），出单 = SKU 行数，佣金 = cos_base
+    #    commission_gmv 为 0 的订单用 gmv 兜底（老数据未补抓 detail API 的情况）
     order_aggs = conn.execute("""
         SELECT o.creator_id, o.order_date as date, c.creator_name,
+               COUNT(*) as sku_rows,
+               SUM(CASE WHEN o.commission_gmv > 0 THEN o.commission_gmv ELSE o.gmv END) as gmv,
                SUM(o.cos_base_amount) as cos_base
         FROM order_details o
         JOIN creators c ON o.creator_id = c.creator_id
@@ -91,15 +92,14 @@ def read_mcn_data(db_path, days_back=1):
             "completion_rate": r["completion_rate"] or 0,
             "product_ctr": r["product_ctr"] or 0,
             "product_ctor": r["product_ctor"] or 0,
-            "gmv": r["dm_gmv"] or 0,
-            "order_count": r["dm_order_count"] or 0,
+            "gmv": 0,
+            "order_count": 0,
             "cos_base": 0,
         }
-    # 订单数据仅覆盖佣金（GMV/出单 保留 daily_metrics 口径）
+    # 订单数据覆盖 GMV / 出单 / 佣金
     for (cid, d), agg in order_map.items():
         key = (cid, d)
         if key not in merged:
-            # 有订单但 daily_metrics 没记录（边界情况）：用订单表的 creator_name 补
             merged[key] = {
                 "creator_id": cid, "date": d,
                 "creator_name": agg["creator_name"], "tiktok_handle": "",
@@ -107,6 +107,8 @@ def read_mcn_data(db_path, days_back=1):
                 "product_ctr": 0, "product_ctor": 0,
                 "gmv": 0, "order_count": 0, "cos_base": 0,
             }
+        merged[key]["gmv"] = agg["gmv"] or 0
+        merged[key]["order_count"] = agg["sku_rows"] or 0
         merged[key]["cos_base"] = agg["cos_base"] or 0
 
     records = []
