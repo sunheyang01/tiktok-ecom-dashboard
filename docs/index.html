@@ -237,12 +237,7 @@
                             <select id="videoCreatorFilter" onchange="renderVideoDetail()" style="background:#1e2030;color:#e0e0ff;border:1px solid #3a3d50;border-radius:6px;padding:4px 10px;font-size:13px">
                                 <option value="">全部达人</option>
                             </select>
-                            <select id="videoRangeFilter" onchange="renderVideoDetail()" style="background:#1e2030;color:#e0e0ff;border:1px solid #3a3d50;border-radius:6px;padding:4px 10px;font-size:13px">
-                                <option value="">全部时间范围</option>
-                                <option value="1D">日报(1D)</option>
-                                <option value="7D">周报(7D)</option>
-                                <option value="28D">月报(28D)</option>
-                            </select>
+                            <span style="font-size:12px;color:#8b8fa3;align-self:center">（按顶部日期筛选过滤发布时间）</span>
                         </div>
                         <table id="videoDetailTable">
                             <thead><tr>
@@ -253,7 +248,7 @@
                                 <th data-sort="8">点赞</th><th data-sort="9">评论</th>
                                 <th data-sort="10">分享</th><th data-sort="11">新增关注</th>
                                 <th data-sort="12">直接GMV</th><th data-sort="13">千次曝光成交额</th>
-                                <th data-sort="14">挂车商品数</th><th data-sort="15">时间范围</th>
+                                <th data-sort="14">挂车商品数</th>
                             </tr></thead>
                             <tbody></tbody>
                         </table>
@@ -362,7 +357,7 @@ function nonDateFilteredRecords(){
 }
 document.querySelectorAll('.filters select,.filters input').forEach(el=>el.addEventListener('change',applyFilters));
 
-function renderAll(){renderCumulative();renderKPI();renderCharts();renderEU();renderWeekly();renderMonthly();renderAccountTab();renderDetail();}
+function renderAll(){renderCumulative();renderKPI();renderCharts();renderEU();renderWeekly();renderMonthly();renderAccountTab();renderDetail();renderVideoDetail();}
 
 // ===== 日报 =====
 function renderCumulative(){
@@ -695,25 +690,32 @@ function switchDetailSub(sub){
 }
 function renderVideoDetail(){
     const videos=rawData?.video_details||[];
-    if(!videos.length){document.querySelector('#videoDetailTable tbody').innerHTML='<tr><td colspan="16" style="text-align:center;color:#8b8fa3">暂无视频数据，请先运行爬虫</td></tr>';return;}
+    if(!videos.length){document.querySelector('#videoDetailTable tbody').innerHTML='<tr><td colspan="15" style="text-align:center;color:#8b8fa3">暂无视频数据，请先运行爬虫</td></tr>';return;}
     // Populate creator filter
     const sel=document.getElementById('videoCreatorFilter');
     const curVal=sel.value;
     const creators=[...new Set(videos.map(v=>v.creator_name).filter(Boolean))].sort();
     if(sel.options.length<=1){creators.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);});sel.value=curVal;}
-    // Filter
+    // Filter: creator + publish_time in 顶部 dateFrom/dateTo
     const cf=document.getElementById('videoCreatorFilter').value;
-    const rf=document.getElementById('videoRangeFilter').value;
+    const df=document.getElementById('dateFrom').value;  // "YYYY-MM-DD"
+    const dt=document.getElementById('dateTo').value;
     let filtered=videos;
     if(cf) filtered=filtered.filter(v=>v.creator_name===cf);
-    if(rf) filtered=filtered.filter(v=>v.date_range===rf);
+    if(df||dt) filtered=filtered.filter(v=>{
+        const pt=(v.publish_time||'').slice(0,10);  // "YYYY-MM-DD"
+        if(!pt) return false;
+        if(df && pt<df) return false;
+        if(dt && pt>dt) return false;
+        return true;
+    });
     filtered.sort((a,b)=>(b.watch_cnt||0)-(a.watch_cnt||0));
     document.getElementById('videoCount').textContent=`(${filtered.length}条)`;
     const tb=document.querySelector('#videoDetailTable tbody');
     tb.innerHTML=filtered.map(v=>{
         const dur=v.duration?`${v.duration}s`:'-';
         const vid=v.video_id||'-';
-        return`<tr><td title="${(v.title||'').replace(/"/g,'&quot;')}" style="font-family:monospace;font-size:12px">${vid}</td><td>${v.creator_name||'-'}</td><td>${v.publish_time||'-'}</td><td>${dur}</td><td>${(v.watch_cnt||0).toLocaleString()}</td><td>${v.finish_rate||0}%</td><td>${(v.ctr||0)}%</td><td>${(v.ctor||0)}%</td><td>${(v.like_cnt||0).toLocaleString()}</td><td>${(v.comment_cnt||0).toLocaleString()}</td><td>${(v.share_cnt||0).toLocaleString()}</td><td>${(v.new_follower_cnt||0).toLocaleString()}</td><td>£${(v.direct_gmv||0).toFixed(2)}</td><td>£${(v.direct_gpm||0).toFixed(2)}</td><td>${v.product_count||0}</td><td>${v.date_range||'-'}</td></tr>`;
+        return`<tr><td title="${(v.title||'').replace(/"/g,'&quot;')}" style="font-family:monospace;font-size:12px">${vid}</td><td>${v.creator_name||'-'}</td><td>${v.publish_time||'-'}</td><td>${dur}</td><td>${(v.watch_cnt||0).toLocaleString()}</td><td>${v.finish_rate||0}%</td><td>${(v.ctr||0)}%</td><td>${(v.ctor||0)}%</td><td>${(v.like_cnt||0).toLocaleString()}</td><td>${(v.comment_cnt||0).toLocaleString()}</td><td>${(v.share_cnt||0).toLocaleString()}</td><td>${(v.new_follower_cnt||0).toLocaleString()}</td><td>£${(v.direct_gmv||0).toFixed(2)}</td><td>£${(v.direct_gpm||0).toFixed(2)}</td><td>${v.product_count||0}</td></tr>`;
     }).join('');
 }
 
