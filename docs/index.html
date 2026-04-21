@@ -246,7 +246,7 @@
                         </div>
                         <table id="videoDetailTable">
                             <thead><tr>
-                                <th data-sort="0">视频标题</th><th data-sort="1">达人</th>
+                                <th data-sort="0">视频 ID</th><th data-sort="1">达人</th>
                                 <th data-sort="2">发布时间</th><th data-sort="3">时长</th>
                                 <th data-sort="4">播放量</th><th data-sort="5">完播率</th>
                                 <th data-sort="6">CTR</th><th data-sort="7">CTOR</th>
@@ -711,9 +711,9 @@ function renderVideoDetail(){
     document.getElementById('videoCount').textContent=`(${filtered.length}条)`;
     const tb=document.querySelector('#videoDetailTable tbody');
     tb.innerHTML=filtered.map(v=>{
-        const title=(v.title||'').length>40?(v.title.slice(0,40)+'…'):v.title||'-';
         const dur=v.duration?`${v.duration}s`:'-';
-        return`<tr><td title="${(v.title||'').replace(/"/g,'&quot;')}">${title}</td><td>${v.creator_name||'-'}</td><td>${v.publish_time||'-'}</td><td>${dur}</td><td>${(v.watch_cnt||0).toLocaleString()}</td><td>${v.finish_rate||0}%</td><td>${(v.ctr||0)}%</td><td>${(v.ctor||0)}%</td><td>${(v.like_cnt||0).toLocaleString()}</td><td>${(v.comment_cnt||0).toLocaleString()}</td><td>${(v.share_cnt||0).toLocaleString()}</td><td>${(v.new_follower_cnt||0).toLocaleString()}</td><td>£${(v.direct_gmv||0).toFixed(2)}</td><td>£${(v.direct_gpm||0).toFixed(2)}</td><td>${v.product_count||0}</td><td>${v.date_range||'-'}</td></tr>`;
+        const vid=v.video_id||'-';
+        return`<tr><td title="${(v.title||'').replace(/"/g,'&quot;')}" style="font-family:monospace;font-size:12px">${vid}</td><td>${v.creator_name||'-'}</td><td>${v.publish_time||'-'}</td><td>${dur}</td><td>${(v.watch_cnt||0).toLocaleString()}</td><td>${v.finish_rate||0}%</td><td>${(v.ctr||0)}%</td><td>${(v.ctor||0)}%</td><td>${(v.like_cnt||0).toLocaleString()}</td><td>${(v.comment_cnt||0).toLocaleString()}</td><td>${(v.share_cnt||0).toLocaleString()}</td><td>${(v.new_follower_cnt||0).toLocaleString()}</td><td>£${(v.direct_gmv||0).toFixed(2)}</td><td>£${(v.direct_gpm||0).toFixed(2)}</td><td>${v.product_count||0}</td><td>${v.date_range||'-'}</td></tr>`;
     }).join('');
 }
 
