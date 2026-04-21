@@ -108,7 +108,7 @@
                 <div class="kpi-grid" id="kpiGrid"></div>
                 <div class="charts-grid">
                     <div class="chart-card"><h3>GMV 趋势</h3><canvas id="chartGMV"></canvas></div>
-                    <div class="chart-card"><h3>佣金趋势</h3><canvas id="chartCommission"></canvas></div>
+                    <div class="chart-card"><h3>达人佣金趋势</h3><canvas id="chartCommission"></canvas></div>
                     <div class="chart-card"><h3>电商出单趋势</h3><canvas id="chartOrders"></canvas></div>
                     <div class="chart-card"><h3>提现 vs 冻结金额</h3><canvas id="chartCashFreeze"></canvas></div>
                 </div>
@@ -148,7 +148,7 @@
                     <table id="weeklyTable">
                         <thead><tr>
                             <th data-sort="0">账号</th><th data-sort="1">区域</th><th data-sort="2">归属人</th>
-                            <th data-sort="3">GMV</th><th data-sort="4">佣金</th><th data-sort="5">出单数</th>
+                            <th data-sort="3">GMV</th><th data-sort="4">达人佣金</th><th data-sort="5">出单数</th>
                             <th data-sort="6">日均GMV</th><th data-sort="7">周环比</th>
                         </tr></thead>
                         <tbody></tbody>
@@ -179,7 +179,7 @@
                     <table id="monthlyTable">
                         <thead><tr>
                             <th data-sort="0">账号</th><th data-sort="1">区域</th><th data-sort="2">归属人</th>
-                            <th data-sort="3">GMV</th><th data-sort="4">佣金</th><th data-sort="5">出单数</th>
+                            <th data-sort="3">GMV</th><th data-sort="4">达人佣金</th><th data-sort="5">出单数</th>
                             <th data-sort="6">日均GMV</th><th data-sort="7">月环比</th>
                         </tr></thead>
                         <tbody></tbody>
@@ -192,14 +192,14 @@
                 <div class="kpi-grid" id="accountKpi"></div>
                 <div class="charts-grid">
                     <div class="chart-card"><h3>账号 GMV 排名</h3><canvas id="chartAccountGMV"></canvas></div>
-                    <div class="chart-card"><h3>账号佣金排名</h3><canvas id="chartAccountComm"></canvas></div>
+                    <div class="chart-card"><h3>账号达人佣金排名</h3><canvas id="chartAccountComm"></canvas></div>
                 </div>
                 <div class="table-card">
                     <h3>账号汇总表</h3>
                     <table id="accountTable">
                         <thead><tr>
                             <th data-sort="0">账号</th><th data-sort="1">区域</th><th data-sort="2">归属人</th><th data-sort="3">状态</th>
-                            <th data-sort="4">GMV</th><th data-sort="5">佣金</th><th data-sort="6">提现金额</th>
+                            <th data-sort="4">GMV</th><th data-sort="5">达人佣金</th><th data-sort="6">提现金额</th>
                             <th data-sort="7">冻结金额</th><th data-sort="8">出单数</th>
                             <th data-sort="9">日环比GMV</th><th data-sort="10">周同比GMV</th>
                         </tr></thead>
@@ -221,7 +221,7 @@
                             <thead><tr>
                                 <th data-sort="0">日期</th><th data-sort="1">账号</th><th data-sort="2">区域</th>
                                 <th data-sort="3">归属人</th><th data-sort="4">状态</th>
-                                <th data-sort="5">GMV</th><th data-sort="6">佣金</th>
+                                <th data-sort="5">GMV</th><th data-sort="6">达人佣金</th>
                                 <th data-sort="7">提现金额</th><th data-sort="8">冻结金额</th><th data-sort="9">出单数</th>
                                 <th data-sort="10">播放量</th><th data-sort="11">完播率</th>
                                 <th data-sort="12">CTR</th><th data-sort="13">CTOR</th>
@@ -262,6 +262,10 @@
 <script>
 let rawData=null, filteredRecords=[], charts={}, sortState={}, weekOffset=0, monthOffset=0;
 const METRICS=["GMV","佣金","提现金额","冻结金额","电商出单"];
+// 显示名覆盖：records 里的字段 key 仍是"佣金"（兼容 Feishu schema），但 UI 展示为"达人佣金"
+// 因为 sync_mcn.py 现在写入的是 creator_cos_amount（分成前达人佣金），不是基础佣金基数
+const METRIC_LABEL={"佣金":"达人佣金"};
+const mLabel=(m)=>METRIC_LABEL[m]||m;
 const EU_METRICS=["播放量","完播率","CTR","CTOR"];
 const MONEY=["GMV","佣金","提现金额","冻结金额"];
 const C={blue:'#4e7cff',green:'#00c48c',red:'#ff4757',orange:'#ff9f43',purple:'#a855f7',cyan:'#06b6d4'};
@@ -365,7 +369,7 @@ function renderCumulative(){
     const items=[
         {label:'总订单量',key:'电商出单',color:C.purple,money:false},
         {label:'总 GMV',key:'GMV',color:C.blue,money:true},
-        {label:'总佣金',key:'佣金',color:C.green,money:true},
+        {label:'总达人佣金',key:'佣金',color:C.green,money:true},
         {label:'总提现金额',key:'提现金额',color:C.orange,money:true},
         {label:'总冻结金额',key:'冻结金额',color:C.red,money:true},
     ];
@@ -427,7 +431,7 @@ function renderKPI(){
     const rangeLabel = (df&&dt&&df!==dt) ? `${df} ~ ${dt} 合计` : (df||'范围合计');
     g.innerHTML=METRICS.map(m=>{
         const v=totals[m]||0,im=MONEY.includes(m);
-        return`<div class="kpi-card"><div class="label">${m} <span style="font-size:11px;color:#8b8fa3">（${rangeLabel}）</span></div><div class="value" style="color:${MC[m]}">${fmt(v,im,curRegion())}</div><div class="change"><span>环比上一段 ${chg(pct(v,prevTotals[m]||0))}</span><span>周同比 ${chg(pct(v,lwTotals[m]||0))}</span></div></div>`;
+        return`<div class="kpi-card"><div class="label">${mLabel(m)} <span style="font-size:11px;color:#8b8fa3">（${rangeLabel}）</span></div><div class="value" style="color:${MC[m]}">${fmt(v,im,curRegion())}</div><div class="change"><span>环比上一段 ${chg(pct(v,prevTotals[m]||0))}</span><span>周同比 ${chg(pct(v,lwTotals[m]||0))}</span></div></div>`;
     }).join('');
 }
 
@@ -436,7 +440,7 @@ function renderCharts(){
     filteredRecords.forEach(r=>{const d=r['日期'];if(!d)return;if(!dm[d])dm[d]={};METRICS.forEach(m=>dm[d][m]=(dm[d][m]||0)+(r[m]||0));});
     const dates=Object.keys(dm).sort();
     const co=(legend)=>({responsive:true,plugins:{legend:{display:!!legend,labels:{color:'#8b8fa3'}}},scales:{x:{ticks:{color:'#8b8fa3',maxRotation:45,maxTicksLimit:15},grid:{color:'#2a2d3a'}},y:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2d3a'}}}});
-    function mk(id,metric,color){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type:'line',data:{labels:dates,datasets:[{label:metric,data:dates.map(d=>dm[d][metric]||0),borderColor:color,backgroundColor:color+'20',fill:true,tension:0.3,pointRadius:2}]},options:co()});}
+    function mk(id,metric,color){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type:'line',data:{labels:dates,datasets:[{label:mLabel(metric),data:dates.map(d=>dm[d][metric]||0),borderColor:color,backgroundColor:color+'20',fill:true,tension:0.3,pointRadius:2}]},options:co()});}
     mk('chartGMV','GMV',C.blue);mk('chartCommission','佣金',C.green);mk('chartOrders','电商出单',C.purple);
     if(charts['chartCashFreeze'])charts['chartCashFreeze'].destroy();
     // 提现金额趋势：EU 区用 payouts 数据源按打款日
@@ -524,7 +528,7 @@ function renderWeekly(){
     // KPI
     document.getElementById('weeklyKpi').innerHTML=METRICS.map(m=>{
         const v=tw[m]||0,pv=lw[m]||0,im=MONEY.includes(m);
-        return`<div class="kpi-card"><div class="label">本周${m}</div><div class="value" style="color:${MC[m]}">${fmt(v,im,curRegion())}</div><div class="sub">日均: ${fmt(days?v/days:0,im,curRegion())}</div><div class="change"><span>周环比 ${chg(pct(v,pv))}</span></div></div>`;
+        return`<div class="kpi-card"><div class="label">本周${mLabel(m)}</div><div class="value" style="color:${MC[m]}">${fmt(v,im,curRegion())}</div><div class="sub">日均: ${fmt(days?v/days:0,im,curRegion())}</div><div class="change"><span>周环比 ${chg(pct(v,pv))}</span></div></div>`;
     }).join('');
 
     // 区域对比
@@ -532,8 +536,8 @@ function renderWeekly(){
     const euRows=thisWeek.filter(r=>(r['区域']||'美区')==='EU');
     const usS=sumMetrics(usRows), euS=sumMetrics(euRows);
     document.getElementById('weeklyRegionKpi').innerHTML=`
-        <div class="kpi-card"><div class="label">美区 GMV</div><div class="value" style="color:${C.blue}">${fmt(usS.GMV||0,1,'美区')}</div><div class="sub">出单: ${usS['电商出单']||0} | 佣金: ${fmt(usS['佣金']||0,1,'美区')}</div></div>
-        <div class="kpi-card"><div class="label">EU GMV</div><div class="value" style="color:${C.cyan}">${fmt(euS.GMV||0,1,'EU')}</div><div class="sub">出单: ${euS['电商出单']||0} | 佣金: ${fmt(euS['佣金']||0,1,'EU')}</div></div>
+        <div class="kpi-card"><div class="label">美区 GMV</div><div class="value" style="color:${C.blue}">${fmt(usS.GMV||0,1,'美区')}</div><div class="sub">出单: ${usS['电商出单']||0} | 达人佣金: ${fmt(usS['佣金']||0,1,'美区')}</div></div>
+        <div class="kpi-card"><div class="label">EU GMV</div><div class="value" style="color:${C.cyan}">${fmt(euS.GMV||0,1,'EU')}</div><div class="sub">出单: ${euS['电商出单']||0} | 达人佣金: ${fmt(euS['佣金']||0,1,'EU')}</div></div>
         <div class="kpi-card"><div class="label">活跃账号</div><div class="value" style="color:${C.green}">${new Set(thisWeek.filter(r=>(r['GMV']||0)>0).map(r=>r['账号'])).size}</div><div class="sub">总: ${new Set(thisWeek.map(r=>r['账号'])).size} 个账号</div></div>
         <div class="kpi-card"><div class="label">GMV占比</div><div class="value" style="color:${C.orange}">${tw.GMV?(usS.GMV/tw.GMV*100).toFixed(0):0}% / ${tw.GMV?(euS.GMV/tw.GMV*100).toFixed(0):0}%</div><div class="sub">美区 / EU</div></div>`;
 
@@ -575,7 +579,7 @@ function renderMonthly(){
     // KPI
     document.getElementById('monthlyKpi').innerHTML=METRICS.map(m=>{
         const v=tm[m]||0,pv=lm[m]||0,im=MONEY.includes(m);
-        return`<div class="kpi-card"><div class="label">本月${m}</div><div class="value" style="color:${MC[m]}">${fmt(v,im,curRegion())}</div><div class="sub">日均: ${fmt(days?v/days:0,im,curRegion())}</div><div class="change"><span>月环比 ${chg(pct(v,pv))}</span></div></div>`;
+        return`<div class="kpi-card"><div class="label">本月${mLabel(m)}</div><div class="value" style="color:${MC[m]}">${fmt(v,im,curRegion())}</div><div class="sub">日均: ${fmt(days?v/days:0,im,curRegion())}</div><div class="change"><span>月环比 ${chg(pct(v,pv))}</span></div></div>`;
     }).join('');
 
     // 区域对比
@@ -583,8 +587,8 @@ function renderMonthly(){
     const euRows=thisMonth.filter(r=>(r['区域']||'美区')==='EU');
     const usS=sumMetrics(usRows), euS=sumMetrics(euRows);
     document.getElementById('monthlyRegionKpi').innerHTML=`
-        <div class="kpi-card"><div class="label">美区 GMV</div><div class="value" style="color:${C.blue}">${fmt(usS.GMV||0,1,'美区')}</div><div class="sub">出单: ${usS['电商出单']||0} | 佣金: ${fmt(usS['佣金']||0,1,'美区')}</div></div>
-        <div class="kpi-card"><div class="label">EU GMV</div><div class="value" style="color:${C.cyan}">${fmt(euS.GMV||0,1,'EU')}</div><div class="sub">出单: ${euS['电商出单']||0} | 佣金: ${fmt(euS['佣金']||0,1,'EU')}</div></div>
+        <div class="kpi-card"><div class="label">美区 GMV</div><div class="value" style="color:${C.blue}">${fmt(usS.GMV||0,1,'美区')}</div><div class="sub">出单: ${usS['电商出单']||0} | 达人佣金: ${fmt(usS['佣金']||0,1,'美区')}</div></div>
+        <div class="kpi-card"><div class="label">EU GMV</div><div class="value" style="color:${C.cyan}">${fmt(euS.GMV||0,1,'EU')}</div><div class="sub">出单: ${euS['电商出单']||0} | 达人佣金: ${fmt(euS['佣金']||0,1,'EU')}</div></div>
         <div class="kpi-card"><div class="label">活跃账号</div><div class="value" style="color:${C.green}">${new Set(thisMonth.filter(r=>(r['GMV']||0)>0).map(r=>r['账号'])).size}</div><div class="sub">总: ${new Set(thisMonth.map(r=>r['账号'])).size} 个账号</div></div>
         <div class="kpi-card"><div class="label">GMV占比</div><div class="value" style="color:${C.orange}">${tm.GMV?(usS.GMV/tm.GMV*100).toFixed(0):0}% / ${tm.GMV?(euS.GMV/tm.GMV*100).toFixed(0):0}%</div><div class="sub">美区 / EU</div></div>`;
 
@@ -606,7 +610,7 @@ function renderMonthly(){
     thisMonth.forEach(r=>{const d=r['日期'];if(!d)return;const [wk]=getWeekRange(d);const label=`W${wk.slice(5)}`;if(!weeks[label])weeks[label]=[];weeks[label].push(r);});
     const wkLabels=Object.keys(weeks).sort();
     if(charts['chartMonthlyWeekTrend'])charts['chartMonthlyWeekTrend'].destroy();
-    charts['chartMonthlyWeekTrend']=new Chart(document.getElementById('chartMonthlyWeekTrend'),{type:'bar',data:{labels:wkLabels,datasets:[{label:'GMV',data:wkLabels.map(w=>sumMetrics(weeks[w]).GMV||0),backgroundColor:C.blue+'80',borderColor:C.blue,borderWidth:1},{label:'佣金',data:wkLabels.map(w=>sumMetrics(weeks[w])['佣金']||0),backgroundColor:C.green+'80',borderColor:C.green,borderWidth:1}]},options:co});
+    charts['chartMonthlyWeekTrend']=new Chart(document.getElementById('chartMonthlyWeekTrend'),{type:'bar',data:{labels:wkLabels,datasets:[{label:'GMV',data:wkLabels.map(w=>sumMetrics(weeks[w]).GMV||0),backgroundColor:C.blue+'80',borderColor:C.blue,borderWidth:1},{label:'达人佣金',data:wkLabels.map(w=>sumMetrics(weeks[w])['佣金']||0),backgroundColor:C.green+'80',borderColor:C.green,borderWidth:1}]},options:co});
 
     // 归属人贡献
     const owners={};

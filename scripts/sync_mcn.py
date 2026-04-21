@@ -63,13 +63,15 @@ def read_mcn_data(db_path, days_back=1):
         WHERE dm.date >= ? AND dm.creator_id NOT LIKE 'test%'
     """, (start_date,)).fetchall()
 
-    # 2) 订单聚合：GMV 用 commission_gmv（= UI 佣金 GMV），出单 = SKU 行数，佣金 = cos_base
-    #    commission_gmv 为 0 的订单用 gmv 兜底（老数据未补抓 detail API 的情况）
+    # 2) 订单聚合：
+    #    GMV = SUM(commission_gmv) 或 gmv 兜底（UI「佣金 GMV」含运费）
+    #    出单 = SKU 行数
+    #    佣金 = SUM(creator_cos_amount) 即「分成前达人佣金」（看板显示为"达人佣金"）
     order_aggs = conn.execute("""
         SELECT o.creator_id, o.order_date as date, c.creator_name,
                COUNT(*) as sku_rows,
                SUM(CASE WHEN o.commission_gmv > 0 THEN o.commission_gmv ELSE o.gmv END) as gmv,
-               SUM(o.cos_base_amount) as cos_base
+               SUM(o.creator_cos_amount) as cos_base
         FROM order_details o
         JOIN creators c ON o.creator_id = c.creator_id
         WHERE o.order_date >= ?
