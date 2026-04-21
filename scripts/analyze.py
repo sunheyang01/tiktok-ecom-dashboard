@@ -348,8 +348,9 @@ def read_video_details():
         rows = conn.execute("""
             SELECT video_id, creator_name, creator_handle, title,
                    publish_time, duration, watch_cnt, finish_rate,
-                   direct_gmv, direct_gpm, product_count, date_range,
-                   scraped_at
+                   direct_gmv, direct_gpm, product_count,
+                   ctr, ctor, like_cnt, comment_cnt, share_cnt, new_follower_cnt,
+                   date_range, scraped_at
             FROM video_details
             ORDER BY watch_cnt DESC
         """).fetchall()
