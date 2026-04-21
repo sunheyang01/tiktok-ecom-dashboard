@@ -249,8 +249,11 @@
                                 <th data-sort="0">视频标题</th><th data-sort="1">达人</th>
                                 <th data-sort="2">发布时间</th><th data-sort="3">时长</th>
                                 <th data-sort="4">播放量</th><th data-sort="5">完播率</th>
-                                <th data-sort="6">直接GMV</th><th data-sort="7">千次曝光成交额</th>
-                                <th data-sort="8">挂车商品数</th><th data-sort="9">时间范围</th>
+                                <th data-sort="6">CTR</th><th data-sort="7">CTOR</th>
+                                <th data-sort="8">点赞</th><th data-sort="9">评论</th>
+                                <th data-sort="10">分享</th><th data-sort="11">新增关注</th>
+                                <th data-sort="12">直接GMV</th><th data-sort="13">千次曝光成交额</th>
+                                <th data-sort="14">挂车商品数</th><th data-sort="15">时间范围</th>
                             </tr></thead>
                             <tbody></tbody>
                         </table>
@@ -692,7 +695,7 @@ function switchDetailSub(sub){
 }
 function renderVideoDetail(){
     const videos=rawData?.video_details||[];
-    if(!videos.length){document.querySelector('#videoDetailTable tbody').innerHTML='<tr><td colspan="10" style="text-align:center;color:#8b8fa3">暂无视频数据，请先运行爬虫</td></tr>';return;}
+    if(!videos.length){document.querySelector('#videoDetailTable tbody').innerHTML='<tr><td colspan="16" style="text-align:center;color:#8b8fa3">暂无视频数据，请先运行爬虫</td></tr>';return;}
     // Populate creator filter
     const sel=document.getElementById('videoCreatorFilter');
     const curVal=sel.value;
@@ -710,7 +713,7 @@ function renderVideoDetail(){
     tb.innerHTML=filtered.map(v=>{
         const title=(v.title||'').length>40?(v.title.slice(0,40)+'…'):v.title||'-';
         const dur=v.duration?`${v.duration}s`:'-';
-        return`<tr><td title="${(v.title||'').replace(/"/g,'&quot;')}">${title}</td><td>${v.creator_name||'-'}</td><td>${v.publish_time||'-'}</td><td>${dur}</td><td>${(v.watch_cnt||0).toLocaleString()}</td><td>${v.finish_rate||0}%</td><td>£${(v.direct_gmv||0).toFixed(2)}</td><td>£${(v.direct_gpm||0).toFixed(2)}</td><td>${v.product_count||0}</td><td>${v.date_range||'-'}</td></tr>`;
+        return`<tr><td title="${(v.title||'').replace(/"/g,'&quot;')}">${title}</td><td>${v.creator_name||'-'}</td><td>${v.publish_time||'-'}</td><td>${dur}</td><td>${(v.watch_cnt||0).toLocaleString()}</td><td>${v.finish_rate||0}%</td><td>${(v.ctr||0)}%</td><td>${(v.ctor||0)}%</td><td>${(v.like_cnt||0).toLocaleString()}</td><td>${(v.comment_cnt||0).toLocaleString()}</td><td>${(v.share_cnt||0).toLocaleString()}</td><td>${(v.new_follower_cnt||0).toLocaleString()}</td><td>£${(v.direct_gmv||0).toFixed(2)}</td><td>£${(v.direct_gpm||0).toFixed(2)}</td><td>${v.product_count||0}</td><td>${v.date_range||'-'}</td></tr>`;
     }).join('');
 }
 
