@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-21 20:23:56",
+  "updated_at": "2026-04-22 09:59:35",
   "records": [
     {
       "GMV": 0,
@@ -7869,10 +7869,10 @@
       "冻结金额": 0,
       "区域": "EU",
       "名称": "Pippa",
-      "完播率": 0,
+      "完播率": 470.73,
       "归属人": "-",
       "提现金额": 0,
-      "播放量": 0,
+      "播放量": 3909,
       "日期": "2026-04-20",
       "电商出单": 6,
       "账号": "Pippa",
@@ -8500,6 +8500,106 @@
       "基础佣金": 0,
       "达人佣金": 0,
       "机构佣金": 0
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 11.5,
+      "佣金": 0.63,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "GuaGua",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-04-21",
+      "电商出单": 1,
+      "账号": "GuaGua",
+      "账号状态": "正常",
+      "基础佣金": 6.27,
+      "达人佣金": 0.63,
+      "机构佣金": 0.62
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 38.03,
+      "佣金": 2.17,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "Sophia",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-04-21",
+      "电商出单": 4,
+      "账号": "Sophia",
+      "账号状态": "正常",
+      "基础佣金": 21.62,
+      "达人佣金": 2.17,
+      "机构佣金": 2.14
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 145.96,
+      "佣金": 14.56,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "Pippa",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-04-21",
+      "电商出单": 11,
+      "账号": "Pippa",
+      "账号状态": "正常",
+      "基础佣金": 149.76,
+      "达人佣金": 14.56,
+      "机构佣金": 14.370000000000001
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 34.01,
+      "佣金": 2.84,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "PawsomeChihuahua",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-04-22",
+      "电商出单": 1,
+      "账号": "PawsomeChihuahua",
+      "账号状态": "正常",
+      "基础佣金": 28.35,
+      "达人佣金": 2.84,
+      "机构佣金": 2.82
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 7.56,
+      "佣金": 0.76,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "Pippa",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-04-22",
+      "电商出单": 1,
+      "账号": "Pippa",
+      "账号状态": "正常",
+      "基础佣金": 7.64,
+      "达人佣金": 0.76,
+      "机构佣金": 0.75
     }
   ],
   "video_details": [
@@ -8510,10 +8610,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-05 22:53",
       "duration": 15,
-      "watch_cnt": 111675,
+      "watch_cnt": 112536,
       "finish_rate": 3.01,
       "direct_gmv": 622.83,
-      "direct_gpm": 5.58,
+      "direct_gpm": 5.53,
       "product_count": 1,
       "ctr": 1.36,
       "ctor": 3.79,
@@ -8521,8 +8621,8 @@
       "comment_cnt": 9,
       "share_cnt": 63,
       "new_follower_cnt": 29,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7621859791836548374",
@@ -8531,10 +8631,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-03-27 17:08",
       "duration": 15,
-      "watch_cnt": 42965,
-      "finish_rate": 2.84,
-      "direct_gmv": 445.42,
-      "direct_gpm": 10.37,
+      "watch_cnt": 43141,
+      "finish_rate": 2.87,
+      "direct_gmv": 471.58,
+      "direct_gpm": 10.93,
       "product_count": 1,
       "ctr": 1.59,
       "ctor": 6.57,
@@ -8542,8 +8642,8 @@
       "comment_cnt": 4,
       "share_cnt": 8,
       "new_follower_cnt": 3,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7629284764163263766",
@@ -8552,10 +8652,10 @@
       "title": "Cleaner teeth in a few minutes!! sake the dentist off 🙄  #oralhealth #oralhygiene #teethcare #bodycareroutine #tiktokmademebuyit ",
       "publish_time": "2026-04-16 17:21",
       "duration": 29,
-      "watch_cnt": 20359,
-      "finish_rate": 0.77,
-      "direct_gmv": 106.15,
-      "direct_gpm": 5.21,
+      "watch_cnt": 24453,
+      "finish_rate": 0.74,
+      "direct_gmv": 126.25,
+      "direct_gpm": 5.16,
       "product_count": 1,
       "ctr": 0.74,
       "ctor": 6.63,
@@ -8563,8 +8663,8 @@
       "comment_cnt": 0,
       "share_cnt": 10,
       "new_follower_cnt": 3,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7625285639763791126",
@@ -8573,10 +8673,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-05 22:42",
       "duration": 14,
-      "watch_cnt": 4758,
-      "finish_rate": 2.63,
+      "watch_cnt": 4842,
+      "finish_rate": 2.6,
       "direct_gmv": 21.23,
-      "direct_gpm": 4.46,
+      "direct_gpm": 4.38,
       "product_count": 1,
       "ctr": 1.03,
       "ctor": 4.0,
@@ -8584,8 +8684,8 @@
       "comment_cnt": 0,
       "share_cnt": 1,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627049943513042198",
@@ -8594,10 +8694,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-10 16:49",
       "duration": 15,
-      "watch_cnt": 4619,
-      "finish_rate": 2.49,
+      "watch_cnt": 4750,
+      "finish_rate": 2.48,
       "direct_gmv": 31.28,
-      "direct_gpm": 6.77,
+      "direct_gpm": 6.59,
       "product_count": 1,
       "ctr": 1.31,
       "ctor": 4.84,
@@ -8605,8 +8705,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7626668490103082262",
@@ -8615,10 +8715,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-09 16:09",
       "duration": 15,
-      "watch_cnt": 4568,
-      "finish_rate": 2.45,
+      "watch_cnt": 4670,
+      "finish_rate": 2.4,
       "direct_gmv": 32.41,
-      "direct_gpm": 7.1,
+      "direct_gpm": 6.94,
       "product_count": 1,
       "ctr": 1.26,
       "ctor": 5.08,
@@ -8626,8 +8726,8 @@
       "comment_cnt": 0,
       "share_cnt": 2,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7620746224697625878",
@@ -8636,10 +8736,10 @@
       "title": "Cleaner teeth in a few minutes!! sake the dentist off #oralhealth #oralhygiene #teethcare #bodycareroutine #tiktokmademebuyit ",
       "publish_time": "2026-03-24 17:07",
       "duration": 18,
-      "watch_cnt": 3392,
-      "finish_rate": 2.71,
+      "watch_cnt": 3417,
+      "finish_rate": 2.69,
       "direct_gmv": 42.46,
-      "direct_gpm": 12.52,
+      "direct_gpm": 12.43,
       "product_count": 1,
       "ctr": 1.76,
       "ctor": 6.67,
@@ -8647,8 +8747,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7625632122098683158",
@@ -8657,10 +8757,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-06 21:07",
       "duration": 14,
-      "watch_cnt": 2998,
+      "watch_cnt": 3003,
       "finish_rate": 3.6,
       "direct_gmv": 11.18,
-      "direct_gpm": 3.73,
+      "direct_gpm": 3.72,
       "product_count": 1,
       "ctr": 1.96,
       "ctor": 1.69,
@@ -8668,8 +8768,8 @@
       "comment_cnt": 0,
       "share_cnt": 2,
       "new_follower_cnt": 3,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7623716909321669910",
@@ -8678,10 +8778,10 @@
       "title": "one swipe the fog the dust the fingerprints gone,the triangle head hits every corner#caressentials #NoMoreStreaks #DrivinglnRain #tiktokmademebuyit #tiktokshop ",
       "publish_time": "2026-04-01 17:15",
       "duration": 20,
-      "watch_cnt": 2463,
-      "finish_rate": 0.93,
+      "watch_cnt": 2495,
+      "finish_rate": 0.92,
       "direct_gmv": 6.78,
-      "direct_gpm": 2.75,
+      "direct_gpm": 2.72,
       "product_count": 1,
       "ctr": 0.84,
       "ctor": 4.76,
@@ -8689,8 +8789,8 @@
       "comment_cnt": 0,
       "share_cnt": 2,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7625646469604920579",
@@ -8699,10 +8799,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-06 22:03",
       "duration": 15,
-      "watch_cnt": 2259,
-      "finish_rate": 3.41,
+      "watch_cnt": 2263,
+      "finish_rate": 3.45,
       "direct_gmv": 33.54,
-      "direct_gpm": 14.85,
+      "direct_gpm": 14.82,
       "product_count": 1,
       "ctr": 1.81,
       "ctor": 7.32,
@@ -8710,8 +8810,8 @@
       "comment_cnt": 0,
       "share_cnt": 4,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7620752710169627926",
@@ -8720,10 +8820,10 @@
       "title": "The amount of time and energy 1 have saved with this electric scrubbing brush is brilliant, it literally deans anything and does it in half the time #electricbrush  #cleaningbrush #deepclean #electriccleaningbrush #tiktokmademebuyit ",
       "publish_time": "2026-03-24 17:32",
       "duration": 21,
-      "watch_cnt": 2232,
-      "finish_rate": 3.76,
+      "watch_cnt": 2239,
+      "finish_rate": 3.75,
       "direct_gmv": 59.92,
-      "direct_gpm": 26.85,
+      "direct_gpm": 26.76,
       "product_count": 1,
       "ctr": 2.5,
       "ctor": 7.14,
@@ -8731,8 +8831,8 @@
       "comment_cnt": 0,
       "share_cnt": 2,
       "new_follower_cnt": 2,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628907807714151702",
@@ -8741,10 +8841,10 @@
       "title": "Cleaner teeth in a few minutes!! sake the dentist off 🙄  #oralhealth #oralhygiene #teethcare #bodycareroutine #tiktokmademebuyit ",
       "publish_time": "2026-04-15 16:58",
       "duration": 15,
-      "watch_cnt": 2123,
-      "finish_rate": 1.88,
+      "watch_cnt": 2192,
+      "finish_rate": 1.82,
       "direct_gmv": 18.37,
-      "direct_gpm": 8.65,
+      "direct_gpm": 8.38,
       "product_count": 1,
       "ctr": 0.64,
       "ctor": 14.29,
@@ -8752,8 +8852,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627494237977726230",
@@ -8762,10 +8862,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-11 21:33",
       "duration": 15,
-      "watch_cnt": 1560,
-      "finish_rate": 3.27,
+      "watch_cnt": 1563,
+      "finish_rate": 3.26,
       "direct_gmv": 11.18,
-      "direct_gpm": 7.17,
+      "direct_gpm": 7.15,
       "product_count": 1,
       "ctr": 2.24,
       "ctor": 2.86,
@@ -8773,8 +8873,8 @@
       "comment_cnt": 0,
       "share_cnt": 1,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7626311959004122390",
@@ -8783,7 +8883,7 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-08 17:05",
       "duration": 14,
-      "watch_cnt": 1494,
+      "watch_cnt": 1496,
       "finish_rate": 4.75,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
@@ -8794,8 +8894,8 @@
       "comment_cnt": 0,
       "share_cnt": 1,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7626327965269249302",
@@ -8804,10 +8904,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-08 18:07",
       "duration": 14,
-      "watch_cnt": 1477,
-      "finish_rate": 3.72,
+      "watch_cnt": 1482,
+      "finish_rate": 3.71,
       "direct_gmv": 10.46,
-      "direct_gpm": 7.08,
+      "direct_gpm": 7.06,
       "product_count": 1,
       "ctr": 2.43,
       "ctor": 2.78,
@@ -8815,8 +8915,29 @@
       "comment_cnt": 1,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
+      "video_id": "7625947488863702294",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
+      "publish_time": "2026-04-07 17:31",
+      "duration": 15,
+      "watch_cnt": 1376,
+      "finish_rate": 5.38,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 3.49,
+      "ctor": 0.0,
+      "like_cnt": 2,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624933977916329238",
@@ -8836,29 +8957,8 @@
       "comment_cnt": 0,
       "share_cnt": 1,
       "new_follower_cnt": 2,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7625947488863702294",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
-      "publish_time": "2026-04-07 17:31",
-      "duration": 15,
-      "watch_cnt": 1365,
-      "finish_rate": 5.42,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 3.49,
-      "ctor": 0.0,
-      "like_cnt": 2,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627097859640397078",
@@ -8867,10 +8967,10 @@
       "title": "Large Capacity Moving Luggage Packing BagThickened Durable Waterproof Wear-resistantClothing Bag Organiser #bag #luggage #tiktokshop #movinghome #lifehack ",
       "publish_time": "2026-04-10 19:55",
       "duration": 14,
-      "watch_cnt": 1263,
-      "finish_rate": 4.43,
+      "watch_cnt": 1271,
+      "finish_rate": 4.41,
       "direct_gmv": 26.7,
-      "direct_gpm": 21.14,
+      "direct_gpm": 21.01,
       "product_count": 1,
       "ctr": 4.17,
       "ctor": 3.77,
@@ -8878,8 +8978,8 @@
       "comment_cnt": 0,
       "share_cnt": 3,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624927502858734870",
@@ -8888,8 +8988,8 @@
       "title": "one swipe the fog the dust the fingerprints gone,the triangle head hits every corner#caressentials #NoMoreStreaks #DrivinglnRain #winter #tiktokmademebuyit ",
       "publish_time": "2026-04-04 23:33",
       "duration": 14,
-      "watch_cnt": 1222,
-      "finish_rate": 3.76,
+      "watch_cnt": 1235,
+      "finish_rate": 3.72,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -8899,8 +8999,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628541840161180930",
@@ -8909,8 +9009,8 @@
       "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
       "publish_time": "2026-04-14 17:18",
       "duration": 15,
-      "watch_cnt": 1201,
-      "finish_rate": 3.5,
+      "watch_cnt": 1202,
+      "finish_rate": 3.49,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -8920,8 +9020,8 @@
       "comment_cnt": 0,
       "share_cnt": 1,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624453585283190038",
@@ -8941,8 +9041,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627500768127438102",
@@ -8962,8 +9062,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7626688856082943255",
@@ -8983,8 +9083,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624093295332953366",
@@ -9004,8 +9104,8 @@
       "comment_cnt": 0,
       "share_cnt": 1,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7622233196696046870",
@@ -9014,8 +9114,8 @@
       "title": "one swipe the fog the dust the fingerprints gone,the triangle head hits every corner#caressentials #NoMoreStreaks #DrivinglnRain #tik #tiktokshop ",
       "publish_time": "2026-03-28 17:17",
       "duration": 23,
-      "watch_cnt": 955,
-      "finish_rate": 1.57,
+      "watch_cnt": 968,
+      "finish_rate": 1.55,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -9025,8 +9125,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7623725606735203606",
@@ -9035,10 +9135,10 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-01 17:49",
       "duration": 13,
-      "watch_cnt": 944,
-      "finish_rate": 3.18,
+      "watch_cnt": 946,
+      "finish_rate": 3.17,
       "direct_gmv": 10.05,
-      "direct_gpm": 10.65,
+      "direct_gpm": 10.62,
       "product_count": 1,
       "ctr": 0.95,
       "ctor": 11.11,
@@ -9046,8 +9146,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624463161294392598",
@@ -9067,8 +9167,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7621867663769341206",
@@ -9088,8 +9188,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628212073834597654",
@@ -9109,8 +9209,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628557213291924758",
@@ -9119,8 +9219,8 @@
       "title": "Cleaner teeth in a few minutes!! sake the dentist off 🙄  #oralhealth #oralhygiene #teethcare #bodycareroutine #tiktokmademebuyit ",
       "publish_time": "2026-04-14 18:18",
       "duration": 15,
-      "watch_cnt": 838,
-      "finish_rate": 4.06,
+      "watch_cnt": 841,
+      "finish_rate": 4.04,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -9130,8 +9230,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7620461574825708822",
@@ -9151,8 +9251,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628170610778180886",
@@ -9161,7 +9261,7 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-13 17:18",
       "duration": 14,
-      "watch_cnt": 806,
+      "watch_cnt": 807,
       "finish_rate": 3.97,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
@@ -9172,8 +9272,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7625276822535556374",
@@ -9182,7 +9282,7 @@
       "title": "one swipe the fog the dust the fingerprints gone,the triangle head hits every corner#caressentials #NoMoreStreaks #DrivinglnRain #winter #tiktokmademebuyit ",
       "publish_time": "2026-04-05 22:08",
       "duration": 23,
-      "watch_cnt": 805,
+      "watch_cnt": 806,
       "finish_rate": 1.86,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
@@ -9193,8 +9293,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7622639504037285142",
@@ -9214,8 +9314,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7629284789719158038",
@@ -9298,8 +9398,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7623356263455280406",
@@ -9319,8 +9419,8 @@
       "comment_cnt": 1,
       "share_cnt": 0,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630515634375478531",
@@ -9329,8 +9429,8 @@
       "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
       "publish_time": "2026-04-20 00:57",
       "duration": 12,
-      "watch_cnt": 718,
-      "finish_rate": 4.87,
+      "watch_cnt": 721,
+      "finish_rate": 4.85,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -9340,8 +9440,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630143465032125718",
@@ -9361,8 +9461,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627804687026097430",
@@ -9382,29 +9482,29 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
-      "video_id": "7622977105755704598",
+      "video_id": "7630498673448717590",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
-      "title": "can’t believe I actually managed to sell Pyjamas - 3 sets as well to one buyer! The tool is a must have for any clothes, especially knitwear #vinted #vintedtips #vintedseller #vintedhacks #tiktokmademebuyit ",
-      "publish_time": "2026-03-30 17:24",
-      "duration": 16,
-      "watch_cnt": 661,
-      "finish_rate": 4.84,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
+      "publish_time": "2026-04-19 23:52",
+      "duration": 14,
+      "watch_cnt": 684,
+      "finish_rate": 4.39,
+      "direct_gmv": 11.18,
+      "direct_gpm": 16.35,
       "product_count": 1,
-      "ctr": 2.27,
-      "ctor": 0.0,
-      "like_cnt": 2,
+      "ctr": 1.9,
+      "ctor": 7.69,
+      "like_cnt": 1,
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630778029907741974",
@@ -9428,13 +9528,34 @@
       "scraped_at": "2026-04-21 11:54:58"
     },
     {
+      "video_id": "7622977105755704598",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "can’t believe I actually managed to sell Pyjamas - 3 sets as well to one buyer! The tool is a must have for any clothes, especially knitwear #vinted #vintedtips #vintedseller #vintedhacks #tiktokmademebuyit ",
+      "publish_time": "2026-03-30 17:24",
+      "duration": 16,
+      "watch_cnt": 661,
+      "finish_rate": 4.84,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 2.27,
+      "ctor": 0.0,
+      "like_cnt": 2,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
       "video_id": "7622972908318543126",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
       "title": "Instant hot & cold water… YES PLEASE😍 This also gets rid of 99% of bacteria that comes from your tap water!!😱#waterfilter #cleanwater #thewatery #waterfiltration #tiktokmademebuyit ",
       "publish_time": "2026-03-30 17:08",
       "duration": 17,
-      "watch_cnt": 656,
+      "watch_cnt": 657,
       "finish_rate": 1.98,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
@@ -9445,8 +9566,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627058757062626582",
@@ -9466,8 +9587,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7622631497283112214",
@@ -9487,8 +9608,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 2,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624951043050294550",
@@ -9508,8 +9629,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628914595666644246",
@@ -9518,8 +9639,8 @@
       "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #teethcare ",
       "publish_time": "2026-04-15 17:25",
       "duration": 14,
-      "watch_cnt": 628,
-      "finish_rate": 3.5,
+      "watch_cnt": 632,
+      "finish_rate": 3.48,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -9529,8 +9650,29 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
+      "video_id": "7629657380485123350",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
+      "publish_time": "2026-04-17 17:27",
+      "duration": 14,
+      "watch_cnt": 621,
+      "finish_rate": 2.42,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 2.09,
+      "ctor": 0.0,
+      "like_cnt": 1,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628549381163076886",
@@ -9550,29 +9692,8 @@
       "comment_cnt": 1,
       "share_cnt": 2,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7629657380485123350",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
-      "publish_time": "2026-04-17 17:27",
-      "duration": 14,
-      "watch_cnt": 602,
-      "finish_rate": 2.49,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 2.09,
-      "ctor": 0.0,
-      "like_cnt": 1,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624083946980101398",
@@ -9592,8 +9713,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624074824360430870",
@@ -9613,8 +9734,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7629300501019888918",
@@ -9634,8 +9755,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7625639369084423427",
@@ -9644,8 +9765,8 @@
       "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
       "publish_time": "2026-04-06 21:35",
       "duration": 14,
-      "watch_cnt": 551,
-      "finish_rate": 2.18,
+      "watch_cnt": 553,
+      "finish_rate": 2.17,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -9655,8 +9776,8 @@
       "comment_cnt": 0,
       "share_cnt": 1,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7623351000295918870",
@@ -9676,8 +9797,29 @@
       "comment_cnt": 3,
       "share_cnt": 1,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
+      "video_id": "7630506176370822422",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
+      "publish_time": "2026-04-20 00:21",
+      "duration": 16,
+      "watch_cnt": 494,
+      "finish_rate": 4.66,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 1.82,
+      "ctor": 0.0,
+      "like_cnt": 1,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7621494048024579350",
@@ -9697,29 +9839,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7630498673448717590",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
-      "publish_time": "2026-04-19 23:52",
-      "duration": 14,
-      "watch_cnt": 468,
-      "finish_rate": 3.85,
-      "direct_gmv": 11.18,
-      "direct_gpm": 23.89,
-      "product_count": 1,
-      "ctr": 1.9,
-      "ctor": 7.69,
-      "like_cnt": 1,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7621485741293571350",
@@ -9739,8 +9860,8 @@
       "comment_cnt": 1,
       "share_cnt": 0,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7625981137025764631",
@@ -9760,29 +9881,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7630506176370822422",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
-      "publish_time": "2026-04-20 00:21",
-      "duration": 16,
-      "watch_cnt": 298,
-      "finish_rate": 7.05,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 1.82,
-      "ctor": 0.0,
-      "like_cnt": 1,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7621116467181915414",
@@ -9802,8 +9902,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624446882286259478",
@@ -9823,8 +9923,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7626679404944477462",
@@ -9844,8 +9944,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7622239653147495702",
@@ -9865,8 +9965,29 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
+      "video_id": "7630148879782038806",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
+      "publish_time": "2026-04-19 01:14",
+      "duration": 15,
+      "watch_cnt": 253,
+      "finish_rate": 3.56,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 2.37,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628165926222859542",
@@ -9886,29 +10007,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7630148879782038806",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
-      "publish_time": "2026-04-19 01:14",
-      "duration": 15,
-      "watch_cnt": 241,
-      "finish_rate": 3.73,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 2.37,
-      "ctor": 0.0,
-      "like_cnt": 0,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628922780578303254",
@@ -9917,8 +10017,8 @@
       "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
       "publish_time": "2026-04-15 17:56",
       "duration": 13,
-      "watch_cnt": 235,
-      "finish_rate": 7.23,
+      "watch_cnt": 236,
+      "finish_rate": 7.2,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -9928,8 +10028,8 @@
       "comment_cnt": 2,
       "share_cnt": 0,
       "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627815201617906967",
@@ -9938,8 +10038,8 @@
       "title": "I don’t know how but it also smells incredible 😩🤌🏼 #stainremoverpen #stainremover #clumsylife #tiktokshop #tiktokmademebuyit ",
       "publish_time": "2026-04-12 18:18",
       "duration": 13,
-      "watch_cnt": 228,
-      "finish_rate": 0.88,
+      "watch_cnt": 229,
+      "finish_rate": 0.87,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -9949,8 +10049,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7621116674204388630",
@@ -9970,8 +10070,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630762657687129366",
@@ -10012,8 +10112,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7623710498575502614",
@@ -10033,8 +10133,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7625954693969333507",
@@ -10054,8 +10154,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630153886313270550",
@@ -10064,8 +10164,8 @@
       "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
       "publish_time": "2026-04-19 01:34",
       "duration": 14,
-      "watch_cnt": 202,
-      "finish_rate": 2.97,
+      "watch_cnt": 204,
+      "finish_rate": 2.94,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -10075,8 +10175,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627797367508438274",
@@ -10096,8 +10196,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7629276342890040598",
@@ -10106,7 +10206,7 @@
       "title": "Cleaner teeth in a few minutes!! sake the dentist off 🙄  #oralhealth #oralhygiene #teethcare #bodycareroutine #tiktokmademebuyit ",
       "publish_time": "2026-04-16 16:48",
       "duration": 15,
-      "watch_cnt": 194,
+      "watch_cnt": 195,
       "finish_rate": 1.03,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
@@ -10117,29 +10217,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7622984845110594838",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "Instant hot & cold water… YES PLEASE😍 This also gets rid of 99% of bacteria that comes from your tap water!!😱#waterfilter #cleanwater #thewatery #waterfiltration #tiktokmademebuyit ",
-      "publish_time": "2026-03-30 17:54",
-      "duration": 18,
-      "watch_cnt": 192,
-      "finish_rate": 3.13,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 2.6,
-      "ctor": 0.0,
-      "like_cnt": 3,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 1,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7629293354022489366",
@@ -10163,6 +10242,27 @@
       "scraped_at": "2026-04-21 11:54:58"
     },
     {
+      "video_id": "7622984845110594838",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "Instant hot & cold water… YES PLEASE😍 This also gets rid of 99% of bacteria that comes from your tap water!!😱#waterfilter #cleanwater #thewatery #waterfiltration #tiktokmademebuyit ",
+      "publish_time": "2026-03-30 17:54",
+      "duration": 18,
+      "watch_cnt": 192,
+      "finish_rate": 3.13,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 2.6,
+      "ctor": 0.0,
+      "like_cnt": 3,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 1,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
       "video_id": "7618527170117405975",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
@@ -10180,29 +10280,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7629625794645495062",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
-      "publish_time": "2026-04-17 15:24",
-      "duration": 15,
-      "watch_cnt": 174,
-      "finish_rate": 3.45,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 1.72,
-      "ctor": 0.0,
-      "like_cnt": 0,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628213027136916758",
@@ -10224,6 +10303,48 @@
       "new_follower_cnt": 1,
       "date_range": "28D",
       "scraped_at": "2026-04-21 11:54:58"
+    },
+    {
+      "video_id": "7629625794645495062",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
+      "publish_time": "2026-04-17 15:24",
+      "duration": 15,
+      "watch_cnt": 174,
+      "finish_rate": 3.45,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 1.72,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
+      "video_id": "7630762964089441538",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
+      "publish_time": "2026-04-20 16:57",
+      "duration": 15,
+      "watch_cnt": 153,
+      "finish_rate": 4.58,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 1.96,
+      "ctor": 0.0,
+      "like_cnt": 1,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630506809526062358",
@@ -10253,8 +10374,8 @@
       "title": "I don’t know how but it also smells incredible 😩🤌🏼 #stainremoverpen #stainremover #clumsylife #tiktokmademebuyit #tiktokshop ",
       "publish_time": "2026-03-21 22:58",
       "duration": 18,
-      "watch_cnt": 130,
-      "finish_rate": 3.08,
+      "watch_cnt": 131,
+      "finish_rate": 3.05,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
       "product_count": 1,
@@ -10264,8 +10385,29 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
+      "video_id": "7630769681615359254",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
+      "publish_time": "2026-04-20 17:23",
+      "duration": 15,
+      "watch_cnt": 119,
+      "finish_rate": 3.36,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 2.52,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7618524102671781142",
@@ -10285,8 +10427,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7617203585608142102",
@@ -10306,8 +10448,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7629657580423449878",
@@ -10348,8 +10490,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630154493811805462",
@@ -10371,6 +10513,27 @@
       "new_follower_cnt": 0,
       "date_range": "28D",
       "scraped_at": "2026-04-21 11:54:58"
+    },
+    {
+      "video_id": "7630777938606099734",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #viral ",
+      "publish_time": "2026-04-20 17:55",
+      "duration": 15,
+      "watch_cnt": 26,
+      "finish_rate": 3.85,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630515806295624982",
@@ -10432,8 +10595,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7627492520594902294",
@@ -10474,8 +10637,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7618155631551237398",
@@ -10495,8 +10658,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7628166162798365974",
@@ -10513,6 +10676,27 @@
       "ctr": 2.14,
       "ctor": 0.0,
       "like_cnt": 1,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "28D",
+      "scraped_at": "2026-04-21 11:54:58"
+    },
+    {
+      "video_id": "7630149410768309526",
+      "creator_name": "Pippa",
+      "creator_handle": "xingyowpo5q",
+      "title": "Large Capacity Moving Luggage Packing BagThickened Durable Waterproof Wear-resistantClothing Bag Organiser #bag #luggage #tiktokshop #movinghome #lifehacks ",
+      "publish_time": "2026-04-19 01:16",
+      "duration": 14,
+      "watch_cnt": 7,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 1.33,
+      "ctor": 0.0,
+      "like_cnt": 2,
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
@@ -10537,8 +10721,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7616298384617393430",
@@ -10558,29 +10742,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7630149410768309526",
-      "creator_name": "Pippa",
-      "creator_handle": "xingyowpo5q",
-      "title": "Large Capacity Moving Luggage Packing BagThickened Durable Waterproof Wear-resistantClothing Bag Organiser #bag #luggage #tiktokshop #movinghome #lifehacks ",
-      "publish_time": "2026-04-19 01:16",
-      "duration": 14,
-      "watch_cnt": 7,
-      "finish_rate": 0.0,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 1.33,
-      "ctor": 0.0,
-      "like_cnt": 2,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 11:54:58"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7620464802988690710",
@@ -10589,7 +10752,7 @@
       "title": "one swipe the fog the dust the fingerprints gone, the triangle head hits every corner#caressentials #NoMoreStreaks #DrivingInRain #tiktokmademebuylt #tiktokshop ",
       "publish_time": "2026-03-23 22:55",
       "duration": 20,
-      "watch_cnt": 5,
+      "watch_cnt": 6,
       "finish_rate": 0.0,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
@@ -10600,71 +10763,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7626317497100274966",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
-      "publish_time": "2026-04-08 17:26",
-      "duration": 14,
-      "watch_cnt": 4,
-      "finish_rate": 50.0,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 0.0,
-      "ctor": 0.0,
-      "like_cnt": 0,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7623390996998704387",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "Tooth scaling and toothbrush all in one get it now #viral #tooth #brush #cleaner #tiktokmademebuyit ",
-      "publish_time": "2026-03-31 20:10",
-      "duration": 14,
-      "watch_cnt": 4,
-      "finish_rate": 0.0,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 0.0,
-      "ctor": 0.0,
-      "like_cnt": 0,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7615937916723809558",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "Window Clean 🫧 #CleanTok #windowcleaning #tiktokmademebuyit #dealdrops #asmrcleaning ",
-      "publish_time": "2026-03-11 18:08",
-      "duration": 17,
-      "watch_cnt": 4,
-      "finish_rate": 0.0,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 0.0,
-      "ctor": 0.0,
-      "like_cnt": 0,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7629626230228225302",
@@ -10688,13 +10788,34 @@
       "scraped_at": "2026-04-21 11:54:58"
     },
     {
-      "video_id": "7618901890419526934",
+      "video_id": "7626317497100274966",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
-      "title": "Cleaning Brush in a flash sale #cleaningbrush #brush #cleaninghacks #deantok ",
-      "publish_time": "2026-03-19 17:50",
-      "duration": 22,
-      "watch_cnt": 3,
+      "title": "Tooth scaling and toothbrush all in one get it now #tiktokshop #tooth #brush #cleaner #tiktokmademebuyit ",
+      "publish_time": "2026-04-08 17:26",
+      "duration": 14,
+      "watch_cnt": 4,
+      "finish_rate": 50.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
+      "video_id": "7623390996998704387",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "Tooth scaling and toothbrush all in one get it now #viral #tooth #brush #cleaner #tiktokmademebuyit ",
+      "publish_time": "2026-03-31 20:10",
+      "duration": 14,
+      "watch_cnt": 4,
       "finish_rate": 0.0,
       "direct_gmv": 0.0,
       "direct_gpm": 0.0,
@@ -10705,8 +10826,29 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
+      "video_id": "7615937916723809558",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "Window Clean 🫧 #CleanTok #windowcleaning #tiktokmademebuyit #dealdrops #asmrcleaning ",
+      "publish_time": "2026-03-11 18:08",
+      "duration": 17,
+      "watch_cnt": 4,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7624079660506221846",
@@ -10751,6 +10893,27 @@
       "scraped_at": "2026-04-21 11:54:58"
     },
     {
+      "video_id": "7618901890419526934",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "Cleaning Brush in a flash sale #cleaningbrush #brush #cleaninghacks #deantok ",
+      "publish_time": "2026-03-19 17:50",
+      "duration": 22,
+      "watch_cnt": 3,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
       "video_id": "7620033531414203670",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
@@ -10768,8 +10931,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7618160063596793110",
@@ -10789,29 +10952,8 @@
       "comment_cnt": 0,
       "share_cnt": 0,
       "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
-    },
-    {
-      "video_id": "7619265546420456727",
-      "creator_name": "Sophia",
-      "creator_handle": "sunheuyp1h1",
-      "title": "This Might Be the Best Thing I've Bought This Year GB #tiktokmademebuyit #tiktokshop #viral #trending #uktiktok ",
-      "publish_time": "2026-03-20 17:21",
-      "duration": 18,
-      "watch_cnt": 1,
-      "finish_rate": 0.0,
-      "direct_gmv": 0.0,
-      "direct_gpm": 0.0,
-      "product_count": 1,
-      "ctr": 0.0,
-      "ctor": 0.0,
-      "like_cnt": 0,
-      "comment_cnt": 0,
-      "share_cnt": 0,
-      "new_follower_cnt": 0,
-      "date_range": "28D",
-      "scraped_at": "2026-04-21 03:02:08"
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
     },
     {
       "video_id": "7630144537272405270",
@@ -10982,6 +11124,27 @@
       "scraped_at": "2026-04-21 11:54:58"
     },
     {
+      "video_id": "7619265546420456727",
+      "creator_name": "Sophia",
+      "creator_handle": "sunheuyp1h1",
+      "title": "This Might Be the Best Thing I've Bought This Year GB #tiktokmademebuyit #tiktokshop #viral #trending #uktiktok ",
+      "publish_time": "2026-03-20 17:21",
+      "duration": 18,
+      "watch_cnt": 1,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-04-22 01:57:06"
+    },
+    {
       "video_id": "7627797416594509078",
       "creator_name": "Pippa",
       "creator_handle": "xingyowpo5q",
@@ -11005,6 +11168,11 @@
   ],
   "eu_payouts": {
     "by_date": {
+      "2026-04-22": {
+        "settle_amount": 1.36,
+        "payment_amount": 12.49,
+        "count": 1
+      },
       "2026-04-19": {
         "settle_amount": 11.62,
         "payment_amount": 106.78,
@@ -11026,11 +11194,24 @@
         "count": 1
       }
     },
-    "total_settle": 25.48,
-    "total_payment": 234.27,
+    "total_settle": 26.84,
+    "total_payment": 246.76,
     "records": [
       {
-        "id": 17,
+        "id": 23,
+        "payout_id": "7630307721699247894",
+        "payout_date": "2026-04-22",
+        "settle_amount": 1.36,
+        "settle_currency": "£",
+        "exchange_rate": 9.183,
+        "payment_amount": 12.49,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-04-22 01:58:56"
+      },
+      {
+        "id": 24,
         "payout_id": "7630196635976419094",
         "payout_date": "2026-04-19",
         "settle_amount": 10.12,
@@ -11040,10 +11221,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-21 03:04:29"
+        "scraped_at": "2026-04-22 01:58:56"
       },
       {
-        "id": 18,
+        "id": 25,
         "payout_id": "7629564420923426582",
         "payout_date": "2026-04-19",
         "settle_amount": 1.5,
@@ -11053,10 +11234,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-21 03:04:29"
+        "scraped_at": "2026-04-22 01:58:56"
       },
       {
-        "id": 19,
+        "id": 26,
         "payout_id": "7629192887402350358",
         "payout_date": "2026-04-17",
         "settle_amount": 8.09,
@@ -11066,10 +11247,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-21 03:04:29"
+        "scraped_at": "2026-04-22 01:58:56"
       },
       {
-        "id": 20,
+        "id": 27,
         "payout_id": "7628821601895745302",
         "payout_date": "2026-04-17",
         "settle_amount": 2.98,
@@ -11079,10 +11260,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-21 03:04:29"
+        "scraped_at": "2026-04-22 01:58:56"
       },
       {
-        "id": 21,
+        "id": 28,
         "payout_id": "7628449119582095126",
         "payout_date": "2026-04-16",
         "settle_amount": 1.2,
@@ -11092,10 +11273,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-21 03:04:29"
+        "scraped_at": "2026-04-22 01:58:56"
       },
       {
-        "id": 22,
+        "id": 29,
         "payout_id": "7627706038993618710",
         "payout_date": "2026-04-15",
         "settle_amount": 1.59,
@@ -11105,7 +11286,7 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-04-21 03:04:29"
+        "scraped_at": "2026-04-22 01:58:56"
       }
     ]
   },
@@ -11251,11 +11432,18 @@
       "电商出单": 9.0
     },
     "2026-04-21": {
-      "GMV": 0.0,
-      "佣金": 0.0,
+      "GMV": 195.49,
+      "佣金": 17.36,
       "提现金额": 0.0,
       "冻结金额": 0.0,
-      "电商出单": 0.0
+      "电商出单": 16.0
+    },
+    "2026-04-22": {
+      "GMV": 41.57,
+      "佣金": 3.5999999999999996,
+      "提现金额": 0.0,
+      "冻结金额": 0.0,
+      "电商出单": 2.0
     }
   },
   "account_summary": {
@@ -13530,11 +13718,11 @@
       "归属人": "-",
       "账号状态": "正常",
       "total": {
-        "GMV": 44.53,
-        "佣金": 3.04,
+        "GMV": 56.03,
+        "佣金": 3.67,
         "提现金额": 0.0,
         "冻结金额": 0.0,
-        "电商出单": 3.0
+        "电商出单": 4.0
       },
       "daily": {
         "2026-04-08": {
@@ -13627,6 +13815,13 @@
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 0.0
+        },
+        "2026-04-21": {
+          "GMV": 11.5,
+          "佣金": 0.63,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 1.0
         }
       }
     },
@@ -13946,11 +14141,11 @@
       "归属人": "-",
       "账号状态": "正常",
       "total": {
-        "GMV": 56.699999999999996,
-        "佣金": 4.74,
+        "GMV": 90.71,
+        "佣金": 7.58,
         "提现金额": 0.0,
         "冻结金额": 0.0,
-        "电商出单": 3.0
+        "电商出单": 4.0
       },
       "daily": {
         "2026-04-08": {
@@ -14050,6 +14245,13 @@
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 0.0
+        },
+        "2026-04-22": {
+          "GMV": 34.01,
+          "佣金": 2.84,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 1.0
         }
       }
     },
@@ -14161,11 +14363,11 @@
       "归属人": "-",
       "账号状态": "正常",
       "total": {
-        "GMV": 1241.5299999999997,
-        "佣金": 79.80999999999999,
+        "GMV": 1279.5599999999997,
+        "佣金": 81.97999999999999,
         "提现金额": 0.0,
         "冻结金额": 0.0,
-        "电商出单": 116.0
+        "电商出单": 120.0
       },
       "daily": {
         "2026-04-08": {
@@ -14262,6 +14464,13 @@
         "2026-04-20": {
           "GMV": 46.26,
           "佣金": 3.05,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 4.0
+        },
+        "2026-04-21": {
+          "GMV": 38.03,
+          "佣金": 2.17,
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 4.0
@@ -14376,11 +14585,11 @@
       "归属人": "-",
       "账号状态": "正常",
       "total": {
-        "GMV": 345.52,
-        "佣金": 31.67,
+        "GMV": 499.04,
+        "佣金": 46.99,
         "提现金额": 0.0,
         "冻结金额": 0.0,
-        "电商出单": 29.0
+        "电商出单": 41.0
       },
       "daily": {
         "2026-04-13": {
@@ -14470,6 +14679,20 @@
         "2026-04-07": {
           "GMV": 12.99,
           "佣金": 1.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 1.0
+        },
+        "2026-04-21": {
+          "GMV": 145.96,
+          "佣金": 14.56,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 11.0
+        },
+        "2026-04-22": {
+          "GMV": 7.56,
+          "佣金": 0.76,
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 1.0
@@ -14761,11 +14984,11 @@
       "电商出单": 1484
     },
     "EU": {
-      "GMV": 1831.25,
-      "佣金": 129.81,
-      "提现金额": 25.48,
+      "GMV": 2068.31,
+      "佣金": 150.77,
+      "提现金额": 26.84,
       "冻结金额": 0,
-      "电商出单": 162
+      "电商出单": 180
     }
   },
   "regions": [
