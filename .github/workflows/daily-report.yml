@@ -1,9 +1,11 @@
 name: 每日电商数据分析
 
 on:
-  schedule:
-    # 每天下午2点 (北京时间 UTC+8) = UTC 06:00
-    - cron: '0 6 * * *'
+  # cron 已停用：GitHub Actions runner 上没有 tiktok-mcn-scraper SQLite 数据库，
+  # 跑出来的 dashboard.json EU 区订单佣金会全是 0（merge_order_commissions 直接 skip），
+  # 反而会覆盖本地 launchd 推上来的正确版本。改为仅手动触发兜底。
+  # schedule:
+  #   - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
