@@ -455,7 +455,13 @@ function renderEU(){
     if(euRecords.length===0){section.style.display='none';return;}
     section.style.display='block';
     const dates=[...new Set(euRecords.map(r=>r['日期']))].sort();
-    const lat=dates[dates.length-1];
+    // KPI 用「最近一天有 CTR/CTOR 数据的日期」，避免最新日期数据未全（如 settle_status 延迟）
+    // 时 KPI 显示 0% 误导。从最新日期往前找，找到有内容指标数据的那一天。
+    let lat=dates[dates.length-1];
+    for(let i=dates.length-1;i>=0;i--){
+        const rs=euRecords.filter(r=>r['日期']===dates[i]);
+        if(rs.some(r=>(r['CTR']||0)>0 || (r['CTOR']||0)>0)){lat=dates[i];break;}
+    }
     const todayEU=euRecords.filter(r=>r['日期']===lat);
 
     // Commission KPIs — sum across all filtered EU records (not just latest day)
@@ -486,11 +492,12 @@ function renderEU(){
     const avgCR=avg(todayEU.map(r=>r['完播率']||0));
     const avgCTR=avg(todayEU.map(r=>r['CTR']||0));
     const avgCTOR=avg(todayEU.map(r=>r['CTOR']||0));
+    const latLabel=lat?` (${lat})`:'';
     document.getElementById('euKpiGrid').innerHTML=[
-        {label:'今日播放量',value:totalPlays.toLocaleString(),color:C.cyan},
-        {label:'平均完播率',value:avgCR.toFixed(2)+'%',color:C.green},
-        {label:'平均CTR',value:avgCTR.toFixed(2)+'%',color:C.orange},
-        {label:'平均CTOR',value:avgCTOR.toFixed(2)+'%',color:C.purple},
+        {label:'播放量'+latLabel,value:totalPlays.toLocaleString(),color:C.cyan},
+        {label:'平均完播率'+latLabel,value:avgCR.toFixed(2)+'%',color:C.green},
+        {label:'平均CTR'+latLabel,value:avgCTR.toFixed(2)+'%',color:C.orange},
+        {label:'平均CTOR'+latLabel,value:avgCTOR.toFixed(2)+'%',color:C.purple},
     ].map(it=>`<div class="kpi-card"><div class="label">${it.label}</div><div class="value" style="color:${it.color}">${it.value}</div></div>`).join('');
     const dm={};
     euRecords.forEach(r=>{const d=r['日期'];if(!d)return;if(!dm[d]){dm[d]={plays:0,ctr:[],ctor:[]};}dm[d].plays+=(r['播放量']||0);dm[d].ctr.push(r['CTR']||0);dm[d].ctor.push(r['CTOR']||0);});
