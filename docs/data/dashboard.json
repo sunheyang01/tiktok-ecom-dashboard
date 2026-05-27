@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-26 16:26:04",
+  "updated_at": "2026-05-27 12:16:56",
   "records": [
     {
       "GMV": 0,
@@ -25404,8 +25404,8 @@
     {
       "CTOR": 0,
       "CTR": 0,
-      "GMV": 8.98,
-      "佣金": 0.5,
+      "GMV": 107.45,
+      "佣金": 6.52,
       "冻结金额": 0,
       "区域": "EU",
       "名称": "simplelifeto",
@@ -25414,18 +25414,18 @@
       "提现金额": 0,
       "播放量": 0,
       "日期": "2026-05-26",
-      "电商出单": 1,
+      "电商出单": 12,
       "账号": "simplelifeto",
       "账号状态": "正常",
-      "基础佣金": 5.0,
-      "达人佣金": 0.5,
-      "机构佣金": 0.5
+      "基础佣金": 65.18,
+      "达人佣金": 6.52,
+      "机构佣金": 6.51
     },
     {
       "CTOR": 0,
       "CTR": 0,
-      "GMV": 14.39,
-      "佣金": 1.41,
+      "GMV": 75.54,
+      "佣金": 7.43,
       "冻结金额": 0,
       "区域": "EU",
       "名称": "Tiny Pet Moments",
@@ -25434,15 +25434,876 @@
       "提现金额": 0,
       "播放量": 0,
       "日期": "2026-05-26",
-      "电商出单": 1,
+      "电商出单": 3,
       "账号": "Tiny Pet Moments",
       "账号状态": "正常",
-      "基础佣金": 11.26,
-      "达人佣金": 1.41,
-      "机构佣金": 1.4
+      "基础佣金": 59.36,
+      "达人佣金": 7.43,
+      "机构佣金": 7.359999999999999
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 60.32,
+      "佣金": 3.66,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "Sophia",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-05-26",
+      "电商出单": 6,
+      "账号": "Sophia",
+      "账号状态": "正常",
+      "基础佣金": 36.379999999999995,
+      "达人佣金": 3.66,
+      "机构佣金": 3.5999999999999996
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 78.67,
+      "佣金": 7.35,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "Pippa",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-05-26",
+      "电商出单": 4,
+      "账号": "Pippa",
+      "账号状态": "正常",
+      "基础佣金": 60.93,
+      "达人佣金": 7.35,
+      "机构佣金": 7.28
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 30.22,
+      "佣金": 2.48,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "Sophia",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-05-27",
+      "电商出单": 2,
+      "账号": "Sophia",
+      "账号状态": "正常",
+      "基础佣金": 24.74,
+      "达人佣金": 2.48,
+      "机构佣金": 2.45
+    },
+    {
+      "CTOR": 0,
+      "CTR": 0,
+      "GMV": 117.3,
+      "佣金": 12.18,
+      "冻结金额": 0,
+      "区域": "EU",
+      "名称": "Tiny Pet Moments",
+      "完播率": 0,
+      "归属人": "-",
+      "提现金额": 0,
+      "播放量": 0,
+      "日期": "2026-05-27",
+      "电商出单": 4,
+      "账号": "Tiny Pet Moments",
+      "账号状态": "正常",
+      "基础佣金": 97.36,
+      "达人佣金": 12.18,
+      "机构佣金": 12.06
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "prog821",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-22",
+      "电商出单": 0,
+      "账号": "prog821",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "rememb596",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-22",
+      "电商出单": 0,
+      "账号": "rememb596",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Lily Carter",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-22",
+      "电商出单": 0,
+      "账号": "lilycarter112",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Emma Brooks",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-22",
+      "电商出单": 0,
+      "账号": "emmabrooks062",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "lightsteps",
+      "归属人": "祖依",
+      "提现金额": 0,
+      "日期": "2026-05-22",
+      "电商出单": 0,
+      "账号": "lightsteps91",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "prog821",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "prog821",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "rememb596",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "rememb596",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Lily Carter",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "lilycarter112",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Emma Brooks",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "emmabrooks062",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "lightsteps",
+      "归属人": "祖依",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "lightsteps91",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Ethan",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "jeffetianoa",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "prog821",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "prog821",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "rememb596",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "rememb596",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Lily Carter",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "lilycarter112",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Emma Brooks",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "emmabrooks062",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "lightsteps",
+      "归属人": "祖依",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "lightsteps91",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Ethan",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "jeffetianoa",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "prog821",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "prog821",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "rememb596",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "rememb596",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Lily Carter",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "lilycarter112",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Emma Brooks",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "emmabrooks062",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "lightsteps",
+      "归属人": "祖依",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "lightsteps91",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Ethan",
+      "归属人": "一凡",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "jeffetianoa",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "PawsPlot",
+      "归属人": "张涛",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "gsutlmarte2",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "DogwihAttityde",
+      "归属人": "张涛",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "lila.bryant",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "PawsPlot",
+      "归属人": "张涛",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "gsutlmarte2",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "DogwihAttityde",
+      "归属人": "张涛",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "lila.bryant",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "PawsPlot",
+      "归属人": "张涛",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "gsutlmarte2",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "DogwihAttityde",
+      "归属人": "张涛",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "lila.bryant",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "DFKHUTER",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "DFKHUTER",
+      "账号状态": "封禁",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Evelyn",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "@michabnkfcf",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "enjoyusahbsc001",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-25",
+      "电商出单": 0,
+      "账号": "enjoyusahbsc001",
+      "账号状态": "封禁",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "DFKHUTER",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "DFKHUTER",
+      "账号状态": "封禁",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Evelyn",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "@michabnkfcf",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "enjoyusahbsc001",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-26",
+      "电商出单": 0,
+      "账号": "enjoyusahbsc001",
+      "账号状态": "封禁",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "DFKHUTER",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "DFKHUTER",
+      "账号状态": "封禁",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "Evelyn",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "@michabnkfcf",
+      "账号状态": "正常",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
+    },
+    {
+      "GMV": 0,
+      "佣金": 0,
+      "冻结金额": 0,
+      "区域": "美区",
+      "名称": "enjoyusahbsc001",
+      "归属人": "葛兆镭",
+      "提现金额": 0,
+      "日期": "2026-05-27",
+      "电商出单": 0,
+      "账号": "enjoyusahbsc001",
+      "账号状态": "封禁",
+      "播放量": 0,
+      "完播率": 0,
+      "CTR": 0,
+      "CTOR": 0,
+      "基础佣金": 0,
+      "达人佣金": 0,
+      "机构佣金": 0
     }
   ],
   "video_details": [
+    {
+      "video_id": "7637052546053426454",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Stop wasting your money at body shops! 🛑 This scratch removal wax is a total game-changer. Just rub it in and watch the scratches vanish. 🤯 BOGO DEAL active for the next 24 hours! ⏰ Click the link to secure yours now! 👇🛒#tiktokshopfinds #mechanichacks #carsecret #scratchremover #musthaves  ",
+      "publish_time": "2026-05-07 15:44",
+      "duration": 18,
+      "watch_cnt": 276138,
+      "finish_rate": 3.66,
+      "direct_gmv": 2627.15,
+      "direct_gpm": 9.51,
+      "product_count": 1,
+      "ctr": 1.94,
+      "ctor": 5.44,
+      "like_cnt": 832,
+      "comment_cnt": 65,
+      "share_cnt": 396,
+      "new_follower_cnt": 156,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
     {
       "video_id": "7630506176370822422",
       "creator_name": "Sophia",
@@ -25675,6 +26536,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7631498851328822550",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "#tiktokshopfinds #mechanichacks #carsecret #savemoney #tiktokmademebuylt ",
+      "publish_time": "2026-04-22 16:33",
+      "duration": 14,
+      "watch_cnt": 2030,
+      "finish_rate": 3.35,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.99,
+      "ctor": 0.0,
+      "like_cnt": 10,
+      "comment_cnt": 0,
+      "share_cnt": 1,
+      "new_follower_cnt": 2,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7641126113493912855",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
@@ -25694,6 +26576,27 @@
       "new_follower_cnt": 0,
       "date_range": "",
       "scraped_at": "2026-05-20 03:05:43"
+    },
+    {
+      "video_id": "7643376062943989014",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "These interior dressings keep your car looking BRAND NEW 🚗✨ #detailing #carcare #carcleaning #cartok #tiktokmademebuyit",
+      "publish_time": "2026-05-24 16:42",
+      "duration": 17,
+      "watch_cnt": 1641,
+      "finish_rate": 2.86,
+      "direct_gmv": 17.68,
+      "direct_gpm": 10.77,
+      "product_count": 1,
+      "ctr": 1.34,
+      "ctor": 9.09,
+      "like_cnt": 4,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
     },
     {
       "video_id": "7620746224697625878",
@@ -25778,6 +26681,27 @@
       "new_follower_cnt": 0,
       "date_range": "",
       "scraped_at": "2026-05-20 03:05:43"
+    },
+    {
+      "video_id": "7643738905539497219",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "These interior dressings keep your car looking BRAND NEW 🚗✨ #detailing #carcare #carcleaning #cartok #tiktokmademebuylt ",
+      "publish_time": "2026-05-25 16:11",
+      "duration": 16,
+      "watch_cnt": 995,
+      "finish_rate": 5.33,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 2.41,
+      "ctor": 0.0,
+      "like_cnt": 4,
+      "comment_cnt": 1,
+      "share_cnt": 1,
+      "new_follower_cnt": 1,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
     },
     {
       "video_id": "7640778334657449238",
@@ -26158,6 +27082,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7636678913359580418",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Why have I been using the big vacuum and wrecking my back this whole time 🤦🏻‍♀️ #cordlessvacuum #vacuum #CleanTok #tiktokmademebuyit #dealdrops ",
+      "publish_time": "2026-05-06 15:34",
+      "duration": 24,
+      "watch_cnt": 621,
+      "finish_rate": 2.42,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.97,
+      "ctor": 0.0,
+      "like_cnt": 4,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7641167469847301379",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
@@ -26368,6 +27313,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7642610974419094806",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "I can't believe it tufrned out so well. Disclaimer: FInal price, shipping costs, coupons, and discounts may vary and are subject to change at any time. #tiktokshoppcreatorpicks#HolidayHustle #fyp #tiktokshop ",
+      "publish_time": "2026-05-22 15:14",
+      "duration": 21,
+      "watch_cnt": 559,
+      "finish_rate": 3.4,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 4.83,
+      "ctor": 0.0,
+      "like_cnt": 1,
+      "comment_cnt": 0,
+      "share_cnt": 2,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7633331838571810070",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
@@ -26513,6 +27479,27 @@
       "new_follower_cnt": 0,
       "date_range": "",
       "scraped_at": "2026-05-20 03:05:43"
+    },
+    {
+      "video_id": "7631120306098294019",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "#tiktokshopfinds #mechanichacks #carsecret #savemoney #tiktokmademebuylt ",
+      "publish_time": "2026-04-21 16:04",
+      "duration": 15,
+      "watch_cnt": 507,
+      "finish_rate": 2.37,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.69,
+      "ctor": 0.0,
+      "like_cnt": 3,
+      "comment_cnt": 1,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
     },
     {
       "video_id": "7640034518296038678",
@@ -26725,6 +27712,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7643057761982369046",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "These interior dressings keep your car looking BRAND NEW 🚗✨ #detailing #carcare #carcleaning #cartok #tiktokmademebuyit",
+      "publish_time": "2026-05-23 20:07",
+      "duration": 15,
+      "watch_cnt": 242,
+      "finish_rate": 4.96,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 1.65,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7637781138689363222",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
@@ -26744,6 +27752,27 @@
       "new_follower_cnt": 0,
       "date_range": "",
       "scraped_at": "2026-05-20 03:05:43"
+    },
+    {
+      "video_id": "7641167338301082902",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "This Made My Car Smell Incredible & Look Brand New 🚗🔥 #detailing #carcare #carcleaning #cartok #tiktokmademebuyit ",
+      "publish_time": "2026-05-18 17:52",
+      "duration": 16,
+      "watch_cnt": 239,
+      "finish_rate": 4.18,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 2.09,
+      "ctor": 0.0,
+      "like_cnt": 3,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
     },
     {
       "video_id": "7625632122098683158",
@@ -27922,6 +28951,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7631133697508494614",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "#carbootstorage #cartok #dealdrops #tiktokmademebuylt #carhacks ",
+      "publish_time": "2026-04-21 16:56",
+      "duration": 18,
+      "watch_cnt": 20,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7627492520594902294",
       "creator_name": "Pippa",
       "creator_handle": "xingyowpo5q",
@@ -28111,6 +29161,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7626692739962424579",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Large Capacity Moving Luggage Packing BagThickened Durable Waterproof Wear-resistantClothing Bag Organiser#bag #luggage #tiktokshop #movinghome #lifehacks ",
+      "publish_time": "2026-04-09 17:43",
+      "duration": 15,
+      "watch_cnt": 13,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7619723375677689110",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
@@ -28172,6 +29243,48 @@
       "new_follower_cnt": 0,
       "date_range": "28D",
       "scraped_at": "2026-04-21 11:54:58"
+    },
+    {
+      "video_id": "7636693520476015894",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Stop wasting your money at body shops! 🛑 This scratch removal wax is a total game-changer. Just rub it in and watch the scratches vanish. 🤯 BOGO DEAL active for the next 24 hours! ⏰ Click the link to secure yours now! 👇🛒 #mechanichacks #carsecret #scratchremover #musthaves  #savemoney ",
+      "publish_time": "2026-05-06 16:31",
+      "duration": 18,
+      "watch_cnt": 10,
+      "finish_rate": 20.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 10.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7635565359239679254",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Why have I been using the big vacuum and wrecking my back this whole time 🤦🏻‍♀️ #cordlessvacuum #vacuum #CleanTok #tiktokmademebuyit #dealdrops ",
+      "publish_time": "2026-05-03 15:33",
+      "duration": 18,
+      "watch_cnt": 10,
+      "finish_rate": 10.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
     },
     {
       "video_id": "7624083946980101398",
@@ -28237,6 +29350,48 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7637429172100549910",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Stop wasting your money at body shops! 🛑 This scratch removal wax is a total game-changer. Just rub it in and watch the scratches vanish. 🤯 BOGO DEAL active for the next 24 hours! ⏰ Click the link to secure yours now! 👇🛒#tiktokshopfinds #mechanichacks #carsecret #scratchremover #musthaves  ",
+      "publish_time": "2026-05-08 16:05",
+      "duration": 18,
+      "watch_cnt": 8,
+      "finish_rate": 25.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7616284350165830934",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "These are a must for this winter weather ✨❄️#girlstuff #girlthings #girlythings #pinterestaesthetic #blanket ",
+      "publish_time": "2026-03-12 16:33",
+      "duration": 15,
+      "watch_cnt": 8,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7630149410768309526",
       "creator_name": "Pippa",
       "creator_handle": "xingyowpo5q",
@@ -28298,6 +29453,90 @@
       "new_follower_cnt": 0,
       "date_range": "",
       "scraped_at": "2026-05-20 03:05:43"
+    },
+    {
+      "video_id": "7623725496718658838",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "I don’t know how but it also smells incredible 😩🤌🏼 #stainremoverpen #stainremover #clumsylife #tiktokmademebuylt #tiktokshop ",
+      "publish_time": "2026-04-01 17:48",
+      "duration": 18,
+      "watch_cnt": 7,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 1,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 1,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7638171214120258838",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Stop wasting your money at body shops! 🛑 This scratch removal wax is a total game-changer. Just rub it in and watch the scratches vanish. 🤯 BOGO DEAL active for the next 24 hours! ⏰ Click the link to secure yours now! 👇🛒#tiktokshopfinds #mechanichacks #carsecret #scratchremover #musthaves  ",
+      "publish_time": "2026-05-10 16:05",
+      "duration": 19,
+      "watch_cnt": 6,
+      "finish_rate": 16.67,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7634092250707922198",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #teethcare ",
+      "publish_time": "2026-04-29 16:17",
+      "duration": 12,
+      "watch_cnt": 6,
+      "finish_rate": 16.67,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7633711745592249622",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "It's amazing. It's great. It's so happy to find it earlier. I sincerely hope I can take it home 🥳early.#tiktokmademebuyit #tiktok #tiktokshop #fyp #teethcare ",
+      "publish_time": "2026-04-28 15:40",
+      "duration": 14,
+      "watch_cnt": 6,
+      "finish_rate": 33.33,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
     },
     {
       "video_id": "7621116674204388630",
@@ -28405,6 +29644,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7637780989481159958",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Why have I been using the big vacuum and wrecking my back this whole time 🤦🏻‍♀️ #cordlessvacuum #vacuum #CleanTok #tiktokmademebuyit #dealdrops ",
+      "publish_time": "2026-05-09 14:51",
+      "duration": 15,
+      "watch_cnt": 5,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7629626230228225302",
       "creator_name": "Pippa",
       "creator_handle": "xingyowpo5q",
@@ -28487,6 +29747,69 @@
       "new_follower_cnt": 0,
       "date_range": "",
       "scraped_at": "2026-05-20 03:05:43"
+    },
+    {
+      "video_id": "7638157959217958166",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Large Capacity Moving Luggage Packing BagThickened Durable Waterproof Wear-resistantClothing Bag Organiser#bag #luggage #tiktokshop #movinghome #lifehacks ",
+      "publish_time": "2026-05-10 15:14",
+      "duration": 14,
+      "watch_cnt": 4,
+      "finish_rate": 25.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7635192358929239318",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "#carbootstorage #cartok #dealdrops #tiktokmademebuylt #carhacks ",
+      "publish_time": "2026-05-02 15:26",
+      "duration": 14,
+      "watch_cnt": 4,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7624076486215077142",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "I don’t know how but it also smells incredible 😩🤌🏼 #stainremoverpen #stainremover #clumsylife #tiktokmademebuylt #tiktokshop ",
+      "publish_time": "2026-04-02 16:30",
+      "duration": 12,
+      "watch_cnt": 4,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
     },
     {
       "video_id": "7624079660506221846",
@@ -28699,6 +30022,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7637060787420417302",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Large Capacity Moving Luggage Packing BagThickened Durable Waterproof Wear-resistantClothing Bag Organiser#bag #luggage #tiktokshop #movinghome #lifehacks ",
+      "publish_time": "2026-05-07 16:16",
+      "duration": 16,
+      "watch_cnt": 3,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7620033531414203670",
       "creator_name": "Sophia",
       "creator_handle": "sunheuyp1h1",
@@ -28865,6 +30209,90 @@
       "new_follower_cnt": 0,
       "date_range": "",
       "scraped_at": "2026-05-20 03:05:43"
+    },
+    {
+      "video_id": "7638901143619259670",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "This Made My Car Smell Incredible & Look Brand New 🚗🔥 #detailing #carcare #carcleaning #cartok #tiktokmademebuyit ",
+      "publish_time": "2026-05-12 15:18",
+      "duration": 14,
+      "watch_cnt": 2,
+      "finish_rate": 50.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 50.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7638542281972239638",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "FInal price, shipping costs, coupons, and discounts may vary and are subject to change at any time. This video was generated by AI. Always check the TikTok Shop listing for the latest details.  #tiktokshoppcreatorpicks#HolidayHustle #fyp #tiktokshop #savemoney ",
+      "publish_time": "2026-05-11 16:05",
+      "duration": 16,
+      "watch_cnt": 2,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7623714154070756630",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "I don’t know how but it also smells incredible 😩🤌🏼 #stainremoverpen #stainremover #clumsylife #tiktokmademebuylt #tiktokshop ",
+      "publish_time": "2026-04-01 17:04",
+      "duration": 9,
+      "watch_cnt": 2,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
+      "video_id": "7614070445314247938",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "#dealdrops #fittedsheet #bedding #toppicks #bedsheets ",
+      "publish_time": "2026-03-06 17:22",
+      "duration": 10,
+      "watch_cnt": 2,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
     },
     {
       "video_id": "7630144537272405270",
@@ -29329,6 +30757,27 @@
       "scraped_at": "2026-05-20 03:05:43"
     },
     {
+      "video_id": "7623352216514071830",
+      "creator_name": "simplelifeto",
+      "creator_handle": "simplelifeto",
+      "title": "Tooth scaling and toothbrush all in one get it now #tiktokmademebuylt #tooth #brush #cleaner #viral ",
+      "publish_time": "2026-03-31 17:40",
+      "duration": 11,
+      "watch_cnt": 1,
+      "finish_rate": 0.0,
+      "direct_gmv": 0.0,
+      "direct_gpm": 0.0,
+      "product_count": 1,
+      "ctr": 0.0,
+      "ctor": 0.0,
+      "like_cnt": 0,
+      "comment_cnt": 0,
+      "share_cnt": 0,
+      "new_follower_cnt": 0,
+      "date_range": "",
+      "scraped_at": "2026-05-27 03:42:50"
+    },
+    {
       "video_id": "7627797416594509078",
       "creator_name": "Pippa",
       "creator_handle": "xingyowpo5q",
@@ -29394,6 +30843,46 @@
   ],
   "eu_payouts": {
     "by_date": {
+      "2026-05-27": {
+        "settle_amount": 13.58,
+        "payment_amount": 123.48,
+        "count": 1
+      },
+      "2026-05-26": {
+        "settle_amount": 12.07,
+        "payment_amount": 110.12,
+        "count": 1
+      },
+      "2026-05-25": {
+        "settle_amount": 5.01,
+        "payment_amount": 45.63,
+        "count": 1
+      },
+      "2026-05-24": {
+        "settle_amount": 14.49,
+        "payment_amount": 131.91,
+        "count": 1
+      },
+      "2026-05-23": {
+        "settle_amount": 12.0,
+        "payment_amount": 109.24,
+        "count": 1
+      },
+      "2026-05-22": {
+        "settle_amount": 12.12,
+        "payment_amount": 110.29,
+        "count": 1
+      },
+      "2026-05-21": {
+        "settle_amount": 43.45,
+        "payment_amount": 395.56,
+        "count": 1
+      },
+      "2026-05-20": {
+        "settle_amount": 25.46,
+        "payment_amount": 231.48,
+        "count": 1
+      },
       "2026-05-18": {
         "settle_amount": 3.51,
         "payment_amount": 31.74,
@@ -29540,11 +31029,115 @@
         "count": 1
       }
     },
-    "total_settle": 274.74,
-    "total_payment": 2522.16,
+    "total_settle": 412.92,
+    "total_payment": 3779.87,
     "records": [
       {
-        "id": 237,
+        "id": 257,
+        "payout_id": "7644037873406297878",
+        "payout_date": "2026-05-27",
+        "settle_amount": 13.58,
+        "settle_currency": "£",
+        "exchange_rate": 9.0928,
+        "payment_amount": 123.48,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-05-27 04:15:53"
+      },
+      {
+        "id": 258,
+        "payout_id": "7643664390289786646",
+        "payout_date": "2026-05-26",
+        "settle_amount": 12.07,
+        "settle_currency": "£",
+        "exchange_rate": 9.1235,
+        "payment_amount": 110.12,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-05-27 04:15:53"
+      },
+      {
+        "id": 259,
+        "payout_id": "7643294648429037334",
+        "payout_date": "2026-05-25",
+        "settle_amount": 5.01,
+        "settle_currency": "£",
+        "exchange_rate": 9.1086,
+        "payment_amount": 45.63,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-05-27 04:15:53"
+      },
+      {
+        "id": 260,
+        "payout_id": "7642923236049569558",
+        "payout_date": "2026-05-24",
+        "settle_amount": 14.49,
+        "settle_currency": "£",
+        "exchange_rate": 9.1034,
+        "payment_amount": 131.91,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-05-27 04:15:53"
+      },
+      {
+        "id": 261,
+        "payout_id": "7642551197565257494",
+        "payout_date": "2026-05-23",
+        "settle_amount": 12.0,
+        "settle_currency": "£",
+        "exchange_rate": 9.1034,
+        "payment_amount": 109.24,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-05-27 04:15:53"
+      },
+      {
+        "id": 262,
+        "payout_id": "7642182901588723478",
+        "payout_date": "2026-05-22",
+        "settle_amount": 12.12,
+        "settle_currency": "£",
+        "exchange_rate": 9.0995,
+        "payment_amount": 110.29,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-05-27 04:15:53"
+      },
+      {
+        "id": 263,
+        "payout_id": "7641811817689384706",
+        "payout_date": "2026-05-21",
+        "settle_amount": 43.45,
+        "settle_currency": "£",
+        "exchange_rate": 9.1037,
+        "payment_amount": 395.56,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-05-27 04:15:53"
+      },
+      {
+        "id": 264,
+        "payout_id": "7641440157744416534",
+        "payout_date": "2026-05-20",
+        "settle_amount": 25.46,
+        "settle_currency": "£",
+        "exchange_rate": 9.092,
+        "payment_amount": 231.48,
+        "payment_currency": "¥",
+        "payment_status": 3,
+        "masked_identity": "********879c",
+        "scraped_at": "2026-05-27 04:15:53"
+      },
+      {
+        "id": 265,
         "payout_id": "7640695245277972246",
         "payout_date": "2026-05-18",
         "settle_amount": 3.51,
@@ -29554,10 +31147,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 238,
+        "id": 266,
         "payout_id": "7640324490245130006",
         "payout_date": "2026-05-17",
         "settle_amount": 15.11,
@@ -29567,10 +31160,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 239,
+        "id": 267,
         "payout_id": "7639954916538271510",
         "payout_date": "2026-05-16",
         "settle_amount": 9.34,
@@ -29580,10 +31173,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 240,
+        "id": 268,
         "payout_id": "7639582871842162454",
         "payout_date": "2026-05-15",
         "settle_amount": 19.6,
@@ -29593,10 +31186,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 241,
+        "id": 269,
         "payout_id": "7639211094494922518",
         "payout_date": "2026-05-14",
         "settle_amount": 20.5,
@@ -29606,10 +31199,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 242,
+        "id": 270,
         "payout_id": "7638980966366922518",
         "payout_date": "2026-05-13",
         "settle_amount": 21.99,
@@ -29619,10 +31212,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 243,
+        "id": 271,
         "payout_id": "7638468177446012694",
         "payout_date": "2026-05-12",
         "settle_amount": 9.85,
@@ -29632,10 +31225,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 244,
+        "id": 272,
         "payout_id": "7638096313893308182",
         "payout_date": "2026-05-11",
         "settle_amount": 4.9,
@@ -29645,10 +31238,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 245,
+        "id": 273,
         "payout_id": "7637726840916903702",
         "payout_date": "2026-05-10",
         "settle_amount": 13.93,
@@ -29658,10 +31251,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 246,
+        "id": 274,
         "payout_id": "7637357565072115478",
         "payout_date": "2026-05-09",
         "settle_amount": 3.22,
@@ -29671,10 +31264,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 247,
+        "id": 275,
         "payout_id": "7636986575389591318",
         "payout_date": "2026-05-08",
         "settle_amount": 9.53,
@@ -29684,10 +31277,10 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
-        "id": 248,
+        "id": 276,
         "payout_id": "7636615718217516822",
         "payout_date": "2026-05-07",
         "settle_amount": 10.55,
@@ -29697,7 +31290,7 @@
         "payment_currency": "¥",
         "payment_status": 3,
         "masked_identity": "********879c",
-        "scraped_at": "2026-05-20 03:13:38"
+        "scraped_at": "2026-05-27 04:15:53"
       },
       {
         "id": 249,
@@ -30361,11 +31954,18 @@
       "电商出单": 13.0
     },
     "2026-05-26": {
-      "GMV": 23.37,
-      "佣金": 1.91,
+      "GMV": 321.98,
+      "佣金": 24.96,
       "提现金额": 0.0,
       "冻结金额": 0.0,
-      "电商出单": 2.0
+      "电商出单": 25.0
+    },
+    "2026-05-27": {
+      "GMV": 147.51999999999998,
+      "佣金": 14.66,
+      "提现金额": 0.0,
+      "冻结金额": 0.0,
+      "电商出单": 6.0
     }
   },
   "account_summary": {
@@ -30609,6 +32209,27 @@
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
         }
       }
     },
@@ -30803,7 +32424,7 @@
       }
     },
     "lightsteps91": {
-      "归属人": "李子凌",
+      "归属人": "祖依",
       "账号状态": "正常",
       "total": {
         "GMV": 0.0,
@@ -30821,6 +32442,34 @@
           "电商出单": 0.0
         },
         "2026-03-30": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-22": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
           "GMV": 0.0,
           "佣金": 0.0,
           "提现金额": 0.0,
@@ -32587,7 +34236,7 @@
       }
     },
     "jeffetianoa": {
-      "归属人": "祖依",
+      "归属人": "一凡",
       "账号状态": "正常",
       "total": {
         "GMV": 0.0,
@@ -32829,6 +34478,27 @@
           "电商出单": 0.0
         },
         "2026-05-22": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
           "GMV": 0.0,
           "佣金": 0.0,
           "提现金额": 0.0,
@@ -33586,6 +35256,13 @@
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
         }
       }
     },
@@ -34058,6 +35735,27 @@
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
         }
       }
     },
@@ -34248,6 +35946,27 @@
           "电商出单": 0.0
         },
         "2026-05-22": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
           "GMV": 0.0,
           "佣金": 0.0,
           "提现金额": 0.0,
@@ -36841,11 +38560,11 @@
       "归属人": "-",
       "账号状态": "正常",
       "total": {
-        "GMV": 4672.379999999999,
-        "佣金": 306.48,
+        "GMV": 4762.919999999999,
+        "佣金": 312.62000000000006,
         "提现金额": 0.0,
         "冻结金额": 0.0,
-        "电商出单": 434.0
+        "电商出单": 442.0
       },
       "daily": {
         "2026-04-08": {
@@ -37190,6 +38909,20 @@
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 60.32,
+          "佣金": 3.66,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 6.0
+        },
+        "2026-05-27": {
+          "GMV": 30.22,
+          "佣金": 2.48,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 2.0
         }
       }
     },
@@ -37490,11 +39223,11 @@
       "归属人": "-",
       "账号状态": "正常",
       "total": {
-        "GMV": 2063.79,
-        "佣金": 191.57999999999996,
+        "GMV": 2142.46,
+        "佣金": 198.92999999999995,
         "提现金额": 0.0,
         "冻结金额": 0.0,
-        "电商出单": 133.0
+        "电商出单": 137.0
       },
       "daily": {
         "2026-04-13": {
@@ -37832,6 +39565,13 @@
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 1.0
+        },
+        "2026-05-26": {
+          "GMV": 78.67,
+          "佣金": 7.35,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 4.0
         }
       }
     },
@@ -37839,11 +39579,11 @@
       "归属人": "-",
       "账号状态": "正常",
       "total": {
-        "GMV": 294.74,
-        "佣金": 26.529999999999998,
+        "GMV": 473.19000000000005,
+        "佣金": 44.73,
         "提现金额": 0.0,
         "冻结金额": 0.0,
-        "电商出单": 21.0
+        "电商出单": 27.0
       },
       "daily": {
         "2026-04-13": {
@@ -38148,11 +39888,18 @@
           "电商出单": 1.0
         },
         "2026-05-26": {
-          "GMV": 14.39,
-          "佣金": 1.41,
+          "GMV": 75.54,
+          "佣金": 7.43,
           "提现金额": 0.0,
           "冻结金额": 0.0,
-          "电商出单": 1.0
+          "电商出单": 3.0
+        },
+        "2026-05-27": {
+          "GMV": 117.3,
+          "佣金": 12.18,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 4.0
         }
       }
     },
@@ -38954,6 +40701,13 @@
           "提现金额": 0.0,
           "冻结金额": 0.0,
           "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
         }
       }
     },
@@ -39428,11 +41182,11 @@
       "归属人": "-",
       "账号状态": "正常",
       "total": {
-        "GMV": 2728.7099999999996,
-        "佣金": 155.14000000000001,
+        "GMV": 2827.1799999999994,
+        "佣金": 161.16000000000003,
         "提现金额": 0.0,
         "冻结金额": 0.0,
-        "电商出单": 300.0
+        "电商出单": 311.0
       },
       "daily": {
         "2026-04-23": {
@@ -39646,11 +41400,11 @@
           "电商出单": 11.0
         },
         "2026-05-26": {
-          "GMV": 8.98,
-          "佣金": 0.5,
+          "GMV": 107.45,
+          "佣金": 6.52,
           "提现金额": 0.0,
           "冻结金额": 0.0,
-          "电商出单": 1.0
+          "电商出单": 12.0
         }
       }
     },
@@ -39805,6 +41559,170 @@
           "电商出单": 0.0
         }
       }
+    },
+    "prog821": {
+      "归属人": "一凡",
+      "账号状态": "正常",
+      "total": {
+        "GMV": 0.0,
+        "佣金": 0.0,
+        "提现金额": 0.0,
+        "冻结金额": 0.0,
+        "电商出单": 0.0
+      },
+      "daily": {
+        "2026-05-22": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        }
+      }
+    },
+    "rememb596": {
+      "归属人": "一凡",
+      "账号状态": "正常",
+      "total": {
+        "GMV": 0.0,
+        "佣金": 0.0,
+        "提现金额": 0.0,
+        "冻结金额": 0.0,
+        "电商出单": 0.0
+      },
+      "daily": {
+        "2026-05-22": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        }
+      }
+    },
+    "lilycarter112": {
+      "归属人": "一凡",
+      "账号状态": "正常",
+      "total": {
+        "GMV": 0.0,
+        "佣金": 0.0,
+        "提现金额": 0.0,
+        "冻结金额": 0.0,
+        "电商出单": 0.0
+      },
+      "daily": {
+        "2026-05-22": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        }
+      }
+    },
+    "emmabrooks062": {
+      "归属人": "一凡",
+      "账号状态": "正常",
+      "total": {
+        "GMV": 0.0,
+        "佣金": 0.0,
+        "提现金额": 0.0,
+        "冻结金额": 0.0,
+        "电商出单": 0.0
+      },
+      "daily": {
+        "2026-05-22": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-25": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-26": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        },
+        "2026-05-27": {
+          "GMV": 0.0,
+          "佣金": 0.0,
+          "提现金额": 0.0,
+          "冻结金额": 0.0,
+          "电商出单": 0.0
+        }
+      }
     }
   },
   "metrics": [
@@ -39843,15 +41761,15 @@
       "电商出单": 1560
     },
     "EU": {
-      "GMV": 10626.0,
-      "佣金": 736.76,
-      "提现金额": 274.74,
+      "GMV": 11072.129999999996,
+      "佣金": 774.4699999999997,
+      "提现金额": 412.92,
       "冻结金额": 0,
-      "电商出单": 952
+      "电商出单": 981
     }
   },
   "regions": [
-    "EU",
-    "美区"
+    "美区",
+    "EU"
   ]
 }
